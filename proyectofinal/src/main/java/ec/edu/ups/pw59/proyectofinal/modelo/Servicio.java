@@ -5,10 +5,17 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Servicio implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "ser_codigo")
 	private int codigo;
@@ -19,8 +26,9 @@ public class Servicio implements Serializable{
 	@Column(name = "ser_precio")
 	private double precio;
 	
-	//@Column(name = "ser_hotel")
-	//private Hotel hotel;
+	@ManyToOne
+	@JoinColumn(name = "ser_hotel")
+	private Hotel hotel;
 	
 	public int getCodigo() {
 		return codigo;
@@ -44,6 +52,20 @@ public class Servicio implements Serializable{
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	/**
+	 * @return the hotel
+	 */
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	/**
+	 * @param hotel the hotel to set
+	 */
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	
 	

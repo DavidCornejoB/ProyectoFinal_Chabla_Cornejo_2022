@@ -5,10 +5,19 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Paquete implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "paq_codigo")
 	private int codigo;
@@ -22,14 +31,17 @@ public class Paquete implements Serializable{
 	@Column(name = "paq_precio")
 	private double precio;
 	
-	//@Column(name = "paq_habitacion")
-	//private Habitacion habitacion;
+	@ManyToOne
+	@JoinColumn(name = "paq_habitacion")
+	private Habitacion habitacion;
 	
-	//@Column(name = "paq_servicio")
-	//private Servicio servicio;
+	@OneToOne
+	@JoinColumn(name = "paq_servicio")
+	private Servicio servicio;
 	
-	//@Column(name = "paq_hotel")
-	//private Hotel hotel;
+	@OneToOne
+	@JoinColumn(name = "paq_hotel")
+	private Hotel hotel;
 	
 	public int getCodigo() {
 		return codigo;
@@ -61,6 +73,48 @@ public class Paquete implements Serializable{
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	/**
+	 * @return the habitacion
+	 */
+	public Habitacion getHabitacion() {
+		return habitacion;
+	}
+
+	/**
+	 * @param habitacion the habitacion to set
+	 */
+	public void setHabitacion(Habitacion habitacion) {
+		this.habitacion = habitacion;
+	}
+
+	/**
+	 * @return the servicio
+	 */
+	public Servicio getServicio() {
+		return servicio;
+	}
+
+	/**
+	 * @param servicio the servicio to set
+	 */
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
+	}
+
+	/**
+	 * @return the hotel
+	 */
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	/**
+	 * @param hotel the hotel to set
+	 */
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 
 }

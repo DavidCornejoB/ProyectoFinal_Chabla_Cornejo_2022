@@ -9,6 +9,11 @@ import javax.persistence.Id;
 @Entity
 public class Hotel implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(length = 20, name = "ho_codigo")
 	private int codigo;

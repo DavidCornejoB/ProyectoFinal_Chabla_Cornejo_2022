@@ -2,9 +2,19 @@ package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Login implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
 	private int codigo;
+	
 	private String correo;
 	private String clave;
 	

@@ -6,10 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Habitacion implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(length = 20, name = "hab_numero")
 	private int numero;
@@ -20,9 +26,11 @@ public class Habitacion implements Serializable{
 	@Column(name = "hab_estado")
 	private String estado;
 	
+	@ManyToOne
 	@JoinColumn(name = "hab_categoria")
 	private Categoria categoria;
 	
+	@ManyToOne
 	@JoinColumn(name = "hab_hotel")
 	private Hotel hotel;
 
