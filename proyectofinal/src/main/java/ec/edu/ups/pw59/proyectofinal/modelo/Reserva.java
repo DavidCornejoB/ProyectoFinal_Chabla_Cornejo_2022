@@ -6,10 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Reserva implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(length = 20, name = "res_codigo")
 	private int codigo;
@@ -20,6 +26,7 @@ public class Reserva implements Serializable {
 	@Column(name = "res_salida")
 	private String salida;
 	
+	@OneToOne
 	@JoinColumn(name = "res_habitacion")
 	private Habitacion habitacion;
 

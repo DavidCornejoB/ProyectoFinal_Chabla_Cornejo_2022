@@ -5,10 +5,17 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class FacturaDetalleHabitacion implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "FacDetHab_codigo")
 	private int codigo;
@@ -21,6 +28,10 @@ public class FacturaDetalleHabitacion implements Serializable{
 	
 	@Column(name = "FacDetHab_total")
 	private double total;
+	
+	@OneToOne
+	@JoinColumn(name= "FacDetHab_reserva")
+	private Reserva reserva;
 
 	public int getCodigo() {
 		return codigo;
@@ -53,7 +64,19 @@ public class FacturaDetalleHabitacion implements Serializable{
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	
-	
 
+	/**
+	 * @return the reserva
+	 */
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	/**
+	 * @param reserva the reserva to set
+	 */
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+	
 }

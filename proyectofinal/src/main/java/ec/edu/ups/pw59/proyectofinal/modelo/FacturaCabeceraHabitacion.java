@@ -3,9 +3,14 @@ package ec.edu.ups.pw59.proyectofinal.modelo;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class FacturaCabeceraHabitacion implements Serializable{
@@ -19,9 +24,12 @@ public class FacturaCabeceraHabitacion implements Serializable{
 	@Column(name = "facCabHab_fecha")
 	private String fecha;
 	
-	@Column(name = "facCabHab_persona")
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name="per_cedula")
 	private Persona persona;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="facCabHab_detallesHabitacion")
 	private List<FacturaDetalleHabitacion> detallesHabitacion;
 	
 	public int getNumero() {
