@@ -8,27 +8,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class Reserva implements Serializable {
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class Reserva implements Serializable { //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(length = 20, name = "res_codigo")
+	@Id //ETIQUETA DE PERSISTENCIA PARA CLAVE PRIMARIA
+	@Column(length = 20, name = "res_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
-	@Column(name = "res_entrada")
+	@Column(name = "res_entrada") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String entrada;
 	
-	@Column(name = "res_salida")
+	@Column(name = "res_salida") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String salida;
 	
-	@OneToOne
-	@JoinColumn(name = "res_habitacion")
-	private Habitacion habitacion;
+	
+	//RELACION "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "HABITACION"
+	@OneToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name = "res_habitacion") //ENTIDAD CON LA QUE SE RELACIONA
+	private Habitacion habitacion; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
+	
+	//METODOS GET() Y SET()
 
 	/**
 	 * @return the codigo

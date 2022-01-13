@@ -6,16 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
-public class Categoria implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class Categoria implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(length = 20, name = "cat_codigo")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(length = 20, name = "cat_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
 	@Column(name = "cat_nombre")
@@ -27,6 +27,9 @@ public class Categoria implements Serializable{
 	/**
 	 * @return the codigo
 	 */
+	
+	// MÉTODOS GET() Y SET()
+	
 	public int getCodigo() {
 		return codigo;
 	}

@@ -8,27 +8,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
-public class Servicio implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class Servicio implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "ser_codigo")
+	@Id //ETIQUETA DE PERSISTENCIA PARA CLAVE PRIMARIA
+	@Column(name = "ser_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
-	@Column(name = "ser_nombre")
+	@Column(name = "ser_nombre") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String nombre;
 	
-	@Column(name = "ser_precio")
+	@Column(name = "ser_precio") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double precio;
 	
-	@ManyToOne
-	@JoinColumn(name = "ser_hotel")
-	private Hotel hotel;
+	
+	//RELACION "MANY TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "HOTEL"
+	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name = "ser_hotel") //ENTIDAD CON LA QUE SE HACE RELACION
+	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDA CON LA QUE SE HACE RELACION
+	
+	//mETODOS GET() Y SET()
 	
 	public int getCodigo() {
 		return codigo;

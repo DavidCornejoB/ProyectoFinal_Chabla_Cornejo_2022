@@ -10,38 +10,43 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-@Entity
-public class Paquete implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class Paquete implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "paq_codigo")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(name = "paq_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
-	@Column(name = "paq_nombre")
+	@Column(name = "paq_nombre") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String nombre;
 	
-	@Column(name = "paq_tipo")
+	@Column(name = "paq_tipo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String tipo;
 	
-	@Column(name = "paq_precio")
+	@Column(name = "paq_precio") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double precio;
 	
-	@ManyToOne
-	@JoinColumn(name = "paq_habitacion")
-	private Habitacion habitacion;
+	//RELACION "MANY TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "HABITACION"
+	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name = "paq_habitacion") //ENTIDAD CON LA QUE SE RELACIONA
+	private Habitacion habitacion; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
-	@OneToOne
-	@JoinColumn(name = "paq_servicio")
-	private Servicio servicio;
+	//RELACION "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "SERVICIO"
+	@OneToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name = "paq_servicio") //ENTIDAD CON LA QUE SE RELACIONA
+	private Servicio servicio; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
-	@OneToOne
-	@JoinColumn(name = "paq_hotel")
-	private Hotel hotel;
+	//RELACION "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "HOTEL"
+	@OneToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name = "paq_hotel") //ENTIDAD CON LA QUE SE RELACIONA
+	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
+	
+	//MÉTODOS GET() Y SET()
 	
 	public int getCodigo() {
 		return codigo;
