@@ -7,35 +7,37 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
-@Entity
-public class Persona implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class Persona implements Serializable{ //CLASE SERIALIZABLE
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@Column(name = "per_cedula")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(name = "per_cedula") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String cedula;
 	
-	@Column(name = "per_nombre")
+	@Column(name = "per_nombre") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String nombre;
 	
-	@Column(name = "per_apellido")
+	@Column(name = "per_apellido") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String apellido;
 	
-	@Column(name = "per_direccion")
+	@Column(name = "per_direccion") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String direccion;
 	
-	@Column(name = "per_pais")
+	@Column(name = "per_pais") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String pais;
 	
-	@Column(name = "per_ciudad")
+	@Column(name = "per_ciudad") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String ciudad;
 	
-	@Column(name = "per_tipo")
+	@Column(name = "per_tipo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String tipo;
 	
-	@JoinColumn(name = "per_login")
+	@JoinColumn(name = "per_login") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private Login login;
+	
+	//MÉTODOS GET(9 Y SET()
 	
 	public String getCedula() {
 		return cedula;

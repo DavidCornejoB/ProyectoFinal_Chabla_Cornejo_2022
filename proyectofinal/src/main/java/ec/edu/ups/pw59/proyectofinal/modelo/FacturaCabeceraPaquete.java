@@ -12,25 +12,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-@Entity
-public class FacturaCabeceraPaquete implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class FacturaCabeceraPaquete implements Serializable{ //CLASE SERIALIZABLE
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@Column(name = "FacCabPaq_numero")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(name = "FacCabPaq_numero") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int numero;
 	
 	@Column(name = "FacCabPaq_fecha")
 	private String fecha;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="per_cedula")
-	private Persona persona;
+	//RELACIÓN "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "PERSONA"
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
+	@JoinColumn(name="per_cedula") //ENTIDAD CON LA QUE SE RELACIONA
+	private Persona persona; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="facCabHab_detallesPaquete")
-	private List<FacturaDetallePaquete> detallesPaquete;
+	//RELACIÓN "ONE TO MANY" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "FACTURADETALLEPAQUETE"
+	@OneToMany(cascade = CascadeType.ALL) //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
+	@JoinColumn(name="facCabHab_detallesPaquete") //ENTIDAD CON LA QUE SE RELACIONA
+	private List<FacturaDetallePaquete> detallesPaquete; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
+	
+	//MÉTODOS GET() Y SET()
 
 	public int getNumero() {
 		return numero;

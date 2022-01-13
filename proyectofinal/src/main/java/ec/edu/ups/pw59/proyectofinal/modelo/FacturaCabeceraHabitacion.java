@@ -12,25 +12,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-@Entity
-public class FacturaCabeceraHabitacion implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class FacturaCabeceraHabitacion implements Serializable{ //CLASE SERIALIZABLE
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@Column(name = "facCabHab_numero")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(name = "facCabHab_numero") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int numero;
 	
-	@Column(name = "facCabHab_fecha")
+	@Column(name = "facCabHab_fecha") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String fecha;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="per_cedula")
-	private Persona persona;
+	// RELACIÓN "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "PERSONA"
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //ETIQUETA DE RELACIÓN ENTRE TABLAS
+	@JoinColumn(name="per_cedula") //TABLA CON LA QUE SE RELACIONA
+	private Persona persona; //CLASE PERTENECIENTE A LA ENTIDAD RELACIONADA
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="facCabHab_detallesHabitacion")
-	private List<FacturaDetalleHabitacion> detallesHabitacion;
+	//RELACIÓN "ONE TO MANY" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "FACTURADETALLEHABITACION"
+	@OneToMany(cascade = CascadeType.ALL) //ETIQUETA DE RELACIÓN ENTRE TABLAS
+	@JoinColumn(name="facCabHab_detallesHabitacion") //TABLA CON LA QUE SE RELACIONA
+	private List<FacturaDetalleHabitacion> detallesHabitacion; //CLASE PERTENECIENTE A LA ENTIDAD RELACIONADA
+	
+	//MÉTODOS GET() Y SET()
 	
 	public int getNumero() {
 		return numero;

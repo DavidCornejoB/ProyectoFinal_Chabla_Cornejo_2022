@@ -8,30 +8,33 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class FacturaDetallePaquete implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "FacDetPaq_codigo")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(name = "FacDetPaq_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
-	@Column(name = "FacDetPaq_descuento")
+	@Column(name = "FacDetPaq_descuento") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double descuento;
 	
-	@Column(name = "FacDetPaq_iva")
+	@Column(name = "FacDetPaq_iva") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double iva;
 	
-	@Column(name = "FacDetPaq_total")
+	@Column(name = "FacDetPaq_total") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double total;
 	
-	@OneToOne
-	@JoinColumn(name= "FactDetPaq_paquete")
-	private Paquete paquete;
+	//RELACIÓN "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "PAQUETE"
+	@OneToOne //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
+	@JoinColumn(name= "FactDetPaq_paquete") //ENTIDAD CON LA QUE SE RELACIONA
+	private Paquete paquete; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
+	
+	//MÉTODOS GET() Y SET()
 
 	public int getCodigo() {
 		return codigo;

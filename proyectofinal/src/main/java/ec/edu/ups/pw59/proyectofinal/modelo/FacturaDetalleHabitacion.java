@@ -8,16 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class FacturaDetalleHabitacion implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class FacturaDetalleHabitacion implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "FacDetHab_codigo")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(name = "FacDetHab_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
 	@Column(name = "FacDetHab_descuento")
@@ -29,9 +29,12 @@ public class FacturaDetalleHabitacion implements Serializable{
 	@Column(name = "FacDetHab_total")
 	private double total;
 	
+	//RELACIÓN ONE TO ONE ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "RESERVA"
 	@OneToOne
-	@JoinColumn(name= "FacDetHab_reserva")
-	private Reserva reserva;
+	@JoinColumn(name= "FacDetHab_reserva") //ENTIDAD CON LA QUE SE RELACIONA
+	private Reserva reserva; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
+	
+	//MÉTODOS GET() Y SET()
 
 	public int getCodigo() {
 		return codigo;

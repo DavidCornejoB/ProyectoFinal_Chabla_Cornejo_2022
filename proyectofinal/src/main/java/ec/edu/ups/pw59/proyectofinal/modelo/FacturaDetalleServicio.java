@@ -8,30 +8,33 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class FacturaDetalleServicio implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "FacDetSer_codigo")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(name = "FacDetSer_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
-	@Column(name = "FacDetSer_descuento")
+	@Column(name = "FacDetSer_descuento") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double descuento;
 	
-	@Column(name = "FacDetSer_iva")
+	@Column(name = "FacDetSer_iva") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double iva;
 	
-	@Column(name = "FacDetSer_total")
+	@Column(name = "FacDetSer_total") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double total;
 	
-	@OneToOne
-	@JoinColumn(name= "FactDetSer_servicio")
-	private Servicio servicio;
+	//RELACIÓN "ONE TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "SERVICIO"
+	@OneToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name= "FactDetSer_servicio") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
+	private Servicio servicio; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE HACE LA RELACION
+	
+	//MÉTODOS GET() Y SET()
 
 	public int getCodigo() {
 		return codigo;

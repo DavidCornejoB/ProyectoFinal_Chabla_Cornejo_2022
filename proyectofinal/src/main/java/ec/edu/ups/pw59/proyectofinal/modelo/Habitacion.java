@@ -8,31 +8,35 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
-public class Habitacion implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class Habitacion implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(length = 20, name = "hab_numero")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(length = 20, name = "hab_numero") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int numero;
 	
-	@Column(length = 20, name = "hab_piso")
+	@Column(length = 20, name = "hab_piso") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int piso;
 	
-	@Column(name = "hab_estado")
+	@Column(name = "hab_estado") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String estado;
 	
-	@ManyToOne
-	@JoinColumn(name = "hab_categoria")
-	private Categoria categoria;
+	//RELACIÓN "MANY TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "CATEGORIA"
+	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name = "hab_categoria") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
+	private Categoria categoria; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE HACE LA RELACION
 	
-	@ManyToOne
-	@JoinColumn(name = "hab_hotel")
-	private Hotel hotel;
+	//RELACIÓN "MANY TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "HOTEL"
+	@ManyToOne //ETIQUETA DERELACION ENTRE ENTIDADES
+	@JoinColumn(name = "hab_hotel") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
+	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE HACE LA RELACIÓN
+	
+	//MÉTODOS GET() Y SET()
 
 	/**
 	 * @return the numero

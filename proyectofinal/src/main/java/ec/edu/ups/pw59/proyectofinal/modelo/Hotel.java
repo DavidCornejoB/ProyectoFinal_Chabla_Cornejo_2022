@@ -6,29 +6,32 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
-public class Hotel implements Serializable{
+@Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
+public class Hotel implements Serializable{ //CLASE SERIALIZABLE
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(length = 20, name = "ho_codigo")
+	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@Column(length = 20, name = "ho_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
-	@Column(name = "ho_nombre")
+	@Column(name = "ho_nombre") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String nombre;
 	
-	@Column(name = "ho_pais")
+	@Column(name = "ho_pais") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String pais;
 	
-	@Column(name = "ho_provicia")
+	@Column(name = "ho_provicia") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String provincia;
 	
-	@Column(name = "ho_ciudad")
+	@Column(name = "ho_ciudad") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String ciudad;
+	
+	//MÉTODOS GET() Y SET()
+	
 	/**
 	 * @return the codigo
 	 */
