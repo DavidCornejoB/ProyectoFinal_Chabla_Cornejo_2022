@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Habitacion implements Serializable{ //CLASE SERIALIZABLE
@@ -26,14 +27,12 @@ public class Habitacion implements Serializable{ //CLASE SERIALIZABLE
 	@Column(name = "hab_estado") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String estado;
 	
-	//RELACIÓN "MANY TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "CATEGORIA"
-	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
-	@JoinColumn(name = "hab_categoria") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
+	@OneToOne
+	@JoinColumn(name = "cat_codigo") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
 	private Categoria categoria; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE HACE LA RELACION
 	
-	//RELACIÓN "MANY TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "HOTEL"
-	@ManyToOne //ETIQUETA DERELACION ENTRE ENTIDADES
-	@JoinColumn(name = "hab_hotel") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
+	@ManyToOne
+	@JoinColumn(name = "ho_codigo") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
 	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE HACE LA RELACIÓN
 	
 	//MÉTODOS GET() Y SET()

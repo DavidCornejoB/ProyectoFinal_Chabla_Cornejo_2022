@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
@@ -31,20 +30,19 @@ public class Paquete implements Serializable{ //CLASE SERIALIZABLE
 	@Column(name = "paq_precio") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double precio;
 	
-	//RELACION "MANY TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "HABITACION"
-	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
-	@JoinColumn(name = "paq_habitacion") //ENTIDAD CON LA QUE SE RELACIONA
+	@ManyToOne
+	@JoinColumn(name = "ho_codigo") //ENTIDAD CON LA QUE SE RELACIONA
+	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
+	
+	//RELACION "ONE TO ONE" ENTRE PAQUETE Y HABITACION
+	@OneToOne
+	@JoinColumn(name = "hab_numero") //ENTIDAD CON LA QUE SE RELACIONA
 	private Habitacion habitacion; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
-	//RELACION "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "SERVICIO"
-	@OneToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
-	@JoinColumn(name = "paq_servicio") //ENTIDAD CON LA QUE SE RELACIONA
+	//RELACION "ONE TO ONE" ENTRE PAQUETE Y SERVICIO
+	@OneToOne
+	@JoinColumn(name = "ser_codigo") //ENTIDAD CON LA QUE SE RELACIONA
 	private Servicio servicio; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
-	
-	//RELACION "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "HOTEL"
-	@OneToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
-	@JoinColumn(name = "paq_hotel") //ENTIDAD CON LA QUE SE RELACIONA
-	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//MÉTODOS GET() Y SET()
 	
@@ -80,33 +78,6 @@ public class Paquete implements Serializable{ //CLASE SERIALIZABLE
 		this.precio = precio;
 	}
 
-	/**
-	 * @return the habitacion
-	 */
-	public Habitacion getHabitacion() {
-		return habitacion;
-	}
-
-	/**
-	 * @param habitacion the habitacion to set
-	 */
-	public void setHabitacion(Habitacion habitacion) {
-		this.habitacion = habitacion;
-	}
-
-	/**
-	 * @return the servicio
-	 */
-	public Servicio getServicio() {
-		return servicio;
-	}
-
-	/**
-	 * @param servicio the servicio to set
-	 */
-	public void setServicio(Servicio servicio) {
-		this.servicio = servicio;
-	}
 
 	/**
 	 * @return the hotel
@@ -120,6 +91,22 @@ public class Paquete implements Serializable{ //CLASE SERIALIZABLE
 	 */
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+
+	public Habitacion getHabitacion() {
+		return habitacion;
+	}
+
+	public void setHabitacion(Habitacion habitacion) {
+		this.habitacion = habitacion;
+	}
+
+	public Servicio getServicio() {
+		return servicio;
+	}
+
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
 	}
 
 }

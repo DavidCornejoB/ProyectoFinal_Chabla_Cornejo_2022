@@ -9,9 +9,6 @@ import javax.persistence.Id;
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Login implements Serializable{ //CLASE SERIALIZABLE
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id //ETIQUETA DE CLAVE PRIMARIA
