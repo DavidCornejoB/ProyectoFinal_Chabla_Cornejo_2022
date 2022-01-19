@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -24,14 +23,14 @@ public class FacturaCabeceraPaquete implements Serializable{ //CLASE SERIALIZABL
 	@Column(name = "FacCabPaq_fecha")
 	private String fecha;
 	
-	//RELACIÓN "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "PERSONA"
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
-	@JoinColumn(name="per_cedula") //ENTIDAD CON LA QUE SE RELACIONA
+	//CONEXION CON LA CLASE PERSONA
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name ="per_cedula")
 	private Persona persona; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//RELACIÓN "ONE TO MANY" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "FACTURADETALLEPAQUETE"
 	@OneToMany(cascade = CascadeType.ALL) //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
-	@JoinColumn(name="facCabHab_detallesPaquete") //ENTIDAD CON LA QUE SE RELACIONA
+	@JoinColumn(name = "FacCabPaq_numero") //ESPECIFICAMOS LA ID CON LA QUE SE CONECTARÁ A LA OTRA TABLA
 	private List<FacturaDetallePaquete> detallesPaquete; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//MÉTODOS GET() Y SET()

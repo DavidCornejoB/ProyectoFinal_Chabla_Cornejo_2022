@@ -1,10 +1,13 @@
 package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Categoria implements Serializable{ //CLASE SERIALIZABLE
@@ -23,10 +26,6 @@ public class Categoria implements Serializable{ //CLASE SERIALIZABLE
 	
 	@Column(name = "cat_precio")
 	private Double precio;
-
-	/**
-	 * @return the codigo
-	 */
 	
 	// MÉTODOS GET() Y SET()
 	

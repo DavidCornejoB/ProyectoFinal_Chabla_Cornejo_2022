@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
@@ -29,9 +29,9 @@ public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
 	@Column(name = "FacDetPaq_total") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double total;
 	
-	//RELACIÓN "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "PAQUETE"
-	@OneToOne //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
-	@JoinColumn(name= "FactDetPaq_paquete") //ENTIDAD CON LA QUE SE RELACIONA
+	//RELACIÓN "MANY TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "PAQUETE"
+	@ManyToOne //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
+	@JoinColumn(name= "paq_codigo") //ENTIDAD CON LA QUE SE RELACIONA
 	private Paquete paquete; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//MÉTODOS GET() Y SET()

@@ -26,10 +26,8 @@ public class Servicio implements Serializable{ //CLASE SERIALIZABLE
 	@Column(name = "ser_precio") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double precio;
 	
-	
-	//RELACION "MANY TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "HOTEL"
-	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
-	@JoinColumn(name = "ser_hotel") //ENTIDAD CON LA QUE SE HACE RELACION
+	@ManyToOne
+	@JoinColumn(name = "ho_codigo")
 	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDA CON LA QUE SE HACE RELACION
 	
 	//mETODOS GET() Y SET()

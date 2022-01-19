@@ -1,12 +1,13 @@
 package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Reserva implements Serializable { //CLASE SERIALIZABLE
@@ -26,11 +27,10 @@ public class Reserva implements Serializable { //CLASE SERIALIZABLE
 	@Column(name = "res_salida") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String salida;
 	
-	
-	//RELACION "ONE TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "HABITACION"
-	@OneToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
-	@JoinColumn(name = "res_habitacion") //ENTIDAD CON LA QUE SE RELACIONA
-	private Habitacion habitacion; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
+	//RELACION "ONE TO MANY" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "HABITACION"
+	@OneToMany //ETIQUETA DE RELACION ENTRE ENTIDADES
+	@JoinColumn(name = "res_codigo") //ENTIDAD CON LA QUE SE RELACIONA
+	private List <Habitacion> habitacion; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//METODOS GET() Y SET()
 
@@ -76,22 +76,13 @@ public class Reserva implements Serializable { //CLASE SERIALIZABLE
 		this.salida = salida;
 	}
 
-	/**
-	 * @return the habitacion
-	 */
-	public Habitacion getHabitacion() {
+	public List<Habitacion> getHabitacion() {
 		return habitacion;
 	}
 
-	/**
-	 * @param habitacion the habitacion to set
-	 */
-	public void setHabitacion(Habitacion habitacion) {
+	public void setHabitacion(List<Habitacion> habitacion) {
 		this.habitacion = habitacion;
 	}
-	
-	
-	
-	
+
 
 }

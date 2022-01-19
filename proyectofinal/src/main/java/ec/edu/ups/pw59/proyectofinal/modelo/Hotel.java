@@ -1,17 +1,16 @@
 package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Hotel implements Serializable{ //CLASE SERIALIZABLE
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id //ETIQUETA DE CLAVE PRIMARIA
@@ -29,6 +28,18 @@ public class Hotel implements Serializable{ //CLASE SERIALIZABLE
 	
 	@Column(name = "ho_ciudad") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String ciudad;
+	
+	//RELACION "ONE TO MANY" ENTRE HOTEL Y SERVICIO. UN HOTEL TIENE VARIOS SERVICIOS. LOS SERVICIOS SE LISTARÁN EN LA PAG DEL HOTEL
+	@OneToMany(mappedBy = "hotel")
+	private List <Servicio> servicios;
+	
+	//RELACION "ONE TO MANY" ENTRE HOTEL Y HABITACION. UN HOTEL TIENE VARIAS HABITACIONES. LAS HABITACIONES SE LISTARÁN EN LA PAG DEL HOTEL
+	@OneToMany(mappedBy = "hotel")
+	private List <Habitacion> habitaciones;
+	
+	//RELACION "ONE TO MANY" ENTRE HOTEL Y PAQUETE. UN HOTEL TIENE VARIOS PAQUETES DE PROMOCIÓN. LOS PAQUETES DE PROMOCIÓN SE LISTARÁN EN LA PAG DEL HOTEL
+	@OneToMany(mappedBy = "hotel")
+	private List <Paquete> paquetes;
 	
 	//MÉTODOS GET() Y SET()
 	
@@ -92,8 +103,23 @@ public class Hotel implements Serializable{ //CLASE SERIALIZABLE
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
-	
-	
-	
+	public List<Servicio> getServicios() {
+		return servicios;
+	}
+	public void setServicios(List<Servicio> servicios) {
+		this.servicios = servicios;
+	}
+	public List<Habitacion> getHabitaciones() {
+		return habitaciones;
+	}
+	public void setHabitaciones(List<Habitacion> habitaciones) {
+		this.habitaciones = habitaciones;
+	}
+	public List<Paquete> getPaquetes() {
+		return paquetes;
+	}
+	public void setPaquetes(List<Paquete> paquetes) {
+		this.paquetes = paquetes;
+	}
 
 }
