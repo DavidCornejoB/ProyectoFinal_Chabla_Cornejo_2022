@@ -8,41 +8,40 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
-
+import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 
 @Stateless
-public class PersonaDAO {
+public class LoginDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
 	
-	public void insert(Persona op) {
+	public void insert(Login op) {
 		em.persist(op);
 		
 	}
 	
-	public void update(Persona op) {
+	public void update(Login op) {
 			em.merge(op);
 		}
 	
-	public Persona read(String id) {
-		Persona op = em.find(Persona.class, id);
+	public Login read(String id) {
+		Login op = em.find(Login.class, id);
 		return op;
 	}
 	
 	public void delete(int id) {
-		Persona op = em.find(Persona.class, id);
+		Login op = em.find(Login.class, id);
 		em.remove(op);
 	}
 	
-	public List<Persona> getList(){
-		List<Persona> listado = new ArrayList<Persona>();
+	public List<Login> getList(){
+		List<Login> listado = new ArrayList<Login>();
 		
-		String jpql = "SELECT op FROM Persona op";
+		String jpql = "SELECT op FROM Login op";
 				
 		
-		Query query = em.createQuery(jpql, Persona.class);
+		Query query = em.createQuery(jpql, Login.class);
 		
 		listado = query.getResultList();
 		
@@ -51,5 +50,6 @@ public class PersonaDAO {
 		//JSPQL -> SQL
 		
 	}
+
 
 }
