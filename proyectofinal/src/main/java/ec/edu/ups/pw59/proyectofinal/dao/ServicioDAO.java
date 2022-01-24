@@ -38,7 +38,7 @@ public class ServicioDAO {
 	public List<Servicio> getList(){
 		List<Servicio> listado = new ArrayList<Servicio>();
 		
-		String jpql = "SELECT op FROM Persona op";
+		String jpql = "SELECT op FROM servicio op";
 				
 		
 		Query query = em.createQuery(jpql, Servicio	.class);

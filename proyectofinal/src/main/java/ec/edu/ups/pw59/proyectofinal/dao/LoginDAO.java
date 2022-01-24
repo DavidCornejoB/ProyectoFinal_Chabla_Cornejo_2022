@@ -38,7 +38,7 @@ public class LoginDAO {
 	public List<Login> getList(){
 		List<Login> listado = new ArrayList<Login>();
 		
-		String jpql = "SELECT op FROM Login op";
+		String jpql = "SELECT op FROM login op";
 				
 		
 		Query query = em.createQuery(jpql, Login.class);

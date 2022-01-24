@@ -38,7 +38,7 @@ public class CategoriaDAO {
 	public List<Categoria> getList(){
 		List<Categoria> listado = new ArrayList<Categoria>();
 		
-		String jpql = "SELECT op FROM Categoria op";
+		String jpql = "SELECT cat FROM categoria cat";
 				
 		
 		Query query = em.createQuery(jpql, Categoria.class);

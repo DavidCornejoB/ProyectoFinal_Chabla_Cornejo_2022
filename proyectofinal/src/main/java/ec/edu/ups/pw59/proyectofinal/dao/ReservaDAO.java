@@ -38,7 +38,7 @@ public class ReservaDAO {
 	public List<Reserva> getList(){
 		List<Reserva> listado = new ArrayList<Reserva>();
 		
-		String jpql = "SELECT op FROM Reserva op";
+		String jpql = "SELECT op FROM reserva op";
 				
 		
 		Query query = em.createQuery(jpql, Reserva.class);
