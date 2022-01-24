@@ -38,7 +38,7 @@ public class PaqueteDAO {
 	public List<Paquete> getList(){
 		List<Paquete> listado = new ArrayList<Paquete>();
 		
-		String jpql = "SELECT op FROM Paquete op";
+		String jpql = "SELECT op FROM paquete op";
 				
 		
 		Query query = em.createQuery(jpql, Paquete.class);

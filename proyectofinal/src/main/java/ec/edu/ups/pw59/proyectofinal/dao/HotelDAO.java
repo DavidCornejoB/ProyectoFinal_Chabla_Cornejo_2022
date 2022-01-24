@@ -38,7 +38,7 @@ public class HotelDAO {
 	public List<Hotel> getList(){
 		List<Hotel> listado = new ArrayList<Hotel>();
 		
-		String jpql = "SELECT op FROM Hotel op";
+		String jpql = "SELECT op FROM hotel op";
 				
 		
 		Query query = em.createQuery(jpql, Hotel.class);
