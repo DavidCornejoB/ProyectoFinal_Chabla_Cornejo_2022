@@ -37,7 +37,7 @@ public class FacturaCabeceraServicioDAO {
 	}
 	
 	
- public List<FacturaCabeceraServicio> getFacturas(){
+ public List<FacturaCabeceraServicio> getList(){
 		
 		String jpql2="SELECT p FROM facturacabeceraservicio p";
 		
