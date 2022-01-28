@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Categoria;
 
+//OBJETO DE NEGOCIO QUE SERÁ CONSUMIDO LOCALMENTE
 @Local
 public interface CategoriaONLocal {
 	

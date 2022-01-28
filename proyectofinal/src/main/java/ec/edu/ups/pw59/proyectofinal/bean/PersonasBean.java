@@ -10,7 +10,7 @@ import javax.inject.Named;
 import ec.edu.ups.pw59.proyectofinal.business.PersonaONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
-@Named
+@Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
 public class PersonasBean {
 	
@@ -63,11 +63,13 @@ public class PersonasBean {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//UNA VEZ SE HA INGRESADO UNA PERSONA, SE REDIRIGIRÁ AL FORMULARIO DE LISTAR PERSONAS
 		return "listado-personas?faces-redirect=true";
 	}
 	
 	//MÉTODO PARA LISTAR PERSONAS
 	public void cargar() {
+		//LLAMAMOS AL MÉTODO GETPERSONAS() DEL OBJETO DE NEGOCIO
 		this.personas = personaON.getPersonas();
 	}
 

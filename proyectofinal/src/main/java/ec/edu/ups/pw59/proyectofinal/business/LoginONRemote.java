@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 
+//OBJETO DE NEGOCIO DE LOGIN QUE SERA CONSUMIDO REMOTAMENTE
 @Remote
 public interface LoginONRemote {
 	

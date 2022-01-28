@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
 
+//OBJETO DE NEGOCIO DE RESERVA QUE SE CONSUMIRA LOCALMENTE
 @Local
 public interface ReservaONLocal {
 	

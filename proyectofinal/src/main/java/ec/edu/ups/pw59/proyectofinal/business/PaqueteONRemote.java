@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 
+//OBJETO DE NEGOCIO DE PAQUETE QUE SERÁ CONSUMIDO REMOTAMENTE
 @Remote
 public interface PaqueteONRemote {
 	

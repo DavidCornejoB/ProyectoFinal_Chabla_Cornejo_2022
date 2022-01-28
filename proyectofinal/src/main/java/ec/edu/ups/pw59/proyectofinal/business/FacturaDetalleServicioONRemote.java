@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaDetalleServicio;
 
+//OBJETO DE NEGOCIO DE DETALLESERVICIO QUE SERÁ CONSUMIDO REMOTAMENTE
 @Remote
 public interface FacturaDetalleServicioONRemote {
 	
