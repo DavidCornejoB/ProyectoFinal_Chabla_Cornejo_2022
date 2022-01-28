@@ -10,25 +10,25 @@
 <h:form>
 
 	<h:outputLabel value="Cédula: " />
-	<h:inputText value = "#{personasBean.cedula}" />
+	<h:inputText value = "#{personasBean.persona.cedula}" />
 	
 	<h:outputLabel value="Nombre: " />
-	<h:inputText value = "#{personasBean.nombre}" />
+	<h:inputText value = "#{personasBean.persona.nombre}" />
 	
 	<h:outputLabel value="Apellido: " />
-	<h:inputText value = "#{personasBean.apellido}" />
+	<h:inputText value = "#{personasBean.persona.apellido}" />
 	
 	<h:outputLabel value="Dirección: " />
-	<h:inputText value = "#{personasBean.direccion}" />
+	<h:inputText value = "#{personasBean.persona.direccion}" />
 	
 	<h:outputLabel value="Pais: " />
-	<h:inputText value = "#{personasBean.pais}" />
+	<h:inputText value = "#{personasBean.persona.pais}" />
 	
 	<h:outputLabel value="Ciudad: " />
-	<h:inputText value = "#{personasBean.ciudad}" />
+	<h:inputText value = "#{personasBean.persona.ciudad}" />
 	
 	<h:outputLabel value="Tipo: " />
-	<h:inputText value = "#{personasBean.tipo}" />
+	<h:inputText value = "#{personasBean.persona.tipo}" />
 	
 	<h:commandButton action="#{personasBean.guardar()}" value="Guardar" />
 

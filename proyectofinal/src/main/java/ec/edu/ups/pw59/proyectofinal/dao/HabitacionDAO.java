@@ -38,7 +38,7 @@ public class HabitacionDAO {
 	public List<Habitacion> getList(){
 		List<Habitacion> listado = new ArrayList<Habitacion>();
 		
-		String jpql = "SELECT op FROM habitacion op";
+		String jpql = "SELECT op FROM Habitacion op";
 				
 		
 		Query query = em.createQuery(jpql, Habitacion.class);
