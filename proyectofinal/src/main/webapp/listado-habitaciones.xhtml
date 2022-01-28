@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>HABITACIONES LISTADAS</h:head> 
+<body> 
+
+<h:dataTable var="hab" value="#{habitacionesBean.habitaciones}">
+	
+	<h:column>
+		<f:facet name="header">Numero</f:facet>
+		#{hab.numero}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Estado</f:facet>
+		#{hab.estado}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Piso</f:facet>
+		#{hab.piso}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Categoria</f:facet>
+		#{hab.categoria.nombre}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Hotel</f:facet>
+		#{hab.hotel.nombre}
+	</h:column>
+
+</h:dataTable>
+
+</body> 
+</html>
