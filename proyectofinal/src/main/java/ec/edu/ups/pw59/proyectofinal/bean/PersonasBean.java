@@ -1,5 +1,8 @@
 package ec.edu.ups.pw59.proyectofinal.bean;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -11,93 +14,61 @@ import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 @RequestScoped
 public class PersonasBean {
 	
+	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
 	@Inject
 	private PersonaONLocal personaON;
 	
-	private String cedula;
-	private String nombre;
-	private String apellido;
-	private String direccion;
-	private String pais;
-	private String ciudad;
-	private String tipo;
+	//CREAMOS EL OBJETO PERSONA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	private Persona persona = new Persona();
 	
-	public String getCedula() {
-		return cedula;
-	}
-
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	//LISTA DE PERSONAS
+	private List<Persona> personas;
+	
+	//CONSTRUCTOR
+	public PersonasBean() {
 	}
 	
-	public String getDireccion() {
-		return direccion;
+	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	@PostConstruct
+	public void init() {
+		this.cargar();
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	//METODOS GET() Y SET()
+	public Persona getPersona() {
+		return persona;
 	}
 
-	public String getPais() {
-		return pais;
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public List<Persona> getPersonas() {
+		return personas;
 	}
 
-	public String getCiudad() {
-		return ciudad;
+	public void setPersonas(List<Persona> personas) {
+		this.personas = personas;
 	}
 
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
+	//MÉTODO PARA GUARDAR PERSONAS
 	public String guardar() {
 		
-		System.out.println("GUARDANDO: " + this.nombre + " " + this.apellido);
-		
-		Persona p = new Persona();
-		p.setCedula(this.cedula);
-		p.setNombre(this.nombre);
-		p.setApellido(this.apellido);
-		p.setDireccion(this.direccion);
-		p.setPais(this.pais);
-		p.setCiudad(this.ciudad);
-		p.setTipo(this.tipo);
+		System.out.println("GUARDANDO PERSONA: " + this.persona.getNombre() + " " + this.persona.getApellido());
 		
 		try {
-			personaON.insert(p);
+			//USAMOS EL MÉTODO INSERT DE LA ENTIDAD DE NEGOCIO DE PERSONA
+			personaON.insert(this.persona);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return "listado-personas?faces-redirect=true";
+	}
+	
+	//MÉTODO PARA LISTAR PERSONAS
+	public void cargar() {
+		this.personas = personaON.getPersonas();
 	}
 
 }
