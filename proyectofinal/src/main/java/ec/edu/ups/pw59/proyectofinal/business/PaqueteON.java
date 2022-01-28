@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.PaqueteDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 
 @Stateless
-public class PaqueteON implements PaqueteONRemote{
+public class PaqueteON implements PaqueteONRemote, PaqueteONLocal{
 	
 	@Inject
 	private PaqueteDAO daoPaquete;

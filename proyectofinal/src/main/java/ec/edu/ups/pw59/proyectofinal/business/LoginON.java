@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.LoginDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 
 @Stateless
-public class LoginON implements LoginONRemote{
+public class LoginON implements LoginONRemote, LoginONLocal{
 	
 	@Inject
 	private LoginDAO daoLogin;

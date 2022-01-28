@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.ReservaDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
 
 @Stateless
-public class ReservaON implements ReservaONRemote{
+public class ReservaON implements ReservaONRemote, ReservaONLocal{
 	
 	@Inject
 	private ReservaDAO daoReserva;

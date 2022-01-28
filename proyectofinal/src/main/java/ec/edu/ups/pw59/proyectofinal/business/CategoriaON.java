@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.CategoriaDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Categoria;
 
 @Stateless
-public class CategoriaON implements CategoriaONRemote{
+public class CategoriaON implements CategoriaONRemote, CategoriaONLocal{
 	
 	@Inject
 	private CategoriaDAO daoCategoria;

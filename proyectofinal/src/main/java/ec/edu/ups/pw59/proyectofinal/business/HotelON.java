@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.HotelDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 
 @Stateless
-public class HotelON implements HotelONRemote{
+public class HotelON implements HotelONRemote, HotelONLocal{
 	
 	@Inject
 	private HotelDAO daoHotel;

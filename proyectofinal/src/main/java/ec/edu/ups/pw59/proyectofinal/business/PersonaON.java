@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.PersonaDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
 @Stateless
-public class PersonaON implements PersonaONRemote{
+public class PersonaON implements PersonaONRemote, PersonaONLocal{
 	
 	@Inject
 	private PersonaDAO daoPersona;
