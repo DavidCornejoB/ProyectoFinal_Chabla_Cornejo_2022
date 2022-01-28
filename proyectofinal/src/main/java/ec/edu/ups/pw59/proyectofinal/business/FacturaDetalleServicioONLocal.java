@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaDetalleServicio;
 
+//OBJETO DE NEGOCIO DE DETALLESERVICIO QUE SERÁ CONSUMIDO LOCALMENTE
 @Local
 public interface FacturaDetalleServicioONLocal {
 	

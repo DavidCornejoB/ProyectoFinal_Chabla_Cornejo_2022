@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 
+//OBJETO DE NEGOCIO DE HOTEL QUE SERÁ CONSUMIDO LOCALMENTE
 @Local
 public interface HotelONLocal {
 	

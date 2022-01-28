@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraServicio;
 
+//OBJETO DE NEGOCIO DE FACTURACABECERASERVICIO QUE SERA CONSUMIDO LOCALMENTE
 @Local
 public interface FacturaCabeceraServicioONLocal {
 	

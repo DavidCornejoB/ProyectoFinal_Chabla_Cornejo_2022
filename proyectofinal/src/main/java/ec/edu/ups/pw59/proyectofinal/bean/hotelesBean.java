@@ -10,21 +10,25 @@ import javax.inject.Named;
 import ec.edu.ups.pw59.proyectofinal.business.HotelONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 
-@Named
+@Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
 public class hotelesBean {
 	
+	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
 	@Inject
 	private HotelONLocal hotelON;
 	
+	//CREAMOS EL OBJETO HOTEL CON PARÁMETROS VACÍOS
 	private Hotel hotel = new Hotel();
 	
+	//VARIABLE LISTA QUE CONTIENE TODOS LOS OBJETOS HOTEL CREADOS
 	private List<Hotel> hoteles;
 	
 	public hotelesBean() {
 		
 	}
 	
+	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
 	@PostConstruct
 	public void init() {
 		this.cargar();
@@ -53,17 +57,20 @@ public class hotelesBean {
 		System.out.println("GUARDANDO HOTEL: " + this.hotel.getNombre());
 		
 		try {
+			//USAMOS EL MÉTODO INSERT DE LA ENTIDAD DE NEGOCIO DE HOTEL
 			hotelON.insert(this.hotel);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		//UNA VEZ SE HA INSERTADO UN HOTEL, SE REDIRIGIRÁ AL FORMULARIO DONDE SE LISTAN TODOS LOS HOTELES INGRESADOS
 		return "listado-hoteles?faces-redirect=true";
 	}
 	
 	//METODO PARA LISTAR HOTELES
 	public void cargar() {
+		//LLAMAMOS AL MÉTODO GETHOTELES() DEL OBJETO DE NEGOCIO
 		this.hoteles = hotelON.getHoteles();
 	}
 

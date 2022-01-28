@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 
+//OBJETO DE NEGOCIO DE PAQUETE QUE SERÁ CONSUMIDO LOCALMENTE
 @Local
 public interface PaqueteONLocal {
 	

@@ -7,6 +7,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+//OBJETO DE NEGOCIO DE PERSONA QUE SERÁ CONSUMIDO LOCALMENTE
 @Local
 public interface PersonaONLocal {
 	

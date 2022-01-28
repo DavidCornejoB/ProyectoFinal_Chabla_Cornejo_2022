@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
 
+//OBJETO DE NEGOCIO DE RESERVA QUE SE CONSUMIRA REMOTAMENTE
 @Remote
 public interface ReservaONRemote {
 	

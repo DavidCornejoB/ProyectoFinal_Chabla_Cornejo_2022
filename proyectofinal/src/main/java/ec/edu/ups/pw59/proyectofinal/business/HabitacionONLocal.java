@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 
+//OBJETO DE NEGOCIO DE HABITACION QUE SERÁ CONSUMIDO LOCALMENTE
 @Local
 public interface HabitacionONLocal {
 	
