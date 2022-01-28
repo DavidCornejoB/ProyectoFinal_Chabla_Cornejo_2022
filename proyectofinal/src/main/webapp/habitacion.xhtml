@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>INGRESAR HABITACIONES</h:head> 
+<body> 
+
+<h:form>
+
+	<h:outputLabel value="Número: " />
+	<h:inputText value="#{habitacionesBean.habitacion.numero}" />
+	
+	<h:outputLabel value="Estado: " />
+	<h:inputText value="#{habitacionesBean.habitacion.estado}" />
+	
+	<h:outputLabel value="Piso: " />
+	<h:inputText value="#{habitacionesBean.habitacion.piso}" />
+	
+	<h:outputLabel value="Categoria: " />
+	<h:inputText value="#{habitacionesBean.habitacion.categoria}" />
+	
+	<h:outputLabel value="hotel: " />
+	<h:inputText value="#{habitacionesBean.habitacion.hotel}" />
+	
+	<h:commandButton action="#{habitacionesBean.guardar()}" value="Guardar" />
+	
+</h:form>
+
+</body> 
+</html>

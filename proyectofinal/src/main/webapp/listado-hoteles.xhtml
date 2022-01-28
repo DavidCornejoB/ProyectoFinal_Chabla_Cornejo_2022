@@ -4,44 +4,34 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>PERSONAS INGRESADAS</h:head> 
+<h:head>HOTELES INGRESADOS</h:head> 
 <body> 
 
-<h:dataTable var="per" value="#{personasBean.personas}">
+<h:dataTable var="hotel" value="#{hotelesBean.hoteles}">
 
 	<h:column>
-		<f:facet name="header">Cedula</f:facet>
-		#{per.cedula}
+		<f:facet name="header">Código</f:facet>
+		#{hotel.codigo}
 	</h:column>
 	
 	<h:column>
 		<f:facet name="header">Nombre</f:facet>
-		#{per.nombre}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Apellido</f:facet>
-		#{per.apellido}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Direccion</f:facet>
-		#{per.direccion}
+		#{hotel.nombre}
 	</h:column>
 	
 	<h:column>
 		<f:facet name="header">Pais</f:facet>
-		#{per.pais}
+		#{hotel.pais}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Provincia</f:facet>
+		#{hotel.provincia}
 	</h:column>
 	
 	<h:column>
 		<f:facet name="header">Ciudad</f:facet>
-		#{per.ciudad}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Tipo</f:facet>
-		#{per.tipo}
+		#{hotel.ciudad}
 	</h:column>
 
 </h:dataTable>
