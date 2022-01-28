@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.FacturaCabeceraPaqueteDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraPaquete;
 
 @Stateless
-public class FacturaCabeceraPaqueteON implements FacturaCabeceraPaqueteONRemote{
+public class FacturaCabeceraPaqueteON implements FacturaCabeceraPaqueteONRemote, FacturaCabeceraPaqueteONLocal{
 	
 	@Inject
 	private FacturaCabeceraPaqueteDAO daoFacturaCabeceraPaquete;

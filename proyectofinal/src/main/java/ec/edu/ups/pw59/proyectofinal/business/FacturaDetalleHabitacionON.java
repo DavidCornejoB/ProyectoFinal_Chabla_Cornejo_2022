@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.FacturaDetalleHabitacionDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaDetalleHabitacion;
 
 @Stateless
-public class FacturaDetalleHabitacionON implements FacturaDetalleHabitacionONRemote{
+public class FacturaDetalleHabitacionON implements FacturaDetalleHabitacionONRemote, FacturaDetalleHabitacionONLocal{
 	
 	@Inject
 	private FacturaDetalleHabitacionDAO daoFacturaDetalleHabitacion;

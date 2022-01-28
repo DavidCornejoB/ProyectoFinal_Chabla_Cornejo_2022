@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.ServicioDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
 @Stateless
-public class ServicioON implements ServicioONRemote{
+public class ServicioON implements ServicioONRemote, ServicioONLocal{
 	
 	@Inject
 	private ServicioDAO daoServicio;

@@ -9,7 +9,7 @@ import ec.edu.ups.pw59.proyectofinal.dao.HabitacionDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 
 @Stateless
-public class HabitacionON implements HabitacionONRemote{
+public class HabitacionON implements HabitacionONRemote, HabitacionONLocal{
 	
 	@Inject
 	private HabitacionDAO daoHabitacion;
