@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
+//OBJETO DE NEGOCIO SERVICIO QUE SERÁ CONSUMIDO REMOTAMENTE
 @Remote
 public interface ServicioONRemote {
 	

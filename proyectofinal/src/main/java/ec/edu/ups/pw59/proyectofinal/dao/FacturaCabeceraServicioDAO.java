@@ -39,7 +39,7 @@ public class FacturaCabeceraServicioDAO {
 	
  public List<FacturaCabeceraServicio> getList(){
 		
-		String jpql2="SELECT p FROM facturacabeceraservicio p";
+		String jpql2="SELECT p FROM FacturaCabeceraServicio p";
 		
 		//nombre= nombre+"%";
 		Query query= em.createQuery(jpql2, FacturaCabeceraServicio.class);

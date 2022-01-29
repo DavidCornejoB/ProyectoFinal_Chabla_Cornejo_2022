@@ -39,7 +39,7 @@ public class PersonaDAO {
 	public List<Persona> getList(){
 		List<Persona> listado = new ArrayList<Persona>();
 		
-		String jpql = "SELECT op FROM persona op";
+		String jpql = "SELECT op FROM Persona op";
 				
 		
 		Query query = em.createQuery(jpql, Persona.class);

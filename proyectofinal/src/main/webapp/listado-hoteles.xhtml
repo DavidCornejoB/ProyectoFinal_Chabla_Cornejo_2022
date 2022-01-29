@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>HOTELES INGRESADOS</h:head> 
+<body> 
+
+<h:dataTable var="hotel" value="#{hotelesBean.hoteles}">
+
+	<h:column>
+		<f:facet name="header">Código</f:facet>
+		#{hotel.codigo}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Nombre</f:facet>
+		#{hotel.nombre}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Pais</f:facet>
+		#{hotel.pais}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Provincia</f:facet>
+		#{hotel.provincia}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Ciudad</f:facet>
+		#{hotel.ciudad}
+	</h:column>
+
+</h:dataTable>
+
+</body> 
+</html>

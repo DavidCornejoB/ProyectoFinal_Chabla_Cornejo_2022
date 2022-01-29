@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>INGRESAR HOTELES</h:head> 
+<body> 
+
+<h:form>
+	<h:outputLabel value="Código: " />
+	<h:inputText value="#{hotelesBean.hotel.codigo}" />
+	
+	<h:outputLabel value="Nombre: " />
+	<h:inputText value="#{hotelesBean.hotel.nombre}" />
+	
+	<h:outputLabel value="País: " />
+	<h:inputText value="#{hotelesBean.hotel.pais}" />
+	
+	<h:outputLabel value="Provincia: " />
+	<h:inputText value="#{hotelesBean.hotel.provincia}" />
+	
+	<h:outputLabel value="Ciudad: " />
+	<h:inputText value="#{hotelesBean.hotel.ciudad}" />
+	
+	<h:commandButton action="#{hotelesBean.guardar()}" value="Guardar" />
+
+</h:form>
+
+</body> 
+</html>

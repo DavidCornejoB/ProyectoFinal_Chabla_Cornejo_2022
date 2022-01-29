@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Categoria;
 
+//OBJETO DE NEGOCIO DE CATEGORIA QUE SERÁ CONSUMIDO REMOTAMENTE
 @Remote
 public interface CategoriaONRemote {
 	

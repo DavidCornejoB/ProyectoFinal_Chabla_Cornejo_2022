@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 
+//OBJETO DE NEGOCIO DE HABITACION QUE SERÁ CONSUMIDO REMOTAMENTE
 @Remote
 public interface HabitacionONRemote {
 	

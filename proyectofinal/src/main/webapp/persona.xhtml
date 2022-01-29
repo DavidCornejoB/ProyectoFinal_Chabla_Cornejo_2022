@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>INGRESAR PERSONAS</h:head> 
+<body> 
+
+<h:form>
+
+	<h:outputLabel value="Cédula: " />
+	<h:inputText value = "#{personasBean.persona.cedula}" />
+	
+	<h:outputLabel value="Nombre: " />
+	<h:inputText value = "#{personasBean.persona.nombre}" />
+	
+	<h:outputLabel value="Apellido: " />
+	<h:inputText value = "#{personasBean.persona.apellido}" />
+	
+	<h:outputLabel value="Dirección: " />
+	<h:inputText value = "#{personasBean.persona.direccion}" />
+	
+	<h:outputLabel value="Pais: " />
+	<h:inputText value = "#{personasBean.persona.pais}" />
+	
+	<h:outputLabel value="Ciudad: " />
+	<h:inputText value = "#{personasBean.persona.ciudad}" />
+	
+	<h:outputLabel value="Tipo: " />
+	<h:inputText value = "#{personasBean.persona.tipo}" />
+	
+	<h:commandButton action="#{personasBean.guardar()}" value="Guardar" />
+
+</h:form>
+
+</body> 
+</html>
