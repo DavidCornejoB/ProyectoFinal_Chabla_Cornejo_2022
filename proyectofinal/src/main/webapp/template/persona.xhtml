@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+ 
+ <h:head>
+ 	<f:metadata>
+ 		<f:viewParam name="id" value="#{clientesBean.cedula}"></f:viewParam>
+ 		<f:viewAction action="#{clientesBean.loadData()}"/>
+ 	</f:metadata>
+ </h:head>
+ 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Crear Clientes 
+    </ui:define>
+    <ui:define name="content">
+    
+    	<div class="card-body">
+                    <h4 class="card-title">Formulario de Registro</h4>
+                    <h:form class="forms-sample">
+                      <div class="form-group">
+                        <label for="txtCedula">Cedula</label>
+                        <h:inputText class="form-control" id="txtCedula" 
+                        			value="#{clientesBean.persona.cedula}" placeholder="Name">
+                        	<f:ajax execute="txtCedula"
+                        			render="txtNombre txtDireccion"
+                        			listener="#{clientesBean.loadDataEditar()}"/>
+                        </h:inputText>
+                        
+                      </div>
+                      <div class="form-group">
+                        <label for="txtNombre">Nombre</label>
+                        <h:inputText class="form-control" id="txtNombre" value="#{clientesBean.persona.nombre}"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="txtDireccion">Direccion</label>
+                        <h:inputText class="form-control" id="txtDireccion" value="#{clientesBean.persona.direccion}"/>
+                      </div>
+                      
+                      <h:commandButton action="#{clientesBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
+                        <!-- 
+                      <h:commandButton action="#{clientesBean.guardar2()}" value="Guardar" class="btn btn-primary mr-2">
+                      	<f:ajax execute="txtNombre" render="txtNombre"/>
+                      </h:commandButton>
+                         -->
+                      
+                      <button class="btn btn-dark">Cancel</button>
+                    </h:form>
+                  </div>
+    
+    </ui:define>
+ 
+</ui:composition>
+</html>
+
+
+
+
+
+
+	
+
