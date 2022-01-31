@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>PAQUETES INGRESADOS</h:head> 
+<body> 
+
+<h:dataTable var="paq" value="#{paquetesBean.paquetes}">
+	
+	<h:column>
+		<f:facet name="header">Código</f:facet>
+		#{paq.codigo}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Nombre</f:facet>
+		#{paq.nombre}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Precio</f:facet>
+		#{paq.precio}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Tipo</f:facet>
+		#{paq.tipo}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Habitación</f:facet>
+		#{paq.habitacion.numero}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Habitación piso</f:facet>
+		#{paq.habitacion.piso}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Servicio</f:facet>
+		#{paq.servicio.nombre}
+	</h:column>
+	
+	<h:column>
+		<f:facet name="header">Hotel</f:facet>
+		#{paq.hotel.nombre}
+	</h:column>
+
+</h:dataTable>
+
+</body> 
+</html>

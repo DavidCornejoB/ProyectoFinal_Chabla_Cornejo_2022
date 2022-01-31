@@ -10,6 +10,8 @@ import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 @Remote
 public interface PersonaONRemote {
 	
+	public boolean validarCedula(String cedula);
+
 	public void insert(Persona p) throws Exception;
 	
 	public void update(Persona p) throws Exception;

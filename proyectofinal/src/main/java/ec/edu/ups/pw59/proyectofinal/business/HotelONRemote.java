@@ -14,7 +14,7 @@ public interface HotelONRemote {
 	
 	public void update(Hotel h) throws Exception;
 	
-	public void read(String id) throws Exception;
+	public void read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	

@@ -1,6 +1,7 @@
 package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -65,6 +66,14 @@ public class FacturaCabeceraServicio implements Serializable{ //CLASE SERIALIZAB
 
 	public void setDetallesServicio(List<FacturaDetalleServicio> detallesServicio) {
 		this.detallesServicio = detallesServicio;
+	}
+	
+	//METODO PARA INSERTAR UN NUEVO DETALLE SERVICIO EN LA FACTURA
+	public void addDetalleServicio(FacturaDetalleServicio detalleServicio) {
+		if(detallesServicio == null) {
+			detallesServicio = new ArrayList<FacturaDetalleServicio>();
+		}
+		detallesServicio.add(detalleServicio);
 	}
 
 }

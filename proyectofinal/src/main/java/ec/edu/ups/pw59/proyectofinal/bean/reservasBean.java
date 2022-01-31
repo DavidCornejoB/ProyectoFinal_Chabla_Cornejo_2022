@@ -1,0 +1,99 @@
+package ec.edu.ups.pw59.proyectofinal.bean;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import ec.edu.ups.pw59.proyectofinal.business.ReservaONLocal;
+import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
+import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
+
+@Named //ETIQUETA DE MANAGED BEANS
+@RequestScoped
+public class reservasBean {
+	
+	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
+	@Inject
+	private ReservaONLocal reservaON;
+		
+	//CREAMOS EL OBJETO RESERVA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	private Reserva reserva = new Reserva();
+	
+	//LISTA DE RESERVAS
+	private List<Reserva> reservas;
+	
+	//CONSTRUCTOR
+	public reservasBean() {
+		
+	}
+	
+	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	@PostConstruct
+	public void init() {
+		this.reserva.setHabitacion(new Habitacion());
+		this.cargar();
+	}
+	
+	//METODOS GET() Y SET()
+	public ReservaONLocal getReservaON() {
+		return reservaON;
+	}
+
+	public void setReservaON(ReservaONLocal reservaON) {
+		this.reservaON = reservaON;
+	}
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+	
+	//MÉTODO PARA GUARDAR RESERVAS
+	public String guardar() {
+		
+		System.out.println("GUARDANDO RESERVAS: " + this.reserva.getCodigo());
+		
+		try {
+			//USAMOS EL MÉTODO INSERT DE LA ENTIDAD DE NEGOCIO DE RESERVA
+			reservaON.insert(this.reserva);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//UNA VEZ SE HA INGRESADO UNA RESERVA, SE REDIRIGIRÁ AL FORMULARIO DE LISTAR RESERVAS
+		return "listado-reservas?faces-redirect=true";
+	}
+	//MÉTODO PARA LISTAR RESERVAS
+	public void cargar() {
+		//LLAMAMOS AL MÉTODO GETRESERVAS() DEL OBJETO DE NEGOCIO
+		this.reservas = reservaON.getReservas();
+	}
+	
+	//MÉTODO PARA CARGAR LA HABITACION RESERVADA
+	public String cargarHabitacion() {
+		
+		int id = this.reserva.getHabitacion().getNumero();
+		
+		Habitacion h = reservaON.getHabitacion(id);
+		this.reserva.setHabitacion(h);
+		
+		return null;
+	}
+	
+	
+
+}

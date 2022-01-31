@@ -19,10 +19,10 @@
 	<h:inputText value="#{habitacionesBean.habitacion.piso}" />
 	
 	<h:outputLabel value="Categoria: " />
-	<h:inputText value="#{habitacionesBean.habitacion.categoria}" />
+	<h:inputText value="#{habitacionesBean.habitacion.categoria.codigo}" />
 	
 	<h:outputLabel value="hotel: " />
-	<h:inputText value="#{habitacionesBean.habitacion.hotel}" />
+	<h:inputText value="#{habitacionesBean.habitacion.hotel.codigo}" />
 	
 	<h:commandButton action="#{habitacionesBean.guardar()}" value="Guardar" />
 	

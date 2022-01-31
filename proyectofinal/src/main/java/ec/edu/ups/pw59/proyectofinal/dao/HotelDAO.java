@@ -25,7 +25,7 @@ public class HotelDAO {
 			em.merge(op);
 		}
 	
-	public Hotel read(String id) {
+	public Hotel read(int id) {
 		Hotel op = em.find(Hotel.class, id);
 		return op;
 	}

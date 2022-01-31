@@ -5,7 +5,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import ec.edu.ups.pw59.proyectofinal.dao.HabitacionDAO;
 import ec.edu.ups.pw59.proyectofinal.dao.ReservaDAO;
+import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
 
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
@@ -15,6 +17,9 @@ public class ReservaON implements ReservaONRemote, ReservaONLocal{
 	//LLAMAMOS AL OBJETO DE ACCESO A DATOS DE RESERVA
 	@Inject
 	private ReservaDAO daoReserva;
+	
+	@Inject
+	private HabitacionDAO daoHabitacion;
 	
 	//METODO PARA INSERTAR RESERVAS
 	public void insert(Reserva r) throws Exception{
@@ -44,6 +49,12 @@ public class ReservaON implements ReservaONRemote, ReservaONLocal{
 	public List<Reserva> getReservas(){
 		//RETORNAMOS EL METODO GETLIST DEL DAO
 		return daoReserva.getList();
+	}
+	
+	//METODO PARA BUSCAR HABITACIONES
+	public Habitacion getHabitacion(int numero) {
+		Habitacion h = daoHabitacion.read(numero);
+		return h;
 	}
 
 }
