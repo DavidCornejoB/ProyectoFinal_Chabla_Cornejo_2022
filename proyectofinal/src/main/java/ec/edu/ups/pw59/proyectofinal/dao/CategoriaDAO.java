@@ -25,7 +25,7 @@ public class CategoriaDAO {
 			em.merge(op);
 		}
 	
-	public Categoria read(String id) {
+	public Categoria read(int id) {
 		Categoria op = em.find(Categoria.class, id);
 		return op;
 	}
