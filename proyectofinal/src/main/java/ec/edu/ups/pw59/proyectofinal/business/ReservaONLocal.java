@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
 
 //OBJETO DE NEGOCIO DE RESERVA QUE SE CONSUMIRA LOCALMENTE
@@ -19,5 +20,7 @@ public interface ReservaONLocal {
 	public void delete(int id) throws Exception;
 	
 	public List<Reserva> getReservas();
+	
+	public Habitacion getHabitacion(int numero);
 
 }

@@ -5,7 +5,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import ec.edu.ups.pw59.proyectofinal.dao.HotelDAO;
 import ec.edu.ups.pw59.proyectofinal.dao.ServicioDAO;
+import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
@@ -15,6 +17,9 @@ public class ServicioON implements ServicioONRemote, ServicioONLocal{
 	//LLAMAMOS AL OBJETO DE ACCESO A DATOS DE SERVICIO
 	@Inject
 	private ServicioDAO daoServicio;
+	
+	@Inject
+	private HotelDAO daoHotel;
 	
 	//MÉTODO PARA INSERTAR SERVICIOS
 	public void insert(Servicio s) throws Exception{
@@ -29,7 +34,7 @@ public class ServicioON implements ServicioONRemote, ServicioONLocal{
 	}
 	
 	//METODO PARA LEER SERVICIOS
-	public void read(String id) throws Exception{
+	public void read(int id) throws Exception{
 		//LLAMAMOS AL MÉTODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO SERVICIO QUE SERÁ LEIDO
 		daoServicio.read(id);
 	}
@@ -44,6 +49,12 @@ public class ServicioON implements ServicioONRemote, ServicioONLocal{
 	public List<Servicio> getServicios(){
 		//RETORNAMOS EL METODO GETLIST DEL DAO
 		return daoServicio.getList();
+	}
+	
+	//METODO PARA BUSCAR HOTELES EN SERVICIO
+	public Hotel getHotel(int id) {
+		Hotel h = daoHotel.read(id);
+		return h;
 	}
 
 }
