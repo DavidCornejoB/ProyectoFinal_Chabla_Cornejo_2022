@@ -64,7 +64,13 @@ public class PersonasBean {
 			e.printStackTrace();
 		}
 		//UNA VEZ SE HA INGRESADO UNA PERSONA, SE REDIRIGIRÁ AL FORMULARIO DE LISTAR PERSONAS
-		return "listado-personas?faces-redirect=true";
+		return null; //"listado-personas?faces-redirect=true";
+	}
+	
+	//MÉTODO PARA EDITAR PERSONAS
+	public String editar(String cedula) {
+		System.out.println("EDITANDO " + cedula);
+		return "persona?faces-redirect=true&id="+cedula;
 	}
 	
 	//MÉTODO PARA LISTAR PERSONAS

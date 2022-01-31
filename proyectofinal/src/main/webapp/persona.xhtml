@@ -30,7 +30,9 @@
 	<h:outputLabel value="Tipo: " />
 	<h:inputText value = "#{personasBean.persona.tipo}" />
 	
-	<h:commandButton action="#{personasBean.guardar()}" value="Guardar" />
+	<h:commandButton action="#{personasBean.guardar()}" value="Guardar" class="btn btn-primary mr-2" />
+	
+	<h:commandButton action="listar-clientes" value="Lista" class="btn btn-light" />
 
 </h:form>
 
