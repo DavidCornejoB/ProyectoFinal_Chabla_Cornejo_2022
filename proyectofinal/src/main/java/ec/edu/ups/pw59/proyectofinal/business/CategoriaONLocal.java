@@ -14,7 +14,7 @@ public interface CategoriaONLocal {
 	
 	public void update(Categoria c) throws Exception;
 	
-	public void read(String id) throws Exception;
+	public void read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	

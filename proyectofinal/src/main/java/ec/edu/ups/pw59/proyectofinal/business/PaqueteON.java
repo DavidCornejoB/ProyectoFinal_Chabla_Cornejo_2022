@@ -5,8 +5,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import ec.edu.ups.pw59.proyectofinal.dao.HabitacionDAO;
+import ec.edu.ups.pw59.proyectofinal.dao.HotelDAO;
 import ec.edu.ups.pw59.proyectofinal.dao.PaqueteDAO;
+import ec.edu.ups.pw59.proyectofinal.dao.ServicioDAO;
+import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
+import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
+import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
 @Stateless
@@ -15,6 +21,15 @@ public class PaqueteON implements PaqueteONRemote, PaqueteONLocal{
 	//LLAMAMOS AL OBJETO DE ACCESO A DATOS DE PAQUETE
 	@Inject
 	private PaqueteDAO daoPaquete;
+	
+	@Inject
+	private HabitacionDAO daoHabitacion;
+	
+	@Inject
+	private HotelDAO daoHotel;
+	
+	@Inject
+	private ServicioDAO daoServicio;
 	
 	//METODO PARA INSERTAR PAQUETES
 	public void insert(Paquete p) throws Exception{
@@ -29,7 +44,7 @@ public class PaqueteON implements PaqueteONRemote, PaqueteONLocal{
 	}
 	
 	//METODO PARA LEER PAQUETES
-	public void read(String id) throws Exception{
+	public void read(int id) throws Exception{
 		//LLAMAMOS AL METODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO PAQUETE QUE QUEREMOS LEER
 		daoPaquete.read(id);
 	}
@@ -44,6 +59,21 @@ public class PaqueteON implements PaqueteONRemote, PaqueteONLocal{
 	public List<Paquete> getPaquetes(){
 		//RETORNAMOS EL METODO GETLIST() DEL DAO
 		return daoPaquete.getList();
+	}
+	
+	public Habitacion getHabitacion(int id) {
+		Habitacion hab = daoHabitacion.read(id);
+		return hab;
+	}
+	
+	public Hotel getHotel(int id) {
+		Hotel hot = daoHotel.read(id);
+		return hot;
+	}
+	
+	public Servicio getServicio(int id) {
+		Servicio ser = daoServicio.read(id);
+		return ser;
 	}
 
 }

@@ -6,7 +6,9 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import ec.edu.ups.pw59.proyectofinal.dao.FacturaCabeceraHabitacionDAO;
+import ec.edu.ups.pw59.proyectofinal.dao.PersonaDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraHabitacion;
+import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
 @Stateless
@@ -16,16 +18,32 @@ public class FacturaCabeceraHabitacionON implements FacturaCabeceraHabitacionONR
 	@Inject
 	private FacturaCabeceraHabitacionDAO daoFacturaCabeceraHabitacion;
 	
+	//LLAMAMOS AL OBJETO DE ACCESO A DATOS DE PERSONA
+	@Inject
+	private PersonaDAO daoPersona;
+	
 	//MÉTODO PARA INSERTAR FACTURAS DE HABITACION
-	public void insert(FacturaCabeceraHabitacion p) throws Exception{
+	public void insert(FacturaCabeceraHabitacion f) throws Exception{
+		
+		//BUSCAMOS SI ESTÁ INGRESADA LA PERSONA DE LA FACTURA
+		Persona p = daoPersona.read(f.getPersona().getCedula());
+		
+		//SI NO EXISTE ESA PERSONA, LA INSERTAMOS
+		if(p==null) {
+			//INSERTAMOS ESA PERSONA
+			daoPersona.insert(f.getPersona());
+		} else {
+			//ACTUALIZAMOS NUEVA FACTURA A PERSONA EXISTENTE
+			daoPersona.update(f.getPersona());
+		}
 		//LLAMAMOS AL MÉTODO INSERT DEL DAO. LE ENVIAMOS EL OBJETO FACTURA PARA SER INYECTADO
-		daoFacturaCabeceraHabitacion.insert(p);
+		daoFacturaCabeceraHabitacion.insert(f);
 	}
 	
 	//MÉTODO PARA ACTUALIZAR FACTURAS DE HABITACION
-	public void update(FacturaCabeceraHabitacion p) throws Exception{
+	public void update(FacturaCabeceraHabitacion f) throws Exception{
 		//LLAMAMOS AL MÉTODO UPDATE DEL DAO. LE ENVIAMOS EL OBJETO FACTURA PARA SER ACTUALIZADO
-		daoFacturaCabeceraHabitacion.update(p);
+		daoFacturaCabeceraHabitacion.update(f);
 	}
 	
 	//MÉTODO PARA LEER FACTURAS DE HABITACION
@@ -43,6 +61,12 @@ public class FacturaCabeceraHabitacionON implements FacturaCabeceraHabitacionONR
 	//MÉTODO PARA LISTAR FACTURAS DE HABITACION. SE HACE USO DE UNA LISTA QUE ALAMACENE TODAS LAS FACTURAS DE HABITACION
 	public List<FacturaCabeceraHabitacion> getFacturas(){
 		return daoFacturaCabeceraHabitacion.getList();	
+	}
+	
+	//MÉTODO PARA BUSCAR PERSONAS
+	public Persona getPersona(String cedula) {
+		Persona p = daoPersona.read(cedula);
+		return p;
 	}
 
 }

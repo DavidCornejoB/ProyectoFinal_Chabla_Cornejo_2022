@@ -25,7 +25,7 @@ public class ServicioDAO {
 			em.merge(op);
 		}
 	
-	public Servicio read(String id) {
+	public Servicio read(int id) {
 		Servicio op = em.find(Servicio.class, id);
 		return op;
 	}

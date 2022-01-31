@@ -7,8 +7,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ec.edu.ups.pw59.proyectofinal.business.CategoriaON;
 import ec.edu.ups.pw59.proyectofinal.business.HabitacionONLocal;
+import ec.edu.ups.pw59.proyectofinal.modelo.Categoria;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
+import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 
 @Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
@@ -32,6 +35,8 @@ public class habitacionesBean {
 	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
 	@PostConstruct
 	public void init() {
+		this.habitacion.setCategoria(new Categoria());
+		this.habitacion.setHotel(new Hotel());
 		this.cargar();
 	}
 	
@@ -73,6 +78,25 @@ public class habitacionesBean {
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETHABITACIONES() DEL OBJETO DE NEGOCIO
 		this.habitaciones = habitacionON.getHabitaciones();
+	}
+	
+	public String cargarCategoria() {
+		
+		int id = this.habitacion.getCategoria().getCodigo();
+		
+		Categoria cat = habitacionON.getCategoria(id);
+		this.habitacion.setCategoria(cat);
+		
+		return null;
+	}
+	
+	public String cargarHotel() {
+		int id = this.habitacion.getHotel().getCodigo();
+		
+		Hotel h = habitacionON.getHotel(id);
+		this.habitacion.setHotel(h);
+		
+		return null;
 	}
 	
 }

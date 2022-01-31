@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>INSERTAR RESERVAS</h:head> 
+<body> 
+
+<h:form>
+
+	<h:outputLabel value="Código: " />
+	<h:inputText value="#{reservasBean.reserva.codigo}" />
+	
+	<h:outputLabel value="Hora entrada: " />
+	<h:inputText value="#{reservasBean.reserva.entrada}" />
+	
+	<h:outputLabel value="Hora salida: " />
+	<h:inputText value="#{reservasBean.reserva.salida}" />
+	
+	<h:outputLabel value="Habitación: " />
+	<h:inputText value="#{reservasBean.reserva.habitacion.numero}" />
+	
+	<h:commandButton action="#{reservasBean.guardar()}" value="Guardar" />
+
+
+</h:form>
+
+</body> 
+</html>

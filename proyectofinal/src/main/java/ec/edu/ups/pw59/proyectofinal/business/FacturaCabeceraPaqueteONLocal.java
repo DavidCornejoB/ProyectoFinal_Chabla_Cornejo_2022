@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraPaquete;
+import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
 //OBJETO DE NEGOCIO DE FACTURACABECERAPAQUETE QUE SERÁ CONSUMIDO LOCALMENTE
 @Local
@@ -19,5 +20,7 @@ public interface FacturaCabeceraPaqueteONLocal {
 	public void delete(int id) throws Exception;
 	
 	public List<FacturaCabeceraPaquete> getFacturas();
+	
+	public Persona getPersona(String cedula);
 
 }

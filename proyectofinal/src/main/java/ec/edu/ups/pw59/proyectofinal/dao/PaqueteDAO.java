@@ -25,7 +25,7 @@ public class PaqueteDAO {
 			em.merge(op);
 		}
 	
-	public Paquete read(String id) {
+	public Paquete read(int id) {
 		Paquete op = em.find(Paquete.class, id);
 		return op;
 	}

@@ -29,7 +29,7 @@ public class CategoriaON implements CategoriaONRemote, CategoriaONLocal{
 	}
 	
 	//METODO PARA LEER CATEGORIAS
-	public void read(String id) throws Exception{
+	public void read(int id) throws Exception{
 		//LLAMAMOS LA MÉTODO READ DEL DAO, Y LE ENVIAMOS LA ID DEL OBJETO CATEGORÍA QUE QUEREMOS LEER
 		daoCategoria.read(id);
 	}

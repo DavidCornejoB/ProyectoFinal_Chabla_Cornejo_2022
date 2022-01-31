@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
 //OBJETO DE NEGOCIO SERVICIO QUE SERÁ CONSUMIDO LOCALMENTE
@@ -14,10 +15,12 @@ public interface ServicioONLocal {
 	
 	public void update(Servicio s) throws Exception;
 	
-	public void read(String id) throws Exception;
+	public void read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	
 	public List<Servicio> getServicios();
+	
+	public Hotel getHotel(int id);
 
 }

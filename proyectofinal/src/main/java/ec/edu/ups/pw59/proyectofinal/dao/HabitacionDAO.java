@@ -25,7 +25,7 @@ public class HabitacionDAO {
 			em.merge(op);
 		}
 	
-	public Habitacion read(String id) {
+	public Habitacion read(int id) {
 		Habitacion op = em.find(Habitacion.class, id);
 		return op;
 	}

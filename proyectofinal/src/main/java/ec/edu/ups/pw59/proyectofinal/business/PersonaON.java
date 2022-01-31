@@ -16,8 +16,21 @@ public class PersonaON implements PersonaONRemote, PersonaONLocal{
 	@Inject
 	private PersonaDAO daoPersona;
 	
+	//MÉTODO PARA VALIDAR CEDULA DE PERSONAS
+	public boolean validarCedula(String cedula) {
+		if(cedula.length()==10) {
+			return true;
+		}
+		return false;
+	}
+	
 	//METODO PARA INSERTAR PERSONAS
 	public void insert(Persona p) throws Exception{
+		
+		//ENVIAMOS LA CEDULA AL MÉTODO VALIDARCEDULA Y RECIBIMOS SI ES VALIDA O NO
+		if(!this.validarCedula(p.getCedula())) {
+			throw new Exception("CEDULA INCORRECTA");
+		}
 		//LLAMAMOS AL METODO INSERT DEL DAO, LE ENVIAMOS EL OBJETO PERSONA QUE SERÁ INSERTADA
 		daoPersona.insert(p);
 	}
