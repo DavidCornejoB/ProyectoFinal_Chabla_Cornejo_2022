@@ -7,6 +7,8 @@
 <h:head>PAQUETES INGRESADOS</h:head> 
 <body> 
 
+<h:form>
+
 <h:dataTable var="paq" value="#{paquetesBean.paquetes}">
 	
 	<h:column>
@@ -50,6 +52,12 @@
 	</h:column>
 
 </h:dataTable>
+
+<h:commandButton action="#{paquetesBean.volverIngresar()}" value="Nuevo" />
+
+<h:commandButton action="principal" value="Pagina principal" />
+
+</h:form>
 
 </body> 
 </html>

@@ -7,6 +7,8 @@
 <h:head>RESERVAS INGRESADAS</h:head> 
 <body> 
  
+ <h:form>
+ 
 <h:dataTable var="res" value="#{reservasBean.reservas}">
 
 	<h:column>
@@ -40,6 +42,13 @@
 	</h:column>
 
 </h:dataTable>
+
+<h:commandButton action="#{reservasBean.vovlerIngresar()}" value="Nueva" />
+
+<h:commandButton action="principal" value="Pagina principal" />
+
+
+</h:form>
 
 </body> 
 </html>

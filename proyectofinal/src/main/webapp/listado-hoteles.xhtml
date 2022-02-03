@@ -7,34 +7,42 @@
 <h:head>HOTELES INGRESADOS</h:head> 
 <body> 
 
-<h:dataTable var="hotel" value="#{hotelesBean.hoteles}">
-
-	<h:column>
-		<f:facet name="header">Código</f:facet>
-		#{hotel.codigo}
-	</h:column>
+<h:form>
+	<h:dataTable var="hotel" value="#{hotelesBean.hoteles}">
 	
-	<h:column>
-		<f:facet name="header">Nombre</f:facet>
-		#{hotel.nombre}
-	</h:column>
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{hotel.codigo}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>
+			#{hotel.nombre}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Pais</f:facet>
+			#{hotel.pais}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Provincia</f:facet>
+			#{hotel.provincia}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Ciudad</f:facet>
+			#{hotel.ciudad}
+		</h:column>
 	
-	<h:column>
-		<f:facet name="header">Pais</f:facet>
-		#{hotel.pais}
-	</h:column>
+	</h:dataTable>
 	
-	<h:column>
-		<f:facet name="header">Provincia</f:facet>
-		#{hotel.provincia}
-	</h:column>
+	<h:commandButton action="#{hotelesBean.volverIngresar()}" value="Nueva" />
 	
-	<h:column>
-		<f:facet name="header">Ciudad</f:facet>
-		#{hotel.ciudad}
-	</h:column>
-
-</h:dataTable>
+	<h:commandButton action="principal" value="Pagina principal" />
+	
+	
+</h:form>
 
 </body> 
 </html>

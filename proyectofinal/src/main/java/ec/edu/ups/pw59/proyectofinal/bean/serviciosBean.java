@@ -92,5 +92,10 @@ public class serviciosBean {
 		
 		return null;
 	}
+	
+	public String volverIngresar() {
+		System.out.println("VOLVIENDO A INGRESO SERVICIOS...");
+		return "servicio";
+	}
 
 }

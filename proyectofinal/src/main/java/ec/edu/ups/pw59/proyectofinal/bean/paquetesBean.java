@@ -120,6 +120,11 @@ public class paquetesBean {
 		
 	}
 	
+	public String volverIngresar() {
+		System.out.println("VOLVIENDO A INGRESO PAQUETES... ");
+		return "paquete";
+	}
+	
 	
 
 }
