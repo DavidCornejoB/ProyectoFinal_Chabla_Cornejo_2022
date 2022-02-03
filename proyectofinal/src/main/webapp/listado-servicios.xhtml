@@ -7,6 +7,8 @@
 <h:head>SERVICIOS INGRESADOS</h:head> 
 <body>
 
+<h:form>
+
 <h:dataTable var="ser" value="#{serviciosBean.servicios}">
 
 	<h:column>
@@ -30,6 +32,13 @@
 	</h:column>
 
 </h:dataTable> 
+
+<h:commandButton action="#{serviciosBean.volverIngresar()}" value="Nuevo" />
+
+<h:commandButton action="principal" value="Pagina principal" />
+
+
+</h:form>
 
 </body> 
 </html>

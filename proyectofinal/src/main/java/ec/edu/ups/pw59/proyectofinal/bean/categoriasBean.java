@@ -73,5 +73,10 @@ public class categoriasBean {
 		//LLAMAMOS AL MÉTODO GETCATEGORIAS() DEL OBJETO DE NEGOCIO
 		this.categorias = categoriaON.getCategorias();
 	}
+	
+	public String volverIngresar() {
+		System.out.println("VOLVIENDO A INGRESO CATEGORIAS...");
+		return "categoria";
+	}
 
 }

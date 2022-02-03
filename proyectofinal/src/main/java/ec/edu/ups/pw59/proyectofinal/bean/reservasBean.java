@@ -94,6 +94,11 @@ public class reservasBean {
 		return null;
 	}
 	
+	public String vovlerIngresar() {
+		System.out.println("VOLVIENDO A INGRESO RESERVAS...");
+		return "reserva";
+	}
+	
 	
 
 }
