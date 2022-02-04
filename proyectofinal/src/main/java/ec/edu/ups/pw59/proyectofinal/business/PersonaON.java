@@ -42,13 +42,13 @@ public class PersonaON implements PersonaONRemote, PersonaONLocal{
 	}
 	
 	//METODO PARA LEER PERSONAS
-	public void read(String id) throws Exception{
+	public Persona read(String id) throws Exception{
 		//LLAMAMOS AL METODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO PERSONA QUE SERÁ LEIDA
-		daoPersona.read(id);
+		return daoPersona.read(id);
 	}
 	
 	//METODO PARA ELIMINAR PERSONAS
-	public void delete(int id) throws Exception{
+	public void delete(String id) throws Exception{
 		//LLAMAMOS AL METODO DELETE DEL DAO, LE ENVIAMOS LA ID DEL OBJETO PERSONA QUE SERA ELIMINADA
 		daoPersona.delete(id);
 	}

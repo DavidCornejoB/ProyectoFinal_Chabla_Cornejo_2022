@@ -17,9 +17,9 @@ public interface PersonaONLocal {
 	
 	public void update(Persona p) throws Exception;
 	
-	public void read(String id) throws Exception;
+	public Persona read(String id) throws Exception;
 	
-	public void delete(int id) throws Exception;
+	public void delete(String id) throws Exception;
 	
 	public List<Persona> getPersonas();
 

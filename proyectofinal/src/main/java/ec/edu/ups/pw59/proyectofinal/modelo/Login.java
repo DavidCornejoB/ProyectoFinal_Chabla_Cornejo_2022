@@ -2,9 +2,12 @@ package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Login implements Serializable{ //CLASE SERIALIZABLE
@@ -20,6 +23,10 @@ public class Login implements Serializable{ //CLASE SERIALIZABLE
 	
 	@Column(name = "log_clave") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String clave;
+	
+	@ManyToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="per_cedula")
+	private Persona persona;
 	
 	//MÉTODOS GET() Y SET()
 	
@@ -41,7 +48,11 @@ public class Login implements Serializable{ //CLASE SERIALIZABLE
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
-	
-	
+	public Persona getPersona() {
+		return persona;
+	}
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
 
 }

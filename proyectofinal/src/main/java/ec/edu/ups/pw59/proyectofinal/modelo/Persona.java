@@ -37,47 +37,8 @@ public class Persona implements Serializable{ //CLASE SERIALIZABLE
 	@Column(name = "per_tipo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String tipo;
 	
-	//RELACION UNIDIRECCIONAL ONE TO ONE CON LOGIN
-	@OneToOne
-	@JoinColumn(name = "log_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
-	private Login login;
-	
-	//RELACION "ONE TO MANY" CON LA TABLA FACTURACABECERAHABITACION
-	@OneToMany
-	@JoinColumn(name = "per_cedula")
-	private List<FacturaCabeceraHabitacion> facturaCabHabitacion;
-	
-	//RELACION "ONE TO MANY" CON LA TABLA FACTURACABECERASERVICIO
-	@OneToMany
-	@JoinColumn(name = "per_cedula")
-	private List<FacturaCabeceraServicio> facturaCabServicio;
-	
-	//RELACION "ONE TO MANY" CON LA TABLA FACTURACABECERAPAQUETE
-	@OneToMany
-	@JoinColumn(name = "per_cedula")
-	private List<FacturaCabeceraPaquete> facturaCabPaquete;
-	
-	
 	//MÉTODOS GET() Y SET()
 	
-	public List<FacturaCabeceraHabitacion> getFacturaCabHabitacion() {
-		return facturaCabHabitacion;
-	}
-	public void setFacturaCabHabitacion(List<FacturaCabeceraHabitacion> facturaCabHabitacion) {
-		this.facturaCabHabitacion = facturaCabHabitacion;
-	}
-	public List<FacturaCabeceraServicio> getFacturaCabServicio() {
-		return facturaCabServicio;
-	}
-	public void setFacturaCabServicio(List<FacturaCabeceraServicio> facturaCabServicio) {
-		this.facturaCabServicio = facturaCabServicio;
-	}
-	public List<FacturaCabeceraPaquete> getFacturaCabPaquete() {
-		return facturaCabPaquete;
-	}
-	public void setFacturaCabPaquete(List<FacturaCabeceraPaquete> facturaCabPaquete) {
-		this.facturaCabPaquete = facturaCabPaquete;
-	}
 	public String getCedula() {
 		return cedula;
 	}
@@ -120,15 +81,5 @@ public class Persona implements Serializable{ //CLASE SERIALIZABLE
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public Login getLogin() {
-		return login;
-	}
-	public void setLogin(Login login) {
-		this.login = login;
-	}
-	
-	
-	
-	
 
 }
