@@ -24,7 +24,7 @@ public class Login implements Serializable{ //CLASE SERIALIZABLE
 	@Column(name = "log_clave") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private String clave;
 	
-	@ManyToOne(cascade= {CascadeType.ALL})
+	@ManyToOne
 	@JoinColumn(name="per_cedula")
 	private Persona persona;
 	
