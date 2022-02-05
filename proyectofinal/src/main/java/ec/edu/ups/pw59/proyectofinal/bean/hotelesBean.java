@@ -73,5 +73,10 @@ public class hotelesBean {
 		//LLAMAMOS AL MÉTODO GETHOTELES() DEL OBJETO DE NEGOCIO
 		this.hoteles = hotelON.getHoteles();
 	}
+	
+	public String volverIngresar() {
+		System.out.println("VOLVIENDO A INGRESAR HOTEL...");
+		return "hotel";
+	}
 
 }

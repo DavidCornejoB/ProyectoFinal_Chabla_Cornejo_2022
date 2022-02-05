@@ -7,6 +7,7 @@
 <h:head>CATEGORIAS INGRESADAS</h:head> 
 <body> 
 
+<h:form>
 <h:dataTable var="cat" value="#{categoriasBean.categorias}">
 	
 	<h:column>
@@ -25,6 +26,11 @@
 	</h:column>
 
 </h:dataTable>
+
+<h:commandButton action="#{categoriasBean.volverIngresar()}" value="Nueva" />
+
+<h:commandButton action="principal" value="Pagina principal" />
+</h:form>
 
 </body> 
 </html>

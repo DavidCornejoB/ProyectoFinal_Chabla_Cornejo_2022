@@ -99,4 +99,9 @@ public class habitacionesBean {
 		return null;
 	}
 	
+	public String volverIngresar() {
+		System.out.println("VOLVIENDO A INGRESO HABITACIONES... ");
+		return "habitacion";
+	}
+	
 }

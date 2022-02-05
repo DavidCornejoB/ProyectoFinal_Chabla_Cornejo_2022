@@ -18,8 +18,7 @@ public class PersonaDAO {
 	private EntityManager em;
 	
 	public void insert(Persona op) {
-		em.persist(op);
-		
+		em.persist(op);		
 	}
 	
 	public void update(Persona op) {
@@ -31,7 +30,7 @@ public class PersonaDAO {
 		return op;
 	}
 	
-	public void delete(int id) {
+	public void delete(String id) {
 		Persona op = em.find(Persona.class, id);
 		em.remove(op);
 	}
@@ -47,6 +46,8 @@ public class PersonaDAO {
 		listado = query.getResultList();
 		
 		return listado;
+		
+		
 		
 		//JSPQL -> SQL
 		

@@ -64,7 +64,7 @@ public class PersonasBean {
 			e.printStackTrace();
 		}
 		//UNA VEZ SE HA INGRESADO UNA PERSONA, SE REDIRIGIRÁ AL FORMULARIO DE LISTAR PERSONAS
-		return null; //"listado-personas?faces-redirect=true";
+		return "listado-personas?faces-redirect=true";
 	}
 	
 	//MÉTODO PARA EDITAR PERSONAS
@@ -77,6 +77,11 @@ public class PersonasBean {
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETPERSONAS() DEL OBJETO DE NEGOCIO
 		this.personas = personaON.getPersonas();
+	}
+	
+	public String volverIngresar() {
+		System.out.println("VOLVIENDO A INGRESAR...");
+		return "persona";
 	}
 
 }

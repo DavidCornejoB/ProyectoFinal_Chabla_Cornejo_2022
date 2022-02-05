@@ -25,7 +25,7 @@ public class LoginDAO {
 			em.merge(op);
 		}
 	
-	public Login read(String id) {
+	public Login read(int id) {
 		Login op = em.find(Login.class, id);
 		return op;
 	}
