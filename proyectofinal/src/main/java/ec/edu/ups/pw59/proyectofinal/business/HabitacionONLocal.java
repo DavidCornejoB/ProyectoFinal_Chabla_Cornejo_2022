@@ -16,7 +16,7 @@ public interface HabitacionONLocal {
 	
 	public void update(Habitacion h) throws Exception;
 	
-	public void read(int id) throws Exception;
+	public Habitacion read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	
