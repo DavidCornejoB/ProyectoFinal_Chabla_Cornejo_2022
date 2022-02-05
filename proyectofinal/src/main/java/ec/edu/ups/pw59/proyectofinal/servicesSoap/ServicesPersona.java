@@ -133,7 +133,7 @@ public class ServicesPersona {
 			return "PERSONA: " + persona.getCedula() + " ELIMINADA";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 			return "ERROR AL ELIMINAR PERSONA";
 		}
 
