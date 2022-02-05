@@ -39,9 +39,9 @@ public class HabitacionON implements HabitacionONRemote, HabitacionONLocal{
 	}
 	
 	//METODO PARA LEER HABITACIONES
-	public void read(int id) throws Exception{
+	public Habitacion read(int id) throws Exception{
 		//LLAMAMOS AL MÉTODO READ DEL DAO, LE ENVIAMOS LA ID DE LA HABITACION QUE QUEREMOS LEER
-		daoHabitacion.read(id);
+		return daoHabitacion.read(id);
 	}
 	
 	//METODO APRA ELIMINAR HABITACIONES
