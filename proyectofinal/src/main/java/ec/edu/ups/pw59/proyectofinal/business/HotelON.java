@@ -29,9 +29,9 @@ public class HotelON implements HotelONRemote, HotelONLocal{
 	}
 	
 	//METODO PARA LEER HOTELES
-	public void read(int id) throws Exception{
+	public Hotel read(int id) throws Exception{
 		//LLAMAMOS AL METODO READ DEL DAO, LE ENVIAMOS LA ID DEL HOTEL QUE QUEREMOS LEER
-		daoHotel.read(id);
+		return daoHotel.read(id);
 	}
 	
 	//METODO PARA ELIMINAR HOTELES

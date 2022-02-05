@@ -14,7 +14,7 @@ public interface HotelONLocal {
 	
 	public void update(Hotel h) throws Exception;
 	
-	public void read(int id) throws Exception;
+	public Hotel read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	
