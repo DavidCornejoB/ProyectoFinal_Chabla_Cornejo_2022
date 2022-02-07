@@ -4,37 +4,74 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>INGRESAR PERSONAS</h:head> 
-<body> 
 
-<h:form>
-
-	<h:outputLabel value="Cédula: " />
-	<h:inputText value = "#{personasBean.persona.cedula}" />
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Crear Clientes 
+    </ui:define>
+	<ui:define name="content">
 	
-	<h:outputLabel value="Nombre: " />
-	<h:inputText value = "#{personasBean.persona.nombre}" />
-	
-	<h:outputLabel value="Apellido: " />
-	<h:inputText value = "#{personasBean.persona.apellido}" />
-	
-	<h:outputLabel value="Dirección: " />
-	<h:inputText value = "#{personasBean.persona.direccion}" />
-	
-	<h:outputLabel value="Pais: " />
-	<h:inputText value = "#{personasBean.persona.pais}" />
-	
-	<h:outputLabel value="Ciudad: " />
-	<h:inputText value = "#{personasBean.persona.ciudad}" />
-	
-	<h:outputLabel value="Tipo: " />
-	<h:inputText value = "#{personasBean.persona.tipo}" />
-	
-	<h:commandButton action="#{personasBean.guardar()}" value="Guardar" class="btn btn-primary mr-2" />
-	
-	<h:commandButton action="listado-personas" value="Lista" class="btn btn-light" />
-
-</h:form>
-
-</body> 
+		<div class="card-body">
+			<h4 class="card-title">Formulario de Registro</h4>
+				<h:form class="forms-sample">
+				
+					<div class="form-group">
+					    <label for="txtCedula">Cédula</label>
+					    <h:inputText class="form-control" id="txtCedula" 
+									value = "#{personasBean.persona.cedula}" placeholder="Name">
+						</h:inputText>						
+					</div>
+					
+					<div class="form-group">
+					    <label for="txtNombre">Nombre</label>
+						<h:inputText class="form-control" id="txtNombre"
+									value = "#{personasBean.persona.nombre}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">
+					    <label for="txtApellido">Apellido</label>
+						<h:inputText class="form-control" id="txtApellido"
+									value = "#{personasBean.persona.apellido}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">	
+					    <label for="txtDireccion">Dirección</label>		
+						<h:inputText class="form-control" id="txtDireccion"
+									value = "#{personasBean.persona.direccion}">
+						</h:inputText>
+					</div>
+						
+					<div class="form-group">
+					    <label for="txtPais">País</label>
+						<h:inputText class="form-control" id="txtPais"
+									value = "#{personasBean.persona.pais}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">
+						<label for="txtCiudad">Ciudad</label>
+						<h:inputText class="form-control" id="txtCiudad"
+									value = "#{personasBean.persona.ciudad}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">
+						<label for="txttipo">Tipo</label>
+						<h:inputText class="form-control" id="txtTipo"
+									value = "#{personasBean.persona.tipo}">
+						</h:inputText>
+						
+					</div>
+					
+						<h:commandButton action="#{personasBean.guardar()}" value="Guardar" class="btn btn-primary mr-2" />
+					
+						<h:commandButton action="listado-personas" value="Lista" class="btn btn-light" />
+			
+				</h:form>
+		</div>
+			
+	</ui:define>
+</ui:composition>
 </html>
