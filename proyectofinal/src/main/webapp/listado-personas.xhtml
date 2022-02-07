@@ -4,55 +4,64 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>PERSONAS INGRESADAS</h:head> 
-<body> 
-
-<h:form>
-	<h:dataTable var="per" value="#{personasBean.personas}">
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	Listado de Clientes
+    </ui:define>
+	<ui:define name="content">
 	
-		<h:column>
-			<f:facet name="header">Cedula</f:facet>
-			#{per.cedula}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Nombre</f:facet>
-			#{per.nombre}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Apellido</f:facet>
-			#{per.apellido}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Direccion</f:facet>
-			#{per.direccion}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Pais</f:facet>
-			#{per.pais}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Ciudad</f:facet>
-			#{per.ciudad}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Tipo</f:facet>
-			#{per.tipo}
-		</h:column>
-	
-	</h:dataTable>
-	
-	<h:commandButton action="#{personasBean.volverIngresar()}" value="Nueva" />
-	
-	<h:commandButton action="principal" value="Pagina principal" />
-	
-
-</h:form>
-
-</body> 
+			<h:form>
+				<h:dataTable var="per" class="table table-dark" value="#{personasBean.personas}">
+				
+					<h:column>
+						<f:facet name="header">Cedula</f:facet>
+						#{per.cedula}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{per.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Apellido</f:facet>
+						#{per.apellido}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Direccion</f:facet>
+						#{per.direccion}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Pais</f:facet>
+						#{per.pais}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>
+						#{per.ciudad}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Tipo</f:facet>
+						#{per.tipo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Editar</f:facet>
+						<h:commandButton action="#{personasBean.volverIngresar()}" value="Editar" inmediate="true" />
+						
+					</h:column>
+				
+				</h:dataTable>
+				
+				<h:commandButton action="#{personasBean.volverIngresar()}" value="Nueva" />
+				
+				<h:commandButton action="principal" value="Pagina principal" />
+				
+			
+			</h:form>
+	</ui:define>
+</ui:composition>
 </html>

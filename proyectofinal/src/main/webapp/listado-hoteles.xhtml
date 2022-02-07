@@ -4,45 +4,48 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>HOTELES INGRESADOS</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	Listado de Hoteles
+    </ui:define>
+	<ui:define name="content">
+			<h:form>
+				<h:dataTable var="hotel"  class="table table-striped" value="#{hotelesBean.hoteles}">
+				
+					<h:column>
+						<f:facet name="header">Código</f:facet>
+						#{hotel.codigo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{hotel.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Pais</f:facet>
+						#{hotel.pais}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Provincia</f:facet>
+						#{hotel.provincia}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>
+						#{hotel.ciudad}
+					</h:column>
+				
+				</h:dataTable>
+				
+				<h:commandButton action="#{hotelesBean.volverIngresar()}" value="Nueva" />
+				
+				<h:commandButton action="principal" value="Pagina principal" />
+				
+				
+			</h:form>
 
-<h:form>
-	<h:dataTable var="hotel" value="#{hotelesBean.hoteles}">
-	
-		<h:column>
-			<f:facet name="header">Código</f:facet>
-			#{hotel.codigo}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Nombre</f:facet>
-			#{hotel.nombre}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Pais</f:facet>
-			#{hotel.pais}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Provincia</f:facet>
-			#{hotel.provincia}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Ciudad</f:facet>
-			#{hotel.ciudad}
-		</h:column>
-	
-	</h:dataTable>
-	
-	<h:commandButton action="#{hotelesBean.volverIngresar()}" value="Nueva" />
-	
-	<h:commandButton action="principal" value="Pagina principal" />
-	
-	
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition>
 </html>

@@ -4,33 +4,37 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>CATEGORIAS INGRESADAS</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	Listado de Clientes
+    </ui:define>
+	<ui:define name="content">
 
-<h:form>
-<h:dataTable var="cat" value="#{categoriasBean.categorias}">
-	
-	<h:column>
-		<f:facet name="header">Código</f:facet>
-		#{cat.codigo}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Nombre</f:facet>
-		#{cat.nombre}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Precio</f:facet>
-		#{cat.precio}
-	</h:column>
+			<h:form>
+			<h:dataTable var="cat" class="table table-striped" value="#{categoriasBean.categorias}">
+				
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+					#{cat.codigo}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					#{cat.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Precio</f:facet>
+					#{cat.precio}
+				</h:column>
+			
+			</h:dataTable>
+			
+			<h:commandButton action="#{categoriasBean.volverIngresar()}" value="Nueva" />
+			
+			<h:commandButton action="principal" value="Pagina principal" />
+			</h:form>
 
-</h:dataTable>
-
-<h:commandButton action="#{categoriasBean.volverIngresar()}" value="Nueva" />
-
-<h:commandButton action="principal" value="Pagina principal" />
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition>
 </html>

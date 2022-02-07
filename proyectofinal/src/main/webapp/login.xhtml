@@ -5,27 +5,46 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>REGISTRAR LOGIN</h:head> 
-<body> 
 
-<h:form>
-	
-	<h:outputLabel value="Código: " />
-	<h:inputText value="#{loginBean.login.codigo}" />
-	
-	<h:outputLabel value="Correo: " />
-	<h:inputText value="#{loginBean.login.correo}" />
-	
-	<h:outputLabel value="Contraseña: " />
-	<h:inputText value="#{loginBean.login.clave}" />
-	
-	<h:outputLabel value="Cedula persona: " />
-	<h:inputText value="#{loginBean.login.persona.cedula}" />
-	
-	<h:commandButton action="#{loginBean.guardar()}" value="Guardar" />
-	
-	<h:commandButton action="listado-logins" value="Lista" />
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Login
+    </ui:define>
+    <ui:define name="content">
 
-</h:form>
-
-</body> 
+			<div class="card-body">
+				<h4 class="card-title">Mi Perfil</h4>
+				<h:form class="forms-sample">
+					<div class="form-group row">
+						<label for="txtCodigo" class="col-sm-3 col-form-label">Código:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtCodigo" value="#{loginBean.login.codigo}"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtCorreo" class="col-sm-3 col-form-label">Correo:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtCorreo" value="#{loginBean.login.correo}"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtContrasena" class="col-sm-3 col-form-label">Contraseña:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtContrasena" value="#{loginBean.login.clave}"/>
+							
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtCedula" class="col-sm-3 col-form-label">Cédula Persona:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtCedula" value="#{loginBean.login.persona.cedula}"/>
+							
+						</div>
+					</div>
+					<h:commandButton action="#{loginBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
+					<h:commandButton action="listado-logins" value="Lista" class="btn btn-dark"/>
+				</h:form>
+			</div>
+	</ui:define>
+</ui:composition>
 </html>

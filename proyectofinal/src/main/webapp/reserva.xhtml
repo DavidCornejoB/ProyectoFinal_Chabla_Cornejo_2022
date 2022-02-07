@@ -4,28 +4,45 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>INSERTAR RESERVAS</h:head> 
-<body> 
 
-<h:form>
-
-	<h:outputLabel value="Código: " />
-	<h:inputText value="#{reservasBean.reserva.codigo}" />
-	
-	<h:outputLabel value="Hora entrada: " />
-	<h:inputText value="#{reservasBean.reserva.entrada}" />
-	
-	<h:outputLabel value="Hora salida: " />
-	<h:inputText value="#{reservasBean.reserva.salida}" />
-	
-	<h:outputLabel value="Habitación: " />
-	<h:inputText value="#{reservasBean.reserva.habitacion.numero}" />
-	
-	<h:commandButton action="#{reservasBean.guardar()}" value="Guardar" />
-	
-	<h:commandButton action="listado-reservas" value="Listar" />
-
-</h:form>
-
-</body> 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Reserva de hoteles
+    </ui:define>
+    <ui:define name="content">
+    	<div class="card-body">
+				<h4 class="card-title">Ingresa de hoteles</h4>
+				<h:form class="forms-sample">
+					<div class="form-group row">
+						<label for="txtCodigo" class="col-sm-3 col-form-label">Código:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtCodigo" value="#{reservasBean.reserva.codigo}"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtEntrada" class="col-sm-3 col-form-label">Entrada:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtEntrada" value="#{reservasBean.reserva.entrada}"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtSalida" class="col-sm-3 col-form-label">Salida:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtSalida" value="#{reservasBean.reserva.salida}"/>
+							
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtCedula" class="col-sm-3 col-form-label">Cédula</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtCedula" value="#{reservasBean.reserva.habitacion.numero}"/>
+							
+						</div>
+					</div>
+					<h:commandButton action="#{reservasBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
+					<h:commandButton action="listado-reservas" value="Lista" class="btn btn-dark"/>
+				</h:form>
+			</div>
+</ui:define>
+</ui:composition>
 </html>

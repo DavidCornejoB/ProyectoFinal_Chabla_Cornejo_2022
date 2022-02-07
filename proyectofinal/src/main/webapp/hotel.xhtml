@@ -5,29 +5,51 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>INGRESAR HOTELES</h:head> 
-<body> 
 
-<h:form>
-	<h:outputLabel value="Código: " />
-	<h:inputText value="#{hotelesBean.hotel.codigo}" />
-	
-	<h:outputLabel value="Nombre: " />
-	<h:inputText value="#{hotelesBean.hotel.nombre}" />
-	
-	<h:outputLabel value="País: " />
-	<h:inputText value="#{hotelesBean.hotel.pais}" />
-	
-	<h:outputLabel value="Provincia: " />
-	<h:inputText value="#{hotelesBean.hotel.provincia}" />
-	
-	<h:outputLabel value="Ciudad: " />
-	<h:inputText value="#{hotelesBean.hotel.ciudad}" />
-	
-	<h:commandButton action="#{hotelesBean.guardar()}" value="Guardar" />
-	
-	<h:commandButton action="listado-hoteles" value="Lista" class="btn btn-light"/>
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Hotel
+    </ui:define>
+    <ui:define name="content">
 
-</h:form>
+			<div class="card-body">
+				<h4 class="card-title">Registro de Hoteles</h4>
+				<h:form class="forms-sample">
+					<div class="form-group">
+						<label for="txtCodigo">Código</label>
+						<h:inputText class="form-control" id="txtCedula"
+							value="#{hotelesBean.hotel.codigo}">
+						</h:inputText>
 
-</body> 
+					</div>
+					<div class="form-group">
+						<label for="txtNombre">Nombre</label>
+						<h:inputText class="form-control" id="txtNombre"
+							value="#{hotelesBean.hotel.nombre}" />
+					</div>
+					<div class="form-group">
+						<label for="txtPais">País</label>
+						<h:inputText class="form-control" id="txtPais"
+							value="#{hotelesBean.hotel.pais}" />
+					</div>
+					<div class="form-group">
+						<label for="txtProvincia">Provincia</label>
+						<h:inputText class="form-control" id="txtProvincia"
+							value="#{hotelesBean.hotel.provincia}" />
+					</div>
+					<div class="form-group">
+						<label for="txtCiudad">Ciudad</label>
+						<h:inputText class="form-control" id="txtCiudad"
+							value="#{hotelesBean.hotel.ciudad}" />
+					</div>
+
+
+					<h:commandButton action="#{hotelesBean.guardar()}" value="Guardar"
+						class="btn btn-primary mr-2" />
+					<h:commandButton action="listado-hoteles" value="Lista"
+						class="btn btn-dark" />
+				</h:form>
+			</div>
+		</ui:define>
+</ui:composition>
 </html>
