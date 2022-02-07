@@ -4,41 +4,45 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>SERVICIOS INGRESADOS</h:head> 
-<body>
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	Listado de Clientes
+    </ui:define>
+	<ui:define name="content">
 
-<h:form>
+		<h:form>
+		
+		<h:dataTable var="ser" class="table table-striped" value="#{serviciosBean.servicios}">
+		
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{ser.codigo}
+			</h:column>
+			
+				<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				#{ser.nombre}
+			</h:column>
+			
+				<h:column>
+				<f:facet name="header">Precio</f:facet>
+				#{ser.precio}
+			</h:column>
+			
+				<h:column>
+				<f:facet name="header">Hotel</f:facet>
+				#{ser.hotel.nombre}
+			</h:column>
+		
+		</h:dataTable> 
+		
+		<h:commandButton action="#{serviciosBean.volverIngresar()}" value="Nuevo" />
+		
+		<h:commandButton action="principal" value="Pagina principal" />
+		
+		
+		</h:form>
 
-<h:dataTable var="ser" value="#{serviciosBean.servicios}">
-
-	<h:column>
-		<f:facet name="header">Código</f:facet>
-		#{ser.codigo}
-	</h:column>
-	
-		<h:column>
-		<f:facet name="header">Nombre</f:facet>
-		#{ser.nombre}
-	</h:column>
-	
-		<h:column>
-		<f:facet name="header">Precio</f:facet>
-		#{ser.precio}
-	</h:column>
-	
-		<h:column>
-		<f:facet name="header">Hotel</f:facet>
-		#{ser.hotel.nombre}
-	</h:column>
-
-</h:dataTable> 
-
-<h:commandButton action="#{serviciosBean.volverIngresar()}" value="Nuevo" />
-
-<h:commandButton action="principal" value="Pagina principal" />
-
-
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition>
 </html>

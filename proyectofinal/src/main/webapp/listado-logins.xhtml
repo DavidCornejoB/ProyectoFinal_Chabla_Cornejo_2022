@@ -4,40 +4,44 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>LOGINS LISTADOS</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	Listado de Clientes
+    </ui:define>
+	<ui:define name="content">
 
-<h:form>
-
-<h:dataTable var="log" value="#{loginBean.logins}">
-
-<h:column>
-		<f:facet name="header">Código</f:facet>
-		#{log.codigo}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Correo</f:facet>
-		#{log.correo}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Contraseña</f:facet>
-		#{log.clave}
-	</h:column>
-	
-	<h:column>
-		<f:facet name="header">Persona</f:facet>
-		#{log.persona.nombre}
-	</h:column>
-
-</h:dataTable>
-
-<h:commandButton action="#{loginBean.volverIngresar()}" value="Nuevo" />
-
-<h:commandButton action="principal" value="Pagina principal" />
-
-</h:form>
-
-</body> 
+			<h:form>
+			
+			<h:dataTable var="log" class="table table-striped" value="#{loginBean.logins}">
+			
+			<h:column>
+					<f:facet name="header">Código</f:facet>
+					#{log.codigo}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Correo</f:facet>
+					#{log.correo}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Contraseña</f:facet>
+					#{log.clave}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Persona</f:facet>
+					#{log.persona.nombre}
+				</h:column>
+			
+			</h:dataTable>
+			
+			<h:commandButton action="#{loginBean.volverIngresar()}" value="Nuevo" />
+			
+			<h:commandButton action="principal" value="Pagina principal" />
+			
+			</h:form>
+			
+	</ui:define>
+</ui:composition>
 </html>

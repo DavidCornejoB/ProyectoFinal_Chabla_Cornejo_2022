@@ -5,27 +5,45 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>INGRESAR SERVICIOS</h:head> 
-<body> 
-
-<h:form>
-
-	<h:outputLabel value="Código: " />
-	<h:inputText value="#{serviciosBean.servicio.codigo}" />
-	
-	<h:outputLabel value="Nombre: " />
-	<h:inputText value="#{serviciosBean.servicio.nombre}" />
-	
-	<h:outputLabel value="Precio: " />
-	<h:inputText value="#{serviciosBean.servicio.precio}" />
-	
-	<h:outputLabel value="Hotel: " />
-	<h:inputText value="#{serviciosBean.servicio.hotel.codigo}" />
-	
-	<h:commandButton action="#{serviciosBean.guardar()}" value="Guardar" />
-	
-	<h:commandButton action="listado-servicios" value="Listar" />
-
-</h:form>
-
-</body> 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Login
+    </ui:define>
+    <ui:define name="content">
+    
+    <div class="card-body">
+				<h4 class="card-title">Mi Perfil</h4>
+				<h:form class="forms-sample">
+					<div class="form-group row">
+						<label for="txtCodigo" class="col-sm-3 col-form-label">Código:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtCodigo" value="#{serviciosBean.servicio.codigo}"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtNombre" class="col-sm-3 col-form-label">Nombre:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtNombre" value="#{serviciosBean.servicio.nombre}"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtPrecio" class="col-sm-3 col-form-label">Precio:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtPrecio" value="#{serviciosBean.servicio.precio}"/>
+							
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="txtHotel" class="col-sm-3 col-form-label">Hotel:</label>
+						<div class="col-sm-9">
+							<h:inputText class="form-control" id="txtHotel" value="#{serviciosBean.servicio.hotel.codigo}"/>
+							
+						</div>
+					</div>
+					<h:commandButton action="#{serviciosBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
+					<h:commandButton action="listado-servicios" value="Lista" class="btn btn-dark"/>
+				</h:form>
+			</div>
+	</ui:define>
+</ui:composition> 
 </html>

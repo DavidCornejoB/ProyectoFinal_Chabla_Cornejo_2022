@@ -4,27 +4,31 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>PAGINA PRINCIPAL</h:head> 
-<body> 
 
-<h:form>
-<h:commandButton action="listado-categorias" value="CATEGORIAS" />
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	Principal
+    </ui:define>
+	<ui:define name="content">
 
-<h:commandButton action="listado-habitaciones" value="HABITACIONES" />
-
-<h:commandButton action="listado-hoteles" value="HOTELES" />
-
-<h:commandButton action="listado-paquetes" value="PAQUETES" />
-
-<h:commandButton action="listado-personas" value="PERSONAS" />
-
-<h:commandButton action="listado-reservas" value="RESERVAS" />
-
-<h:commandButton action="listado-servicios" value="SERVICIOS" />
-
-<h:commandButton action="listado-logins" value="LOGINS" />
-
-</h:form>
-
-</body> 
+			<h:form>
+				<h:commandButton action="listado-categorias" value="CATEGORIAS" />
+				
+				<h:commandButton action="listado-habitaciones" value="HABITACIONES" />
+				
+				<h:commandButton action="listado-hoteles" value="HOTELES" />
+				
+				<h:commandButton action="listado-paquetes" value="PAQUETES" />
+				
+				<h:commandButton action="listado-personas" value="PERSONAS" />
+				
+				<h:commandButton action="listado-reservas" value="RESERVAS" />
+				
+				<h:commandButton action="listado-servicios" value="SERVICIOS" />
+				
+				<h:commandButton action="listado-logins" value="LOGINS" />
+			
+			</h:form>
+	</ui:define>
+</ui:composition>
 </html>
