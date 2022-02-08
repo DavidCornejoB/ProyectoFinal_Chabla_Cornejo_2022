@@ -21,5 +21,9 @@ public interface PersonaONRemote {
 	public void delete(String id) throws Exception;
 	
 	public List<Persona> getPersonas();
+	
+	public Persona getPersona(String cedula);
+	
+	public void guardar(Persona p) throws Exception;
 
 }

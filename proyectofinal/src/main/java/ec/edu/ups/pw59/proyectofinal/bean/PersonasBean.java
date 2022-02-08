@@ -18,6 +18,9 @@ public class PersonasBean {
 	@Inject
 	private PersonaONLocal personaON;
 	
+	//Llamamos a la cedula para los ajax (editar)
+	private String cedula;
+	
 	//CREAMOS EL OBJETO PERSONA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
 	private Persona persona = new Persona();
 	
@@ -51,6 +54,14 @@ public class PersonasBean {
 		this.personas = personas;
 	}
 
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
 	//MÉTODO PARA GUARDAR PERSONAS
 	public String guardar() {
 		
@@ -58,7 +69,7 @@ public class PersonasBean {
 		
 		try {
 			//USAMOS EL MÉTODO INSERT DE LA ENTIDAD DE NEGOCIO DE PERSONA
-			personaON.insert(this.persona);
+			personaON.guardar(this.persona);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,6 +93,15 @@ public class PersonasBean {
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESAR...");
 		return "persona";
+	}
+	
+	//Metodo para cargar los datos y por medio de la cedula y lograr editar
+	public void loadData() {
+		if(cedula==null)
+			return;
+		
+		Persona p = personaON.getPersona(cedula);
+		persona = p;
 	}
 
 }

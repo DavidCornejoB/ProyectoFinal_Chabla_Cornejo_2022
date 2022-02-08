@@ -4,6 +4,13 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
+<h:head>
+ 	<f:metadata>
+ 		<f:viewParam name="id" value="#{personasBean.cedula}"></f:viewParam>
+ 		<f:viewAction action="#{personasBean.loadData()}"/>
+ 	</f:metadata>
+ </h:head>
+ 
 
 <ui:composition template="template/plantilla.xhtml">
     <ui:define name="title">
