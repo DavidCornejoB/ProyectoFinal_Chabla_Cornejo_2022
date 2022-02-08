@@ -62,6 +62,8 @@ public class loginBean {
 		
 		System.out.println("GUARDANDO LOGIN: " + this.login.getClave());
 		
+		
+		
 		try {
 			loginON.insert(this.login);
 		} catch (Exception e) {
@@ -69,7 +71,11 @@ public class loginBean {
 			e.printStackTrace();
 		}
 		
-		return "listado-logins?faces-redirect=true";
+		if (this.login.getPersona().getTipo().equals("Administrador")) {
+			return "principal";
+		} else {
+			return "cliente-principal";
+		}
 	}
 	
 	public void cargar() {
