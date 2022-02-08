@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Crear Clientes 
+    </ui:define>
+	<ui:define name="content">
+	
+		<div class="card-body">
+			<h4 class="card-title">Formulario de Registro</h4>
+				<h:form class="forms-sample">
+				
+					<div class="form-group">
+					    <label for="txtCedula">Cédula</label>
+					    <h:inputText class="form-control" id="txtCedula" 
+									value = "#{clienteRegisterBean.persona.cedula}" placeholder="Name">
+						</h:inputText>						
+					</div>
+					
+					<div class="form-group">
+					    <label for="txtNombre">Nombre</label>
+						<h:inputText class="form-control" id="txtNombre"
+									value = "#{clienteRegisterBean.persona.nombre}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">
+					    <label for="txtApellido">Apellido</label>
+						<h:inputText class="form-control" id="txtApellido"
+									value = "#{clienteRegisterBean.persona.apellido}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">	
+					    <label for="txtDireccion">Dirección</label>		
+						<h:inputText class="form-control" id="txtDireccion"
+									value = "#{clienteRegisterBean.persona.direccion}">
+						</h:inputText>
+					</div>
+						
+					<div class="form-group">
+					    <label for="txtPais">País</label>
+						<h:inputText class="form-control" id="txtPais"
+									value = "#{clienteRegisterBean.persona.pais}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">
+						<label for="txtCiudad">Ciudad</label>
+						<h:inputText class="form-control" id="txtCiudad"
+									value = "#{clienteRegisterBean.persona.ciudad}">
+						</h:inputText>
+					</div>
+					
+					<div class="form-group">
+						<label for="txttipo">Correo: </label>
+						<h:inputText class="form-control" id="txtCorreo"
+									value = "#{clienteRegisterBean.login.correo}">
+						</h:inputText>
+						
+					</div>
+					
+					<div class="form-group">
+						<label for="txttipo">Contraseña: </label>
+						<h:inputText class="form-control" id="txtContrasenia"
+									value = "#{clienteRegisterBean.login.clave}">
+						</h:inputText>
+						
+					</div>
+					
+						<h:commandButton action="#{clienteRegisterBean.guardar()}" value="Guardar" class="btn btn-primary mr-2" />
+					
+						<h:commandButton action="cliente-loguearse" value="Volver" class="btn btn-light" />
+			
+				</h:form>
+		</div>
+			
+	</ui:define>
+</ui:composition>
+</html>

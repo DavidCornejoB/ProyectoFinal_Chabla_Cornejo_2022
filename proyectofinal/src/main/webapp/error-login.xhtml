@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>USUARIO O CONTRASEÑA INCORRECTOS</h:head> 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Desea registrarse?
+    </ui:define>
+    <ui:define name="content">
+
+			<div class="card-body">
+				<h4 class="card-title">DESEA REGISTRARSE?</h4>
+				
+				<h:form class="forms-sample">
+
+					<h:commandButton action="cliente-registrar-persona" value="Registrarse" class="btn btn-primary mr-2"/>
+					
+					<h:commandButton action="cliente-loguearse" value="Volver" class="btn btn-dark"/>
+				</h:form>
+			</div>
+	</ui:define>
+</ui:composition>
+</html>
