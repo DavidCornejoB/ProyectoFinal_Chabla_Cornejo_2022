@@ -63,8 +63,9 @@ public class clienteLoginBean {
 		Persona p = new Persona();
 		p = cargarPersona();
 
-		if (p == null) {
+		if (p == null) {//SI PERSONA ES NULL...
 
+			//...SE LE PEDIRÁ REGISTRARSE
 			return "error-login";
 
 		} else {// ELSE PERSONA NO ES NULL
