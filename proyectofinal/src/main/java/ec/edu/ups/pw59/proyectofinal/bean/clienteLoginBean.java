@@ -80,7 +80,7 @@ public class clienteLoginBean {
 			} // ADMINISTRADOR
 			else 
 			{// CLIENTE
-				return "cliente-principal";
+				return "cliente-ubicacion";
 			} // CLIENTE
 
 		} // ELSE PERSONA NO ES NULL
