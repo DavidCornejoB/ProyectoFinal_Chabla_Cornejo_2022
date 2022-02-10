@@ -22,7 +22,7 @@ public class clienteUbicacionBean {
 	
 	private String pais;
 	
-	private String ubicacion;
+	public static String ubicacion;
 	
 	private List<Hotel> hoteles;
 	
@@ -77,22 +77,21 @@ public class clienteUbicacionBean {
 	}
 
 	//MOSTRAR HOTELES DE COLOMBIA
-	public void ubicacionColombia() {
+	public String ubicacionColombia() {
 		this.ubicacion = "Colombia";
-		listarHoteles();
+		return "cliente-principal?faces-redirect=true";
 	}
 	
 	//MOSTRAR HOTELES DE ECUADOR
-	public void ubicacionEcuador() {
+	public String ubicacionEcuador() {
 		this.ubicacion = "Ecuador";
-		listarHoteles();
+		return "cliente-principal?faces-redirect=true";
 	}
 	
 	//MOSTRAR HOTELES DE PERU
-	public void ubicacionPeru() {
+	public String ubicacionPeru() {
 		this.ubicacion = "Peru";
-		listarHoteles();
-		
+		return "cliente-principal?faces-redirect=true";		
 	}
 	
 	public void listarHoteles() {
@@ -108,6 +107,12 @@ public class clienteUbicacionBean {
 		
 		this.hoteles = hotelesPais;
 		
+	}
+	
+	public String mostrarHotel(int id) {
+		System.out.println("******************************************");
+		System.out.println("NOS VAMOS A CLIENTE VENTANA HOTEL " + id);
+		return "cliente-ventana-hotel?faces-redirect=true&id=" + id;
 	}
 
 }
