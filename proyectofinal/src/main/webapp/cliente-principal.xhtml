@@ -4,8 +4,46 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>PAGINA PRINCIPAL CLIENTE</h:head> 
-<body> 
+<h:head>
+ 	<f:metadata>
+ 		<f:viewParam name="id" value="#{clienteUbicacionBean.pais}"></f:viewParam>
+ 		<f:viewAction action="#{clienteUbicacionBean.listarHoteles()}"/>
+ 	</f:metadata>
+ </h:head>
+ 
+ <body> 
+ 
+ <h:form>
+ <h:dataTable var="hot" value="#{clienteUbicacionBean.hoteles}">
+ 
+ 					<h:column>
+						<f:facet name="header">Codigo</f:facet>
+						#{hot.codigo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>
+						#{hot.ciudad}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{hot.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Pais</f:facet>
+						#{hot.pais}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Provincia</f:facet>
+						#{hot.provincia}
+					</h:column>
+ </h:dataTable>
+ 
+ <h:commandButton action="#{clienteUbicacionBean.listarHoteles()}" value="LISTAR" />
+ </h:form>
 
 </body> 
 </html>

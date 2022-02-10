@@ -7,13 +7,49 @@
 <h:head>SELECCIONE UN PAÍS</h:head> 
 <body> 
 
-<h:form>
+<h:form id="listar">
 
-	<h:commandButton action="#{clienteUbicacionBean.ubicacionColombia()}" value="DECAMERON COLOMBIA" />
+	<h:commandButton action="#{clienteUbicacionBean.ubicacionColombia}" value="DECAMERON COLOMBIA" update="listar"/>
 	
-	<h:commandButton action="#{clienteUbicacionBean.ubicacionEcuador()}" value="DECAMERON ECUADOR" />
+	<h:commandButton action="#{clienteUbicacionBean.ubicacionEcuador}" value="DECAMERON ECUADOR" update="listar"/>
 	
-	<h:commandButton action="#{clienteUbicacionBean.ubicacionPeru()}" value="DECAMERON PERU" />
+	<h:commandButton action="#{clienteUbicacionBean.ubicacionPeru}" value="DECAMERON PERU" update="listar"/>
+	
+	 <h:dataTable var="hot" value="#{clienteUbicacionBean.hoteles}">
+ 
+ 					<h:column>
+						<f:facet name="header">Codigo</f:facet>
+						#{hot.codigo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>
+						#{hot.ciudad}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{hot.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Pais</f:facet>
+						#{hot.pais}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Provincia</f:facet>
+						#{hot.provincia}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ingresar</f:facet>
+						<h:commandButton action="cliente-ventana-hotel" value="Ingresar" inmediate="true" />
+						
+					</h:column>
+ </h:dataTable>
+ 
+ <h:commandButton action="#{clienteEditarBean.editar()}" value="CAMBIAR DATOS DE USUARIO" inmediate="true"/>
 
 </h:form>
 
