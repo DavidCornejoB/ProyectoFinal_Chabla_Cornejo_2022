@@ -5,11 +5,88 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>
- 	<f:metadata>
- 		<f:viewParam name="id" value="#{clienteHotelBean.id}"></f:viewParam>
+	LISTAR HABITACIONES, SERVICIOS Y PAQUETES
+	 <f:metadata>
+ 		<f:viewAction action="#{clienteHotelBean.listarHabitaciones()}"/>
+ 		<f:viewAction action="#{clienteHotelBean.listarPaquetes()}"/>
+ 		<f:viewAction action="#{clienteHotelBean.listarServicios()}"/>
+ 		
  	</f:metadata>
 </h:head> 
-<body> 
+<body>
+
+<h:form>
+	<h:dataTable var = "hab" value = "#{clienteHotelBean.habitaciones}">
+	
+					<h:column>
+						<f:facet name="header">Numero</f:facet>
+						#{hab.numero}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Estado</f:facet>
+						#{hab.estado}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Piso</f:facet>
+						#{hab.piso}
+					</h:column>
+	
+	</h:dataTable>
+</h:form>
+
+<h:form>
+	<h:dataTable var = "ser" value = "#{clienteHotelBean.servicios}">
+	
+					<h:column>
+						<f:facet name="header">Codigo</f:facet>
+						#{ser.codigo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{ser.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Precio</f:facet>
+						#{ser.precio}
+					</h:column>
+	
+	</h:dataTable>
+</h:form>
+
+<h:form>
+	<h:dataTable var = "paq" value = "#{clienteHotelBean.paquetes}">
+	
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{paq.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Tipo</f:facet>
+						#{paq.tipo}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Habitacion Incluida</f:facet>
+						#{paq.habitacion.numero}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Servicio Incluido</f:facet>
+						#{paq.servicio.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Precio</f:facet>
+						#{paq.precio}
+					</h:column>
+	
+	</h:dataTable>
+</h:form>
 
 </body> 
 </html>
