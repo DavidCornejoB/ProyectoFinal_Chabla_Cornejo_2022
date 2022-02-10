@@ -1,5 +1,6 @@
 package ec.edu.ups.pw59.proyectofinal.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -8,9 +9,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import ec.edu.ups.pw59.proyectofinal.business.HabitacionONLocal;
+import ec.edu.ups.pw59.proyectofinal.business.HotelONLocal;
 import ec.edu.ups.pw59.proyectofinal.business.PaqueteONLocal;
 import ec.edu.ups.pw59.proyectofinal.business.ServicioONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
+import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
@@ -27,14 +30,19 @@ public class clienteHotelBean {
 	@Inject
 	private PaqueteONLocal paqueteON;
 	
-	private String id;
-	
+	@Inject
+	private HotelONLocal hotelON;
+		
 	private Habitacion habitacion = new Habitacion();
 	
 	private Servicio servicio = new Servicio();
 	
 	private Paquete paquete = new Paquete();
 	
+	private Hotel hotel = new Hotel();
+	
+	public static int idHotel;
+		
 	private List<Habitacion> habitaciones;
 	
 	private List<Servicio> servicios;
@@ -42,6 +50,8 @@ public class clienteHotelBean {
 	private List<Paquete> paquetes;
 	
 	public clienteHotelBean() {
+		
+		
 		
 	}
 	
@@ -122,20 +132,56 @@ public class clienteHotelBean {
 		this.paquetes = paquetes;
 	}
 	
-	public String getId() {
-		return id;
+	public static int getIdHotel() {
+		return idHotel;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public static void setIdHotel(int idHotel) {
+		clienteHotelBean.idHotel = idHotel;
 	}
 
-	public String mostrarHotel(int id) {
-		System.out.println("******************************************");
-		System.out.println("NOS VAMOS A CLIENTE VENTANA HOTEL " + id);
-		return "cliente-ventana-hotel?faces-redirect=true&id=" + id;
+	public void listarHabitaciones() {
+		
+		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
+		this.habitaciones = new ArrayList<Habitacion>();
+		
+		habitaciones = habitacionON.getHabitaciones();
+		
+		for (int i = 0; i < habitaciones.size(); i++) {
+			if (habitaciones.get(i).getHotel().getCodigo() == idHotel) {
+				this.habitaciones.add(habitaciones.get(i));
+			}
+		}
+		
+	}
+	
+	public void listarServicios() {
+		List<Servicio> servicios = new ArrayList<Servicio>();
+		this.servicios = new ArrayList<Servicio>();
+		
+		servicios = servicioON.getServicios();
+		
+		for (int i = 0; i <servicios.size(); i++) {
+			if(servicios.get(i).getHotel().getCodigo() == idHotel) {
+				this.servicios.add(servicios.get(i));
+			}
+		}
+	}
+	
+	public void listarPaquetes() {
+		List<Paquete> paquetes = new ArrayList<Paquete>();
+		this.paquetes = new ArrayList<Paquete>();
+		
+		paquetes = paqueteON.getPaquetes();
+		
+		for(int i = 0; i <paquetes.size(); i++) {
+			if(paquetes.get(i).getHotel().getCodigo() == idHotel) {
+				this.paquetes.add(paquetes.get(i));
+			}
+		}
 	}
 	
 	
+
 
 }

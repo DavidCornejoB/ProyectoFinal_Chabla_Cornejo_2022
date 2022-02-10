@@ -26,6 +26,8 @@ public class clienteUbicacionBean {
 	
 	private List<Hotel> hoteles;
 	
+	private clienteHotelBean clienteHotel;
+	
 	public clienteUbicacionBean() {
 		
 	}
@@ -33,7 +35,6 @@ public class clienteUbicacionBean {
 	@PostConstruct
 	public void init() {
 		this.listarHoteles();
-		
 	}
 
 	public HotelONLocal getHotelON() {
@@ -110,9 +111,11 @@ public class clienteUbicacionBean {
 	}
 	
 	public String mostrarHotel(int id) {
-		System.out.println("******************************************");
-		System.out.println("NOS VAMOS A CLIENTE VENTANA HOTEL " + id);
-		return "cliente-ventana-hotel?faces-redirect=true&id=" + id;
+		System.out.println("ID ENVIADA: " + id);
+		
+		clienteHotel.setIdHotel(id);
+		
+		return "cliente-ventana-hotel?faces-redirect=true";
 	}
 
 }
