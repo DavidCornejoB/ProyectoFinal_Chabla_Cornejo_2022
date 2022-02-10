@@ -16,12 +16,10 @@ public interface FacturaCabeceraHabitacionONRemote {
 	
 	public void update(FacturaCabeceraHabitacion f) throws Exception;
 	
-	public void read(int id) throws Exception;
+	public FacturaCabeceraHabitacion read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	
 	public List<FacturaCabeceraHabitacion> getFacturas();
 	
-	public Persona getPersona(String cedula);
-
 }

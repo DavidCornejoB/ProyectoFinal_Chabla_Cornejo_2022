@@ -22,7 +22,6 @@ public class FacturaCabeceraHabitacion implements Serializable{ //CLASE SERIALIZ
 	private static final long serialVersionUID = 1L;
 
 	@Id //ETIQUETA DE CLAVE PRIMARIA
-	@GeneratedValue
 	@Column(name = "facCabHab_numero") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int numero;
 	

@@ -4,17 +4,18 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>
- 	<f:metadata>
- 		<f:viewParam name="id" value="#{clienteUbicacionBean.pais}"></f:viewParam>
- 		<f:viewAction action="#{clienteUbicacionBean.listarHoteles()}"/>
- 	</f:metadata>
- </h:head>
- 
- <body> 
- 
- <h:form>
- <h:dataTable var="hot" value="#{clienteUbicacionBean.hoteles}">
+<h:head>SELECCIONE UN PAÍS</h:head> 
+<body> 
+
+<h:form id="listar">
+
+	<h:commandButton action="#{clienteUbicacionBean.ubicacionColombia}" value="DECAMERON COLOMBIA" update="listar"/>
+	
+	<h:commandButton action="#{clienteUbicacionBean.ubicacionEcuador}" value="DECAMERON ECUADOR" update="listar"/>
+	
+	<h:commandButton action="#{clienteUbicacionBean.ubicacionPeru}" value="DECAMERON PERU" update="listar"/>
+	
+	 <h:dataTable var="hot" value="#{clienteUbicacionBean.hoteles}">
  
  					<h:column>
 						<f:facet name="header">Codigo</f:facet>
@@ -40,10 +41,17 @@
 						<f:facet name="header">Provincia</f:facet>
 						#{hot.provincia}
 					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ingresar</f:facet>
+						<h:commandButton action="cliente-ventana-hotel" value="Ingresar" inmediate="true" />
+						
+					</h:column>
  </h:dataTable>
  
- <h:commandButton action="#{clienteUbicacionBean.listarHoteles()}" value="LISTAR" />
- </h:form>
+ <h:commandButton action="#{clienteEditarBean.editar()}" value="CAMBIAR DATOS DE USUARIO" inmediate="true"/>
+
+</h:form>
 
 </body> 
 </html>

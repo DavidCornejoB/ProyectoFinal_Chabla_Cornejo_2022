@@ -18,24 +18,8 @@ public class FacturaCabeceraHabitacionON implements FacturaCabeceraHabitacionONR
 	@Inject
 	private FacturaCabeceraHabitacionDAO daoFacturaCabeceraHabitacion;
 	
-	//LLAMAMOS AL OBJETO DE ACCESO A DATOS DE PERSONA
-	@Inject
-	private PersonaDAO daoPersona;
-	
 	//MÉTODO PARA INSERTAR FACTURAS DE HABITACION
 	public void insert(FacturaCabeceraHabitacion f) throws Exception{
-		
-		//BUSCAMOS SI ESTÁ INGRESADA LA PERSONA DE LA FACTURA
-		Persona p = daoPersona.read(f.getPersona().getCedula());
-		
-		//SI NO EXISTE ESA PERSONA, LA INSERTAMOS
-		if(p==null) {
-			//INSERTAMOS ESA PERSONA
-			daoPersona.insert(f.getPersona());
-		} else {
-			//ACTUALIZAMOS NUEVA FACTURA A PERSONA EXISTENTE
-			daoPersona.update(f.getPersona());
-		}
 		//LLAMAMOS AL MÉTODO INSERT DEL DAO. LE ENVIAMOS EL OBJETO FACTURA PARA SER INYECTADO
 		daoFacturaCabeceraHabitacion.insert(f);
 	}
@@ -47,9 +31,9 @@ public class FacturaCabeceraHabitacionON implements FacturaCabeceraHabitacionONR
 	}
 	
 	//MÉTODO PARA LEER FACTURAS DE HABITACION
-	public void read(int id) throws Exception{
+	public FacturaCabeceraHabitacion read(int id) throws Exception{
 		//LLAMAMOS AL METODO READ DEL DAO. LE ENVIAMOS LA ID DE LA FACTURA QUE QUEREMOS LEER
-		daoFacturaCabeceraHabitacion.read(id);
+		return daoFacturaCabeceraHabitacion.read(id);
 	}
 	
 	//MÉTODO PARA ELIMINAR FACTURAS DE HABITACION
@@ -61,12 +45,6 @@ public class FacturaCabeceraHabitacionON implements FacturaCabeceraHabitacionONR
 	//MÉTODO PARA LISTAR FACTURAS DE HABITACION. SE HACE USO DE UNA LISTA QUE ALAMACENE TODAS LAS FACTURAS DE HABITACION
 	public List<FacturaCabeceraHabitacion> getFacturas(){
 		return daoFacturaCabeceraHabitacion.getList();	
-	}
-	
-	//MÉTODO PARA BUSCAR PERSONAS
-	public Persona getPersona(String cedula) {
-		Persona p = daoPersona.read(cedula);
-		return p;
 	}
 
 }
