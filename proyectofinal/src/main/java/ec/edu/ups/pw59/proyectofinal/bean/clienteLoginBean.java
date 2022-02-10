@@ -21,6 +21,8 @@ public class clienteLoginBean {
 	private LoginONLocal loginON;
 
 	private Login login = new Login();
+	
+	public static Login logueo;
 
 	private List<Login> logins;
 
@@ -58,6 +60,14 @@ public class clienteLoginBean {
 		this.logins = logins;
 	}
 
+	public static Login getLogueo() {
+		return logueo;
+	}
+
+	public static void setLogueo(Login logueo) {
+		clienteLoginBean.logueo = logueo;
+	}
+
 	public String guardar() {// GUARDAR LOGIN
 
 		Persona p = new Persona();
@@ -80,6 +90,7 @@ public class clienteLoginBean {
 			} // ADMINISTRADOR
 			else 
 			{// CLIENTE
+				this.logueo = this.login;
 				return "cliente-ubicacion";
 			} // CLIENTE
 
