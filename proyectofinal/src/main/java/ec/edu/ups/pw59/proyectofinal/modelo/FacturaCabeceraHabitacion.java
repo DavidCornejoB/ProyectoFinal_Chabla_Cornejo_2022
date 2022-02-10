@@ -29,12 +29,12 @@ public class FacturaCabeceraHabitacion implements Serializable{ //CLASE SERIALIZ
 	private String fecha;
 	
 	//CONEXIÓN CON LA CLASE PERSONA
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name ="per_cedula")
 	private Persona persona; //CLASE PERTENECIENTE A LA ENTIDAD RELACIONADA
 	
 	//RELACIÓN "ONE TO MANY" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "FACTURADETALLEHABITACION"
-	@OneToMany(cascade = CascadeType.ALL) //ETIQUETA DE RELACIÓN ENTRE TABLAS
+	@OneToMany //ETIQUETA DE RELACIÓN ENTRE TABLAS
 	@JoinColumn(name = "facCabHab_numero") //ESPECIFICAMOS LA ID CON LA QUE SE CONECTARÁ A LA OTRA TABLA
 	private List<FacturaDetalleHabitacion> detallesHabitacion; //CLASE PERTENECIENTE A LA ENTIDAD RELACIONADA	
 	

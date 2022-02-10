@@ -4,54 +4,25 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>SELECCIONE UN PAÍS</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	SELECCIONE UN PAÍS
+    </ui:define>
+    
+    <ui:define name="content">
 
-<h:form id="listar">
+		<h:form id="pais">
+		
+			<h:commandButton action="#{clienteUbicacionBean.ubicacionColombia}" value="DECAMERON COLOMBIA" update = "pais"/>
+			
+			<h:commandButton action="#{clienteUbicacionBean.ubicacionEcuador}" value="DECAMERON ECUADOR" update = "pais"/>
+			
+			<h:commandButton action="#{clienteUbicacionBean.ubicacionPeru}" value="DECAMERON PERU" update = "pais"/>
+			
+			 <h:commandButton action="#{clienteEditarBean.editar()}" value="CAMBIAR DATOS DE USUARIO" inmediate="true"/>
+		
+		</h:form>
 
-	<h:commandButton action="#{clienteUbicacionBean.ubicacionColombia}" value="DECAMERON COLOMBIA" update="listar"/>
-	
-	<h:commandButton action="#{clienteUbicacionBean.ubicacionEcuador}" value="DECAMERON ECUADOR" update="listar"/>
-	
-	<h:commandButton action="#{clienteUbicacionBean.ubicacionPeru}" value="DECAMERON PERU" update="listar"/>
-	
-	 <h:dataTable var="hot" value="#{clienteUbicacionBean.hoteles}">
- 
- 					<h:column>
-						<f:facet name="header">Codigo</f:facet>
-						#{hot.codigo}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Ciudad</f:facet>
-						#{hot.ciudad}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Nombre</f:facet>
-						#{hot.nombre}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Pais</f:facet>
-						#{hot.pais}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Provincia</f:facet>
-						#{hot.provincia}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Ingresar</f:facet>
-						<h:commandButton action="cliente-ventana-hotel" value="Ingresar" inmediate="true" />
-						
-					</h:column>
- </h:dataTable>
- 
- <h:commandButton action="#{clienteEditarBean.editar()}" value="CAMBIAR DATOS DE USUARIO" inmediate="true"/>
-
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition>
 </html>
