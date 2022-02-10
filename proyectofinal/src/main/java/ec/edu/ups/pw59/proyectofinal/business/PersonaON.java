@@ -35,6 +35,15 @@ public class PersonaON implements PersonaONRemote, PersonaONLocal{
 		daoPersona.insert(p);
 	}
 	
+	//Registra al no existir cedula y actualiza al que ya dispone
+	
+		public void guardar(Persona p) throws Exception{
+			if(daoPersona.read(p.getCedula())==null)
+				daoPersona.insert(p);
+			else
+				daoPersona.update(p);
+		}
+	
 	//METODO PARA ACTUALIZAR PERSONAS
 	public void update(Persona p) throws Exception{
 		//LLAMAMOS AL METODO UPDATE DEL DAO, LE ENVIAMOS EL OBJETO PERSONA QUE SERÁ ACTUALZIADA
@@ -57,6 +66,12 @@ public class PersonaON implements PersonaONRemote, PersonaONLocal{
 	public List<Persona> getPersonas(){
 		//RETORNAMOS EL METODO GETLIST DEL DAO
 		return daoPersona.getList();
+	}
+	
+	//Metodo para llamar para editar
+	
+	public Persona getPersona(String cedula) {
+		return daoPersona.read(cedula);
 	}
 
 }
