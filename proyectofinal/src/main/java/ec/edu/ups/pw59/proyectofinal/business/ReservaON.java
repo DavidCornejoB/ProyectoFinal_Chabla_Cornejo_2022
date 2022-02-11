@@ -34,9 +34,9 @@ public class ReservaON implements ReservaONRemote, ReservaONLocal{
 	}
 	
 	//MÉTODO PARA LEER RESERVAS
-	public void read(String id) throws Exception{
+	public Reserva read(int id) throws Exception{
 		//LLAMAMOS AL METODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO RESERVA QUE SERÁ LEIDA
-		daoReserva.read(id);
+		return daoReserva.read(id);
 	}
 	
 	//MÉTODO PARA ELIMINAR RESERVAS

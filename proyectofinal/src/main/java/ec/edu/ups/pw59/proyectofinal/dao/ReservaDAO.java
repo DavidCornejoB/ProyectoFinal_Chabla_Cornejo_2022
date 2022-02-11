@@ -25,7 +25,7 @@ public class ReservaDAO {
 			em.merge(op);
 		}
 	
-	public Reserva read(String id) {
+	public Reserva read(int id) {
 		Reserva op = em.find(Reserva.class, id);
 		return op;
 	}
