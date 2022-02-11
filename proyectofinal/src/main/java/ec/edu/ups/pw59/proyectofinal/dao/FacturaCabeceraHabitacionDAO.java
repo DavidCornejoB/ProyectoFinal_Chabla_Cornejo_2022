@@ -1,5 +1,6 @@
 package ec.edu.ups.pw59.proyectofinal.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -15,14 +16,13 @@ public class FacturaCabeceraHabitacionDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public void insert(FacturaCabeceraHabitacion facturaHabitacion) {
-
-		em.persist(facturaHabitacion);
+	public void insert(FacturaCabeceraHabitacion f) {
+		em.persist(f);
 
 	}
 
-	public void update(FacturaCabeceraHabitacion facturaHabitacion) {
-		em.merge(facturaHabitacion);
+	public void update(FacturaCabeceraHabitacion f) {
+		em.merge(f);
 
 	}
 
@@ -37,14 +37,14 @@ public class FacturaCabeceraHabitacionDAO {
 	}
 
 	public List<FacturaCabeceraHabitacion> getList() {
+		List<FacturaCabeceraHabitacion> facturas = new ArrayList<FacturaCabeceraHabitacion>();
+		
+		String jpql = "SELECT p FROM FacturaCabeceraHabitacion p";
 
-		String jpql2 = "SELECT p FROM FacturaCabeceraHabitacion p";
+		Query query = em.createQuery(jpql, FacturaCabeceraHabitacion.class);
 
-		// nombre= nombre+"%";
-		Query query = em.createQuery(jpql2, FacturaCabeceraHabitacion.class);
-		// query.setParameter(1, nombre);
-
-		List<FacturaCabeceraHabitacion> facturas = query.getResultList();
+		facturas = query.getResultList();
+		
 		return facturas;
 
 	}

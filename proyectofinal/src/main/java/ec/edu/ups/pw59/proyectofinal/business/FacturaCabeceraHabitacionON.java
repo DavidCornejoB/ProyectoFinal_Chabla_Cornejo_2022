@@ -6,9 +6,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import ec.edu.ups.pw59.proyectofinal.dao.FacturaCabeceraHabitacionDAO;
-import ec.edu.ups.pw59.proyectofinal.dao.PersonaDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraHabitacion;
-import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
 @Stateless
