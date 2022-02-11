@@ -6,93 +6,30 @@
 
 <h:head>
 	LISTAR HABITACIONES, SERVICIOS Y PAQUETES
-	 <f:metadata>
- 		<f:viewAction action="#{clienteHotelBean.listarHabitaciones()}"/>
- 		<f:viewAction action="#{clienteHotelBean.listarPaquetes()}"/>
- 		<f:viewAction action="#{clienteHotelBean.listarServicios()}"/>
- 		
- 	</f:metadata>
+
 </h:head>
 
 
 <ui:composition template="template/plantilla.xhtml">
     <ui:define name="title">
-    	Login
+    	NUESTRO HOTEL OFRECE:
     </ui:define>
     <ui:define name="content">
 
 
 		<h:form>
-			<h:dataTable var="hab" value="#{clienteHotelBean.habitaciones}">
-
-				<h:column>
-					<f:facet name="header">Numero</f:facet>
-						#{hab.numero}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Estado</f:facet>
-						#{hab.estado}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Piso</f:facet>
-						#{hab.piso}
-					</h:column>
-
-			</h:dataTable>
+			<h1>HABITACIONES</h1>
+			<h:commandButton action="#{clienteHotelBean.listarHabitaciones()}" value="VER HABITACIONES" />
 		</h:form>
 
 		<h:form>
-			<h:dataTable var="ser" value="#{clienteHotelBean.servicios}">
-
-				<h:column>
-					<f:facet name="header">Codigo</f:facet>
-						#{ser.codigo}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Nombre</f:facet>
-						#{ser.nombre}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Precio</f:facet>
-						#{ser.precio}
-					</h:column>
-
-			</h:dataTable>
+			<h1>SERVICIOS</h1>
+			<h:commandButton action="#{clienteHotelBean.listarServicios()}" value="VER SERVICIOS" />
 		</h:form>
 
 		<h:form>
-			<h:dataTable var="paq" value="#{clienteHotelBean.paquetes}">
-
-				<h:column>
-					<f:facet name="header">Nombre</f:facet>
-						#{paq.nombre}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Tipo</f:facet>
-						#{paq.tipo}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Habitacion Incluida</f:facet>
-						#{paq.habitacion.numero}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Servicio Incluido</f:facet>
-						#{paq.servicio.nombre}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Precio</f:facet>
-						#{paq.precio}
-					</h:column>
-
-			</h:dataTable>
+			<h1>PAQUETES</h1>
+			<h:commandButton action="#{clienteHotelBean.listarPaquetes()}" value="VER PAQUETES" />
 		</h:form>
 
 	</ui:define>

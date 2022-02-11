@@ -57,7 +57,9 @@ public class clienteHotelBean {
 	
 	@PostConstruct
 	public void init() {
-		
+		listarHabitaciones();
+		listarServicios();
+		listarPaquetes();
 	}
 
 	public HabitacionONLocal getHabitacionON() {
@@ -140,7 +142,25 @@ public class clienteHotelBean {
 		clienteHotelBean.idHotel = idHotel;
 	}
 
-	public void listarHabitaciones() {
+	public HotelONLocal getHotelON() {
+		return hotelON;
+	}
+
+	public void setHotelON(HotelONLocal hotelON) {
+		this.hotelON = hotelON;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+
+	public String listarHabitaciones() {
+		
+		System.out.println("HOTEL: " + idHotel);
 		
 		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
 		this.habitaciones = new ArrayList<Habitacion>();
@@ -153,9 +173,14 @@ public class clienteHotelBean {
 			}
 		}
 		
+		return "cliente-listar-habitaciones?faces-redirect=true";
+		
 	}
 	
-	public void listarServicios() {
+	public String listarServicios() {
+		
+		System.out.println("HOTEL: " + idHotel);
+
 		List<Servicio> servicios = new ArrayList<Servicio>();
 		this.servicios = new ArrayList<Servicio>();
 		
@@ -166,9 +191,15 @@ public class clienteHotelBean {
 				this.servicios.add(servicios.get(i));
 			}
 		}
+		
+		return "cliente-listar-servicios?faces-redirect=true";
+
 	}
 	
-	public void listarPaquetes() {
+	public String listarPaquetes() {
+		
+		System.out.println("HOTEL: " + idHotel);
+
 		List<Paquete> paquetes = new ArrayList<Paquete>();
 		this.paquetes = new ArrayList<Paquete>();
 		
@@ -179,9 +210,9 @@ public class clienteHotelBean {
 				this.paquetes.add(paquetes.get(i));
 			}
 		}
-	}
-	
-	
+		
+		return "cliente-listar-paquetes?faces-redirect=true";
 
+	}
 
 }
