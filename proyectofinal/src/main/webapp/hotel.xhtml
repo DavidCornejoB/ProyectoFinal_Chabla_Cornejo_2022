@@ -12,44 +12,56 @@
     </ui:define>
     <ui:define name="content">
 
-			<div class="card-body">
-				<h4 class="card-title">Registro de Hoteles</h4>
-				<h:form class="forms-sample">
-					<div class="form-group">
-						<label for="txtCodigo">Código</label>
-						<h:inputText class="form-control" id="txtCedula"
-							value="#{hotelesBean.hotel.codigo}">
-						</h:inputText>
+		<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div
+						class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+						<div class="card col-lg-4 mx-auto">
 
-					</div>
-					<div class="form-group">
-						<label for="txtNombre">Nombre</label>
-						<h:inputText class="form-control" id="txtNombre"
-							value="#{hotelesBean.hotel.nombre}" />
-					</div>
-					<div class="form-group">
-						<label for="txtPais">País</label>
-						<h:inputText class="form-control" id="txtPais"
-							value="#{hotelesBean.hotel.pais}" />
-					</div>
-					<div class="form-group">
-						<label for="txtProvincia">Provincia</label>
-						<h:inputText class="form-control" id="txtProvincia"
-							value="#{hotelesBean.hotel.provincia}" />
-					</div>
-					<div class="form-group">
-						<label for="txtCiudad">Ciudad</label>
-						<h:inputText class="form-control" id="txtCiudad"
-							value="#{hotelesBean.hotel.ciudad}" />
-					</div>
+							<div class="card-body">
+								<h4 class="card-title">Registro de Hoteles</h4>
+								<h:form class="forms-sample">
+									<div class="form-group">
+										<label for="txtCodigo">Código</label>
+										<h:inputText class="form-control" id="txtCedula"
+											value="#{hotelesBean.hotel.codigo}">
+										</h:inputText>
+
+									</div>
+									<div class="form-group">
+										<label for="txtNombre">Nombre</label>
+										<h:inputText class="form-control" id="txtNombre"
+											value="#{hotelesBean.hotel.nombre}" />
+									</div>
+									<div class="form-group">
+										<label for="txtPais">País</label>
+										<h:inputText class="form-control" id="txtPais"
+											value="#{hotelesBean.hotel.pais}" />
+									</div>
+									<div class="form-group">
+										<label for="txtProvincia">Provincia</label>
+										<h:inputText class="form-control" id="txtProvincia"
+											value="#{hotelesBean.hotel.provincia}" />
+									</div>
+									<div class="form-group">
+										<label for="txtCiudad">Ciudad</label>
+										<h:inputText class="form-control" id="txtCiudad"
+											value="#{hotelesBean.hotel.ciudad}" />
+									</div>
 
 
-					<h:commandButton action="#{hotelesBean.guardar()}" value="Guardar"
-						class="btn btn-primary mr-2" />
-					<h:commandButton action="listado-hoteles" value="Lista"
-						class="btn btn-dark" />
-				</h:form>
+									<h:commandButton action="#{hotelesBean.guardar()}"
+										value="Guardar" class="btn btn-primary mr-2" />
+									<h:commandButton action="listado-hoteles" value="Lista"
+										class="btn btn-dark" />
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</ui:define>
+		</div>
+	</ui:define>
 </ui:composition>
 </html>
