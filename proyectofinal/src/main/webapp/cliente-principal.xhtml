@@ -10,7 +10,13 @@
  	</f:metadata>
  </h:head>
  
- <body> 
+ 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Login
+    </ui:define>
+    <ui:define name="content">
+ 
  
  <h:form>
  <h:dataTable var="hot" value="#{clienteUbicacionBean.hoteles}">
@@ -49,5 +55,6 @@
  <h:commandButton action="#{clienteUbicacionBean.listarHoteles()}" value="LISTAR" />
  </h:form>
 
-</body> 
+	</ui:define>
+</ui:composition>
 </html>

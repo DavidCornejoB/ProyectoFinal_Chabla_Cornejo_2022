@@ -103,5 +103,7 @@ public class PersonasBean {
 		Persona p = personaON.getPersona(cedula);
 		persona = p;
 	}
+	
+
 
 }

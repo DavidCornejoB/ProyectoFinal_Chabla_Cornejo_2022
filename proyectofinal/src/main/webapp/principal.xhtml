@@ -10,25 +10,31 @@
     	PRINCIPAL ADMINISTRADOR
     </ui:define>
 	<ui:define name="content">
-
-			<h:form>
-				<h:commandButton action="listado-categorias" value="CATEGORIAS" />
-				
-				<h:commandButton action="listado-habitaciones" value="HABITACIONES" />
-				
-				<h:commandButton action="listado-hoteles" value="HOTELES" />
-				
-				<h:commandButton action="listado-paquetes" value="PAQUETES" />
-				
-				<h:commandButton action="listado-personas" value="PERSONAS" />
-				
-				<h:commandButton action="listado-reservas" value="RESERVAS" />
-				
-				<h:commandButton action="listado-servicios" value="SERVICIOS" />
-				
-				<h:commandButton action="listado-logins" value="LOGINS" />
+	
+	<div class="card-body">
 			
-			</h:form>
+				<h4 class="card-title">Inverse buttons</h4>
+				<div class="template-demo">
+				  <h:form> 
+					<h:commandButton class="btn btn-primary btn-fw"
+						action="listado-categorias" value="CATEGORIAS" ></h:commandButton>
+					<h:commandButton class="btn btn-secondary btn-fw"
+						action="listado-habitaciones" value="HABITACIONES"></h:commandButton>
+					<h:commandButton class="btn btn-success btn-fw"
+						action="listado-hoteles" value="HOTELES"></h:commandButton>
+                    <h:commandButton class="btn btn-danger btn-fw"
+                   		action="listado-paquetes" value="PAQUETES"></h:commandButton>
+                    <h:commandButton class="btn btn-warning btn-fw"
+                      	action="listado-personas" value="PERSONAS"></h:commandButton>
+                    <h:commandButton class="btn btn-info btn-fw"
+                      	action="listado-reservas" value="RESERVAS" ></h:commandButton>
+                    <h:commandButton class="btn btn-light btn-fw"
+                      	 action="listado-servicios" value="SERVICIOS"></h:commandButton>
+                      <h:commandButton class="btn btn-dark btn-fw"
+                      	 action="listado-logins" value="LOGINS"></h:commandButton>
+				 </h:form>
+				</div>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>

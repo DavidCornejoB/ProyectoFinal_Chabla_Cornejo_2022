@@ -11,18 +11,25 @@
     
     <ui:define name="content">
 
-		<h:form id="pais">
-		
-			<h:commandButton action="#{clienteUbicacionBean.ubicacionColombia}" value="DECAMERON COLOMBIA" update = "pais"/>
+		<div class="card-body">
 			
-			<h:commandButton action="#{clienteUbicacionBean.ubicacionEcuador}" value="DECAMERON ECUADOR" update = "pais"/>
-			
-			<h:commandButton action="#{clienteUbicacionBean.ubicacionPeru}" value="DECAMERON PERU" update = "pais"/>
-			
-			 <h:commandButton action="#{clienteEditarBean.editar()}" value="CAMBIAR DATOS DE USUARIO" inmediate="true"/>
-		
-		</h:form>
+				<h4 class="card-title">Inverse buttons</h4>
+				<div class="template-demo">
+				  <h:form id="pais"> 
+					<h:commandButton class="btn btn-inverse-primary btn-fw"
+						action="#{clienteUbicacionBean.ubicacionColombia}"
+						value="DECAMERON COLOMBIA" update="pais"></h:commandButton>
+					<h:commandButton class="btn btn-inverse-secondary btn-fw"
+						action="#{clienteUbicacionBean.ubicacionEcuador}"
+						value="DECAMERON ECUADOR" update="pais"></h:commandButton>
+					<h:commandButton class="btn btn-inverse-success btn-fw"
+						action="#{clienteUbicacionBean.ubicacionPeru}"
+						value="DECAMERON PERU" update="pais"></h:commandButton>
+				 </h:form>
+				</div>
+		</div>
 
+		
 	</ui:define>
 </ui:composition>
 </html>
