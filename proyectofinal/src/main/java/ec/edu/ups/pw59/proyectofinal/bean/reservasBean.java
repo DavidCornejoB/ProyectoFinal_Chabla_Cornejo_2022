@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ec.edu.ups.pw59.proyectofinal.business.HabitacionONLocal;
 import ec.edu.ups.pw59.proyectofinal.business.ReservaONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
@@ -18,6 +19,9 @@ public class reservasBean {
 	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
 	@Inject
 	private ReservaONLocal reservaON;
+	
+	@Inject
+	private HabitacionONLocal habitacionON;
 		
 	//CREAMOS EL OBJETO RESERVA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
 	private Reserva reserva = new Reserva();
@@ -62,21 +66,55 @@ public class reservasBean {
 		this.reservas = reservas;
 	}
 	
+	public HabitacionONLocal getHabitacionON() {
+		return habitacionON;
+	}
+
+	public void setHabitacionON(HabitacionONLocal habitacionON) {
+		this.habitacionON = habitacionON;
+	}
+
 	//MÉTODO PARA GUARDAR RESERVAS
 	public String guardar() {
 		
 		System.out.println("GUARDANDO RESERVAS: " + this.reserva.getCodigo());
 		
+		Habitacion habitacion = new Habitacion();
 		try {
-			//USAMOS EL MÉTODO INSERT DE LA ENTIDAD DE NEGOCIO DE RESERVA
-			reservaON.insert(this.reserva);
+			habitacion = habitacionON.read(this.reserva.getHabitacion().getNumero());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(habitacion.getEstado().equals("Ocupada")) {
+			System.out.println("LA HABITACIÓN YA ESTÁ OCUPADA");
+		} else {
+			
+			try {
+				//USAMOS EL MÉTODO INSERT DE LA ENTIDAD DE NEGOCIO DE RESERVA
+				reservaON.insert(this.reserva);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			habitacion.setEstado("Ocupada");
+			
+			try {
+				habitacionON.update(habitacion);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+
 		//UNA VEZ SE HA INGRESADO UNA RESERVA, SE REDIRIGIRÁ AL FORMULARIO DE LISTAR RESERVAS
 		return "listado-reservas?faces-redirect=true";
 	}
+	
+	
 	//MÉTODO PARA LISTAR RESERVAS
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETRESERVAS() DEL OBJETO DE NEGOCIO
