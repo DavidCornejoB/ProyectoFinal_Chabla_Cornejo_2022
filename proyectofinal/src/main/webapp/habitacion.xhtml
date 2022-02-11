@@ -11,45 +11,55 @@
     	Registro Habitaciones 
     </ui:define>
     <ui:define name="content">
-    
-	    <div class="card-body">
-				<h4 class="card-title">Ingreso habitaciones</h4>
-				<h:form class="forms-sample">
-					<div class="form-group">
-						<label for="txtNumero">Número</label>
-						<h:inputText class="form-control" id="txtNumero" value="#{habitacionesBean.habitacion.numero}">
-						</h:inputText>
+
+		<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div
+						class="content-wrapper full-page-wrapper d-flex align-items-center auth lock-full-bg">
+						<div class="card-body">
+							<h4 class="card-title">Ingreso habitaciones</h4>
+							<h:form class="forms-sample">
+								<div class="form-group">
+									<label for="txtNumero">Número</label>
+									<h:inputText class="form-control" id="txtNumero"
+										value="#{habitacionesBean.habitacion.numero}">
+									</h:inputText>
+								</div>
+								<div class="form-group">
+									<label for="txtEstado">Estado</label>
+									<h:inputText class="form-control" id="txtEstado"
+										value="#{habitacionesBean.habitacion.estado}" />
+								</div>
+								<div class="form-group">
+									<label for="txtPiso">Piso</label>
+									<h:inputText class="form-control" id="txtPiso"
+										value="#{habitacionesBean.habitacion.piso}" />
+								</div>
+								<div class="form-group">
+									<label for="txtCategoria">Categoría</label>
+									<h:inputText class="form-control" id="txtCategoria"
+										value="#{habitacionesBean.habitacion.categoria.codigo}" />
+								</div>
+								<div class="form-group">
+									<label for="txtHotel">Hotel</label>
+									<h:inputText class="form-control" id="txtHotel"
+										value="#{habitacionesBean.habitacion.hotel.codigo}" />
+								</div>
+
+
+
+								<h:commandButton action="#{habitacionesBean.guardar()}"
+									value="Guardar" class="btn btn-primary mr-2" />
+								<h:commandButton action="listado-habitaciones" value="Lista"
+									class="btn btn-dark" />
+								<button class="btn btn-dark">Cancel</button>
+							</h:form>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="txtEstado">Estado</label>
-						<h:inputText class="form-control" id="txtEstado"
-							value="#{habitacionesBean.habitacion.estado}" />
-					</div>
-					<div class="form-group">
-						<label for="txtPiso">Piso</label>
-						<h:inputText class="form-control" id="txtPiso"
-							value="#{habitacionesBean.habitacion.piso}" />
-					</div>
-					<div class="form-group">
-						<label for="txtCategoria">Categoría</label>
-						<h:inputText class="form-control" id="txtCategoria"
-							value="#{habitacionesBean.habitacion.categoria.codigo}" />
-					</div>
-					<div class="form-group">
-						<label for="txtHotel">Hotel</label>
-						<h:inputText class="form-control" id="txtHotel"
-							value="#{habitacionesBean.habitacion.hotel.codigo}" />
-					</div>
-	
-	
-	
-					<h:commandButton action="#{habitacionesBean.guardar()}" value="Guardar"
-						class="btn btn-primary mr-2" />
-					<h:commandButton action="listado-habitaciones" value="Lista"
-						class="btn btn-dark" />
-					<button class="btn btn-dark">Cancel</button>
-				</h:form>
+				</div>
 			</div>
+		</div>
 	</ui:define>
 </ui:composition>	
 </html>
