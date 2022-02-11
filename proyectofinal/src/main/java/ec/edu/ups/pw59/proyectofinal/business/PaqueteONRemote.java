@@ -17,7 +17,7 @@ public interface PaqueteONRemote {
 	
 	public void update(Paquete p) throws Exception;
 	
-	public void read(int id) throws Exception;
+	public Paquete read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	
