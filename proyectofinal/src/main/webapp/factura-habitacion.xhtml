@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>INGRESAR FACTURA</h:head> 
+<body>
+
+<h:form>
+
+<h:outputLabel value="NUMERO: " />
+<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
+
+<h:outputLabel value="FECHA: " />
+<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.fecha}" />
+
+<h:outputLabel value="PERSONA: " />
+<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.persona.cedula}" />
+
+<h:commandButton action="#{facturaHabitacionBean.insertarFactura()}" value="INSERTAR" />
+
+</h:form>
+
+<h:form>
+
+	<h:dataTable>
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Descuento</f:facet>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">IVA</f:facet>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Total</f:facet>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Cabecera</f:facet>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Habitacion</f:facet>
+				</h:column>
+	</h:dataTable>
+	
+		<h:dataTable>
+				<h:column>
+					<f: />
+				</h:column>
+				
+				<h:column>
+					<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
+				</h:column>
+				
+				<h:column>
+					<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
+				</h:column>
+				
+				<h:column>
+					<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
+				</h:column>
+				
+				<h:column>
+					<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
+				</h:column>
+				
+				<h:column>
+					<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
+				</h:column>
+	</h:dataTable>
+	
+
+</h:form>
+
+</body> 
+</html>

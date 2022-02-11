@@ -44,9 +44,9 @@ public class PaqueteON implements PaqueteONRemote, PaqueteONLocal{
 	}
 	
 	//METODO PARA LEER PAQUETES
-	public void read(int id) throws Exception{
+	public Paquete read(int id) throws Exception{
 		//LLAMAMOS AL METODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO PAQUETE QUE QUEREMOS LEER
-		daoPaquete.read(id);
+		return daoPaquete.read(id);
 	}
 	
 	//METODO PARA ELIMINAR PAQUETES

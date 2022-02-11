@@ -15,7 +15,7 @@ public interface ReservaONRemote {
 	
 	public void update(Reserva r) throws Exception;
 	
-	public void read(String id) throws Exception;
+	public Reserva read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	
