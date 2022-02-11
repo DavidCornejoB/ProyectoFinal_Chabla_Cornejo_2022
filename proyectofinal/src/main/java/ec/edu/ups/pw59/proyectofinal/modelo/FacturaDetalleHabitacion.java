@@ -11,9 +11,6 @@ import javax.persistence.ManyToOne;
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class FacturaDetalleHabitacion implements Serializable{ //CLASE SERIALIZABLE
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id //ETIQUETA DE CLAVE PRIMARIA
@@ -28,6 +25,10 @@ public class FacturaDetalleHabitacion implements Serializable{ //CLASE SERIALIZA
 	
 	@Column(name = "FacDetHab_total")
 	private double total;
+	
+	@ManyToOne
+	@JoinColumn(name = "facCabHab_numero")
+	private FacturaCabeceraHabitacion facturaCabeceraHabitacion;
 	
 	//RELACIÓN MANY TO ONE ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "RESERVA"
 	@ManyToOne
@@ -68,18 +69,22 @@ public class FacturaDetalleHabitacion implements Serializable{ //CLASE SERIALIZA
 		this.total = total;
 	}
 
-	/**
-	 * @return the reserva
-	 */
+
 	public Reserva getReserva() {
 		return reserva;
 	}
 
-	/**
-	 * @param reserva the reserva to set
-	 */
+
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
+	}
+
+	public FacturaCabeceraHabitacion getFacturaCabeceraHabitacion() {
+		return facturaCabeceraHabitacion;
+	}
+
+	public void setFacturaCabeceraHabitacion(FacturaCabeceraHabitacion facturaCabeceraHabitacion) {
+		this.facturaCabeceraHabitacion = facturaCabeceraHabitacion;
 	}
 	
 }
