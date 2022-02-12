@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>HABITACIONES
+
+</h:head> 
+<body>
+		<h:form>
+			<h1>HABITACIONES</h1>
+			<h:dataTable var="hab" value="#{clienteHotelBean.habitaciones}">
+
+				<h:column>
+					<f:facet name="header">Numero</f:facet>
+						#{hab.numero}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Estado</f:facet>
+						#{hab.estado}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Piso</f:facet>
+						#{hab.piso}
+				</h:column>
+					
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandButton action="#{clienteReservaBean.generarReserva(hab.numero)}" value="Reservar" />
+				</h:column>
+
+			</h:dataTable>
+		</h:form> 
+</body> 
+</html>

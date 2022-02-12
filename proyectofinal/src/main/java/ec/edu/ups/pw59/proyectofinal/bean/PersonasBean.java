@@ -7,7 +7,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ec.edu.ups.pw59.proyectofinal.business.LoginONLocal;
 import ec.edu.ups.pw59.proyectofinal.business.PersonaONLocal;
+import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
 @Named //ETIQUETA DE MANAGED BEANS
@@ -18,6 +20,9 @@ public class PersonasBean {
 	@Inject
 	private PersonaONLocal personaON;
 	
+	@Inject
+	private LoginONLocal loginON;
+	
 	//Llamamos a la cedula para los ajax (editar)
 	private String cedula;
 	
@@ -26,6 +31,8 @@ public class PersonasBean {
 	
 	//LISTA DE PERSONAS
 	private List<Persona> personas;
+	
+	private List<Login> logins;
 	
 	//CONSTRUCTOR
 	public PersonasBean() {
@@ -82,6 +89,32 @@ public class PersonasBean {
 	public String editar(String cedula) {
 		System.out.println("EDITANDO " + cedula);
 		return "persona?faces-redirect=true&id="+cedula;
+	}
+	
+	public String eliminar(String cedula) {
+		
+		this.logins = loginON.getLogins();
+		for(int i = 0; i < this.logins.size(); i++) {
+			if(this.logins.get(i).getPersona().getCedula().equals(cedula)) {
+
+				try {
+					loginON.delete(this.logins.get(i).getCodigo());
+					System.out.println("LOGIN ELIMINADO");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					System.out.println("NO SE HA PODIDO ELIMINAR EL LOGIN");
+					e.printStackTrace();
+				}
+			}
+		}
+		try {
+			personaON.delete(cedula);
+			return "eliminar-persona";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	//MÉTODO PARA LISTAR PERSONAS

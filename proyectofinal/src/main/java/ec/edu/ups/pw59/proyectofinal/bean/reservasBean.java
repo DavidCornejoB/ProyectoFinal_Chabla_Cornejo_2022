@@ -137,6 +137,10 @@ public class reservasBean {
 		return "reserva";
 	}
 	
+	public String generarReserva(int numero) {
+		return "cliente-reserva";
+	}
+	
 	
 
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>FACTURA: 
+</h:head> 
+<body> 
+
+<h:form>
+	<h:dataTable var="fac" value="#{clienteFacturaHabitacionBean.facturasCliente}">
+	
+				<h:column>
+					<f:facet name="header">Número de Factura</f:facet>
+					#{fac.numero}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Fecha</f:facet>
+					#{fac.fecha}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Cedula</f:facet>
+					#{fac.persona.cedula}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					#{fac.persona.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Apellido</f:facet>
+					#{fac.persona.apellido}
+				</h:column>
+	
+	</h:dataTable>
+	
+		<h:dataTable var="det" value="#{clienteFacturaHabitacionBean.detallesCliente}">
+				
+				<h:column>
+					<f:facet name="header">Numero de habitacion</f:facet>
+					#{det.reserva.habitacion.numero}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Hotel</f:facet>
+					#{det.reserva.habitacion.hotel.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Piso</f:facet>
+					#{det.reserva.habitacion.piso}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Hora emisión</f:facet>
+					#{det.reserva.entrada}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Precio</f:facet>
+					#{det.total}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Costo + IVA</f:facet>
+					#{det.iva}
+				</h:column>
+	
+	</h:dataTable>
+	
+	<h:commandButton action="cliente-ubicacion" value="ACEPTAR" />
+</h:form>
+
+</body> 
+</html>
