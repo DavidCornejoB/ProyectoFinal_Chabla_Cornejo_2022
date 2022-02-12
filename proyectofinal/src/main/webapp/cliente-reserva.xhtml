@@ -40,10 +40,12 @@
 					<f:facet name="header">Hotel habitación</f:facet>
 					#{res.habitacion.hotel.nombre}
 				</h:column>
-			
+							
 			</h:dataTable>
 			
-			<h:commandButton action="#{clienteReservaBean.generarFactura()}" value="GENERAR FACTURA" />
+			<h:commandButton action="#{clienteFacturaHabitacionBean.generarFactura()}" value="GENERAR FACTURA" />
+			
+			
 	
 </h:form>
 

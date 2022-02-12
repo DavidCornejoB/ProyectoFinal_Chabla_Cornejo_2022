@@ -111,6 +111,8 @@ public class clienteReservaBean {
 			try {
 				reservaON.insert(this.reserva);
 				
+				clienteFacturaHabitacionBean.setCodigo(this.reserva.getCodigo());
+				
 				this.reservas.add(this.reserva);
 				
 				System.out.println("RESERVA EXITOSA");
@@ -124,9 +126,5 @@ public class clienteReservaBean {
 			}
 		}
 	}//GENERAR RESERVA
-	
-	public String generarFactura() {
-		return "cliente-factura-habitacion";
-	}
 
 }
