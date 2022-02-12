@@ -10,17 +10,33 @@
     	Desea registrarse?
     </ui:define>
     <ui:define name="content">
+		<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div
+						class="content-wrapper full-page-wrapper d-flex align-items-center auth lock-full-bg">
+						<div class="card col-lg-4 mx-auto">
+							<div class="card-body px-5 py-5">
+								<h3 class="card-title text-left mb-3">Iniciar sesión</h3>
 
-			<div class="card-body">
-				<h4 class="card-title">DESEA REGISTRARSE?</h4>
-				
-				<h:form class="forms-sample">
+								<div class="card-body">
+									<h4 class="card-title">DESEA REGISTRARSE?</h4>
 
-					<h:commandButton action="cliente-registrar-persona" value="Registrarse" class="btn btn-primary mr-2"/>
-					
-					<h:commandButton action="cliente-loguearse" value="Volver" class="btn btn-dark"/>
-				</h:form>
+									<h:form class="forms-sample">
+
+										<h:commandButton action="cliente-registrar-persona"
+											value="Registrarse" class="btn btn-primary mr-2" />
+
+										<h:commandButton action="cliente-loguearse" value="Volver"
+											class="btn btn-dark" />
+									</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>
