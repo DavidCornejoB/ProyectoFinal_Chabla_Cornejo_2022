@@ -20,49 +20,48 @@ import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
 @Named
 @RequestScoped
 public class clienteFacturaHabitacionBean {
-	
+
 	@Inject
 	private FacturaCabeceraHabitacionONLocal facturaHabitacionON;
-	
+
 	@Inject
 	private FacturaDetalleHabitacionONLocal detalleHabitacionON;
-	
+
 	@Inject
 	private ReservaONLocal reservaON;
-	
+
 	@Inject
 	private HabitacionONLocal habitacionON;
-	
+
 	private FacturaCabeceraHabitacion facturaHabitacion = new FacturaCabeceraHabitacion();
-	
+
 	private FacturaDetalleHabitacion detalleHabitacion = new FacturaDetalleHabitacion();
-	
+
 	private List<FacturaCabeceraHabitacion> facturas = new ArrayList<>();
-	
+
 	private List<FacturaCabeceraHabitacion> facturasCliente = new ArrayList<>();
-	
+
 	private List<FacturaDetalleHabitacion> detalles = new ArrayList<>();
-	
+
 	private List<FacturaDetalleHabitacion> detallesCliente = new ArrayList<>();
 
-
 	private Reserva reserva = new Reserva();
-	
+
 	private Persona persona = new Persona();
-	
+
 	double total = 0;
-	
+
 	int idFactura;
-	
+
 	public static int codigo;
-	
+
 	public clienteFacturaHabitacionBean() {
 	}
-	
+
 	@PostConstruct
 	public void init() {
 		this.cargar();
-		
+
 	}
 
 	public FacturaCabeceraHabitacionONLocal getFacturaHabitacionON() {
@@ -112,7 +111,6 @@ public class clienteFacturaHabitacionBean {
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
-	
 
 	public List<FacturaCabeceraHabitacion> getFacturas() {
 		return facturas;
@@ -153,7 +151,7 @@ public class clienteFacturaHabitacionBean {
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	
+
 	public static int getCodigo() {
 		return codigo;
 	}
@@ -178,12 +176,12 @@ public class clienteFacturaHabitacionBean {
 		this.detallesCliente = detallesCliente;
 	}
 
-	public String generarFactura() {//GENERAR FACTURA
-		
-		//DATOS DE PERSONA
+	public String generarFactura() {// GENERAR FACTURA
+
+		// DATOS DE PERSONA
 		this.persona = clienteLoginBean.logueo.getPersona();
-		
-		//DATOS DE RESERVA
+
+		// DATOS DE RESERVA
 		try {
 			this.reserva = reservaON.read(codigo);
 			System.out.println("SE ENCONTRÓ RESERVA: " + codigo);
@@ -192,13 +190,13 @@ public class clienteFacturaHabitacionBean {
 			System.out.println("NO SE ENCONTRÓ RESERVA");
 			e.printStackTrace();
 		}
-		
-		//CABECERA
+
+		// CABECERA
 		this.facturas = facturaHabitacionON.getFacturas();
 		this.facturaHabitacion.setNumero(this.facturas.size() + 1);
 		this.facturaHabitacion.setFecha("15-02-2022");
 		this.facturaHabitacion.setPersona(this.persona);
-		
+
 		try {
 			facturaHabitacionON.insert(this.facturaHabitacion);
 			System.out.println("FACTURA CABECERA AGREGADA");
@@ -207,19 +205,19 @@ public class clienteFacturaHabitacionBean {
 			System.out.println("ERROR AL INGRESAR FACTURA CABECERA");
 			e.printStackTrace();
 		}
-		
-		//DETALLE
+
+		// DETALLE
 		this.detalles = detalleHabitacionON.getFacturas();
 		this.detalleHabitacion.setCodigo(this.detalles.size() + 1);
 		this.detalleHabitacion.setDescuento(0);
-		
+
 		this.total = this.reserva.getHabitacion().getCategoria().getPrecio();
 		this.detalleHabitacion.setTotal(this.total);
-		this.detalleHabitacion.setIva((this.total * 12) / 100);
-		
+		this.detalleHabitacion.setIva(((this.total * 12) / 100) + this.total);
+
 		this.detalleHabitacion.setFacturaCabeceraHabitacion(this.facturaHabitacion);
 		this.detalleHabitacion.setReserva(this.reserva);
-		
+
 		try {
 			detalleHabitacionON.insert(this.detalleHabitacion);
 			System.out.println("DETALLE AGREGADO");
@@ -230,46 +228,27 @@ public class clienteFacturaHabitacionBean {
 
 		}
 		return "cliente-factura-habitacion?faces-redirect=true";
-	}//GENERAR FACTURA
-	
-	public void cargar() {//CARGAR
-		
-		System.out.println("CARGAR FACTURA");
-		Persona persona = new Persona();
-		persona = clienteLoginBean.logueo.getPersona();
-		System.out.println("PERSONA: " + persona.getNombre() + " " + persona.getApellido());
-		
-		this.facturas = facturaHabitacionON.getFacturas();
-		
-		for (int i = 0; i < this.facturas.size(); i++) {
-			if(this.facturas.get(i).getPersona().getCedula().equals(persona.getCedula())) {
-				
-				System.out.println("CEDULA: " + this.facturas.get(i).getPersona().getCedula()
-						+ " ES IGUAL A CEDULA: " + persona.getCedula());
-				
-				this.facturasCliente.add(this.facturas.get(i));
-				this.idFactura = this.facturas.get(i).getNumero();
-				System.out.println("ID DE FACTURA: " + this.idFactura);
+	}// GENERAR FACTURA
 
-			}
-		}
-		
+	public void cargar() {// CARGAR
+
+		this.facturas = facturaHabitacionON.getFacturas();
 		this.detalles = detalleHabitacionON.getFacturas();
 		
-		for(int i = 0; i <this.detalles.size(); i++) {
-			if(this.detalles.get(i).getFacturaCabeceraHabitacion().getNumero() == this.idFactura) {
+		int numero = this.facturas.size();
+		System.out.println(numero);
+
+		this.facturasCliente.add(this.facturas.get(numero - 1));
+		this.idFactura = this.facturas.get(numero - 1).getNumero();
+
+		for (int i = 0; i < this.detalles.size(); i++) {
+			if (this.detalles.get(i).getFacturaCabeceraHabitacion().getNumero() == this.idFactura) {
 				this.detallesCliente.add(this.detalles.get(i));
-				System.out.println("ID DETALLE ENCONTRADO " + this.detalles.get(i).getFacturaCabeceraHabitacion().getNumero());
+				System.out.println(
+						"ID DETALLE ENCONTRADO " + this.detalles.get(i).getFacturaCabeceraHabitacion().getNumero());
 			}
 		}
-		
-		
-		
-	}//CARGAR
-	
-	
-	
-	
-	
+
+	}// CARGAR
 
 }
