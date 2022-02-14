@@ -5,14 +5,19 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>ELIMINACIÓN DE RESERVA</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Reserva
+    </ui:define>
+    <ui:define name="content">
 
-<h:form>
+			<h:form>
+			
+			<h2>RESERVA ELIMINADA</h2>
+			<h:commandButton action="listado-reservas" value="ATRAS" />
+			
+			</h:form>
 
-<h2>RESERVA ELIMINADA</h2>
-<h:commandButton action="listado-reservas" value="ATRAS" />
-
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition> 
 </html>

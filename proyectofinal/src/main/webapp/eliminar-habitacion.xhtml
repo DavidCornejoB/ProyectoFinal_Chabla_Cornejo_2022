@@ -5,14 +5,19 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>ELIMINACIÓN DE HABITACION</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	
+    </ui:define>
+    <ui:define name="content"> 
 
-<h:form>
+		<h:form>
+		
+		<h2>HABITACIÓN ELIMINADA</h2>
+		<h:commandButton action="listado-habitaciones" value="ATRAS" />
+		
+		</h:form>
 
-<h2>HABITACIÓN ELIMINADA</h2>
-<h:commandButton action="listado-habitaciones" value="ATRAS" />
-
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition>
 </html>

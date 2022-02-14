@@ -4,6 +4,13 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
+
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Login
+    </ui:define>
+    <ui:define name="content">
+
 <h:head>
  	<f:metadata>
  		<f:viewAction action="#{clienteUbicacionBean.listarHoteles()}"/>
@@ -11,49 +18,57 @@
  </h:head>
  
  
-<ui:composition template="template/plantilla.xhtml">
-    <ui:define name="title">
-    	Login
-    </ui:define>
-    <ui:define name="content">
+
  
+ <div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth lock-full-bg ">
+						<div class="card col-lg-8 mx-auto">
+							<div class="card-body px-5 py-5">
  
- <h:form>
- <h:dataTable var="hot" class="table table-striped" value="#{clienteUbicacionBean.hoteles}">
- 
- 					<h:column>
-						<f:facet name="header">Codigo</f:facet>
-						#{hot.codigo}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Ciudad</f:facet>
-						#{hot.ciudad}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Nombre</f:facet>
-						#{hot.nombre}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Pais</f:facet>
-						#{hot.pais}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Provincia</f:facet>
-						#{hot.provincia}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header"></f:facet>
-						<h:commandButton action="#{clienteUbicacionBean.mostrarHotel(hot.codigo)}" value="Ingresar" />
-					</h:column>
- </h:dataTable>
- 
- <h:commandButton action="cliente-ubicacion" value="ATRÁS" />
- </h:form>
+								 <h:form>
+								 <h:dataTable var="hot" class="table table-striped" value="#{clienteUbicacionBean.hoteles}">
+								 
+								 					<h:column>
+														<f:facet name="header">Codigo</f:facet>
+														#{hot.codigo}
+													</h:column>
+													
+													<h:column>
+														<f:facet name="header">Ciudad</f:facet>
+														#{hot.ciudad}
+													</h:column>
+													
+													<h:column>
+														<f:facet name="header">Nombre</f:facet>
+														#{hot.nombre}
+													</h:column>
+													
+													<h:column>
+														<f:facet name="header">Pais</f:facet>
+														#{hot.pais}
+													</h:column>
+													
+													<h:column>
+														<f:facet name="header">Provincia</f:facet>
+														#{hot.provincia}
+													</h:column>
+													
+													<h:column>
+														<f:facet name="header"></f:facet>
+														<h:commandButton action="#{clienteUbicacionBean.mostrarHotel(hot.codigo)}" value="Ingresar" />
+													</h:column>
+								 </h:dataTable>
+								 
+								 <h:commandButton action="cliente-ubicacion" value="ATRÁS" />
+								 </h:form>
+								 </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 	</ui:define>
 </ui:composition>

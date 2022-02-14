@@ -5,14 +5,20 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>ELIMINACIÓN DE PERSONA</h:head> 
-<body> 
+      
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Persona
+    </ui:define>
+    <ui:define name="content">
 
-<h:form>
+			<h:form>
+			
+			<h2>PERSONA ELIMINADA</h2>
+			<h:commandButton action="listado-personas" value="ATRAS" />
+			
+			</h:form>
 
-<h2>PERSONA ELIMINADA</h2>
-<h:commandButton action="listado-personas" value="ATRAS" />
-
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition>
 </html>

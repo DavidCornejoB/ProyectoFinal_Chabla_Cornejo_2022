@@ -5,14 +5,30 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>ELIMINACIÓN DE CATEGORIA</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Categoría
+    </ui:define>
+    <ui:define name="content">
+    <div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center">
+						<div class="card col-lg-8 mx-auto">
+							<div class="card-body px-5 py-5">
+								<h:form>
+								
+								<h2>CATEGORÍA ELIMINADA</h2>
+								<h:commandButton action="listado-categorias" value="ATRAS" />
+								
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<h:form>
-
-<h2>CATEGORÍA ELIMINADA</h2>
-<h:commandButton action="listado-categorias" value="ATRAS" />
-
-</h:form>
-
-</body> 
+	</ui:define> 
+</ui:composition>
 </html>

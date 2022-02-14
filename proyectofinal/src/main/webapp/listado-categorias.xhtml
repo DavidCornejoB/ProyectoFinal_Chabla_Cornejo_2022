@@ -10,35 +10,47 @@
     </ui:define>
 	<ui:define name="content">
 
-			<h:form>
-			<h:dataTable var="cat" class="table table-striped" value="#{categoriasBean.categorias}">
-				
-				<h:column>
-					<f:facet name="header">Código</f:facet>
-					#{cat.codigo}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Nombre</f:facet>
-					#{cat.nombre}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Precio</f:facet>
-					#{cat.precio}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Eliminar</f:facet>
-					<h:commandButton action="#{categoriasBean.eliminar(cat.codigo)}" value="Eliminar" inmediate="true" />
-				</h:column>
-			
-			</h:dataTable>
-			
-			<h:commandButton action="#{categoriasBean.volverIngresar()}" value="Nueva" />
-			
-			<h:commandButton action="principal" value="Pagina principal" />
-			</h:form>
+<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth register-half-bg ">
+						<div class="card col-lg-12 mx-auto">
+							<div class="card-body px-5 py-5">
+								<h:form>
+								<h:dataTable var="cat" class="table table-striped" value="#{categoriasBean.categorias}">
+									
+									<h:column>
+										<f:facet name="header">Código</f:facet>
+										#{cat.codigo}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Nombre</f:facet>
+										#{cat.nombre}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Precio</f:facet>
+										#{cat.precio}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Eliminar</f:facet>
+										<h:commandButton action="#{categoriasBean.eliminar(cat.codigo)}" value="Eliminar" inmediate="true" />
+									</h:column>
+								
+								</h:dataTable>
+								
+								<h:commandButton action="#{categoriasBean.volverIngresar()}" value="Nueva" />
+								
+								<h:commandButton action="principal" value="Pagina principal" />
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</ui:define>
 </ui:composition>

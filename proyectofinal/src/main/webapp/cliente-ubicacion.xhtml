@@ -4,45 +4,57 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
       
-    <ui:composition template="template/plantilla.xhtml">
-		<ui:define name="title">
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
 	    	SELECCIONE UN PAÍS
-	    </ui:define>
+	 </ui:define>
 
-    <ui:define name="content">
+   <ui:define name="content">
     
-    <h:form>
-
-				<div class="template-demo">
-				
-					<h:commandButton class="btn btn-inverse-primary btn-fw"
-						action="#{clienteUbicacionBean.ubicacionColombia}"
-						value="DECAMERON COLOMBIA" update="pais"></h:commandButton>
-						
-					<h:commandButton class="btn btn-inverse-secondary btn-fw"
-						action="#{clienteUbicacionBean.ubicacionEcuador}"
-						value="DECAMERON ECUADOR" update="pais"></h:commandButton>
-						
-					<h:commandButton class="btn btn-inverse-success btn-fw"
-						action="#{clienteUbicacionBean.ubicacionPeru}"
-						value="DECAMERON PERU" update="pais"></h:commandButton>
-						
+    <div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+						<div class="card col-lg-12 mx-auto">
+							<div class="card-body px-5 py-5">
+							    <h:form>
+							
+											<div class="template-demo">
+											
+												<h:commandButton class="btn btn-inverse-primary btn-fw"
+													action="#{clienteUbicacionBean.ubicacionColombia}"
+													value="DECAMERON COLOMBIA" update="pais"></h:commandButton>
+													
+												<h:commandButton class="btn btn-inverse-secondary btn-fw"
+													action="#{clienteUbicacionBean.ubicacionEcuador}"
+													value="DECAMERON ECUADOR" update="pais"></h:commandButton>
+													
+												<h:commandButton class="btn btn-inverse-success btn-fw"
+													action="#{clienteUbicacionBean.ubicacionPeru}"
+													value="DECAMERON PERU" update="pais"></h:commandButton>
+													
+											</div>
+											
+											<div>
+									    		<h:commandButton 
+													action="#{clienteEditarBean.editar()}"
+													value="EDITAR DATOS DE USUARIO" update="usuario"></h:commandButton>				
+											</div>
+											
+											<div>
+									    		<h:commandButton 
+													action="cliente-loguearse"
+													value="LOG OUT" update="usuario"></h:commandButton>				
+											</div>
+							
+							    </h:form>
+							  </div>
+							</div>
+						</div>	
+					</div>
 				</div>
-				
-				<div>
-		    		<h:commandButton 
-						action="#{clienteEditarBean.editar()}"
-						value="EDITAR DATOS DE USUARIO" update="usuario"></h:commandButton>				
-				</div>
-				
-				<div>
-		    		<h:commandButton 
-						action="cliente-loguearse"
-						value="LOG OUT" update="usuario"></h:commandButton>				
-				</div>
-
-    </h:form>
-
+			</div>
+			
 	</ui:define>
 </ui:composition>
 
