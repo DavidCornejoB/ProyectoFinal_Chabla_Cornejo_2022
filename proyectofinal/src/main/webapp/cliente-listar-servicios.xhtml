@@ -3,55 +3,54 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
-
-<h:head></h:head> 
-<ui:composition template="template/plantilla.xhtml">
+      
+    <ui:composition template="template/plantilla.xhtml">
 	<ui:define name="title">
-    	Listado de Categorías de Habitación
+    	Listado de Servicios
     </ui:define>
-	<ui:define name="content">
-	
-	<div class="container-scroller">
+    	<ui:define name="content">
+		<div class="container-scroller">
 			<div class="container-fluid page-body-wrapper full-page-wrapper">
 				<div class="row w-100 m-0">
-					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+					<div
+						class="content-wrapper full-page-wrapper d-flex align-items-center auth lock-full-bg ">
 						<div class="card col-lg-8 mx-auto">
 							<div class="card-body px-5 py-5">
 
-									<h:form>
-												<h1>SERVICIOS</h1>
-												<h:dataTable var="ser" value="#{clienteHotelBean.servicios}">
-									
-													<h:column>
-														<f:facet name="header">Codigo</f:facet>
-															#{ser.codigo}
-														</h:column>
-									
-													<h:column>
-														<f:facet name="header">Nombre</f:facet>
-															#{ser.nombre}
-														</h:column>
-									
-													<h:column>
-														<f:facet name="header">Precio</f:facet>
-															#{ser.precio}
-														</h:column>
-														
-													<h:column>
-														<f:facet name="header"></f:facet>
-														<h:commandButton action="#{clienteFacturaServicioBean.generarFactura(ser.codigo)}" value="Comprar" />
-													</h:column>
-									
-												</h:dataTable>
-									
-									</h:form>
-								</div>
+							<h:form>
+										<h:dataTable var="ser" value="#{clienteHotelBean.servicios}">
+							
+											<h:column>
+												<f:facet name="header">Codigo</f:facet>
+													#{ser.codigo}
+												</h:column>
+							
+											<h:column>
+												<f:facet name="header">Nombre</f:facet>
+													#{ser.nombre}
+												</h:column>
+							
+											<h:column>
+												<f:facet name="header">Precio</f:facet>
+													#{ser.precio}
+												</h:column>
+												
+											<h:column>
+												<f:facet name="header"></f:facet>
+												<h:commandButton action="#{clienteFacturaServicioBean.generarFactura(ser.codigo)}" value="Comprar" />
+											</h:column>
+							
+										</h:dataTable>
+							
+							</h:form>
+							
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		
+		</div>
 	</ui:define>
 </ui:composition>
+
 </html>
