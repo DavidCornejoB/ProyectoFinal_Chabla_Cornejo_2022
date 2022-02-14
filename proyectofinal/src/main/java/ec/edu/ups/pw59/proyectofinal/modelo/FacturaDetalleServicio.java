@@ -29,6 +29,10 @@ public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABL
 	@Column(name = "FacDetSer_total") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double total;
 	
+	@ManyToOne
+	@JoinColumn(name = "FacCabSer_numero")
+	private FacturaCabeceraServicio facturaCabeceraServicio;
+	
 	//RELACIÓN "ONE TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "SERVICIO"
 	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
 	@JoinColumn(name = "ser_codigo") //ENTIDAD CON LA QUE SE HACE LA RELACIÓN
@@ -68,18 +72,20 @@ public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABL
 		this.total = total;
 	}
 
-	/**
-	 * @return the servicio
-	 */
 	public Servicio getServicio() {
 		return servicio;
 	}
 
-	/**
-	 * @param servicio the servicio to set
-	 */
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
+	}
+
+	public FacturaCabeceraServicio getFacturaCabeceraServicio() {
+		return facturaCabeceraServicio;
+	}
+
+	public void setFacturaCabeceraServicio(FacturaCabeceraServicio facturaCabeceraServicio) {
+		this.facturaCabeceraServicio = facturaCabeceraServicio;
 	}
 
 }

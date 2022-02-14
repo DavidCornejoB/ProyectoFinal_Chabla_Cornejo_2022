@@ -1,15 +1,11 @@
 package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
@@ -28,11 +24,6 @@ public class FacturaCabeceraPaquete implements Serializable{ //CLASE SERIALIZABL
 	@OneToOne
 	@JoinColumn(name ="per_cedula")
 	private Persona persona; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
-	
-	//RELACIÓN "ONE TO MANY" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "FACTURADETALLEPAQUETE"
-	@OneToMany //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
-	@JoinColumn(name = "FacCabPaq_numero") //ESPECIFICAMOS LA ID CON LA QUE SE CONECTARÁ A LA OTRA TABLA
-	private List<FacturaDetallePaquete> detallesPaquete; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//MÉTODOS GET() Y SET()
 
@@ -60,20 +51,5 @@ public class FacturaCabeceraPaquete implements Serializable{ //CLASE SERIALIZABL
 		this.persona = persona;
 	}
 
-	public List<FacturaDetallePaquete> getDetallesPaquete() {
-		return detallesPaquete;
-	}
-
-	public void setDetallesPaquete(List<FacturaDetallePaquete> detallesPaquete) {
-		this.detallesPaquete = detallesPaquete;
-	}
-	
-	//METODO PARA INSERTAR UN NUEVO DETALLE PAQUETE EN LA FACTURA
-	public void addDetallePaquete(FacturaDetallePaquete detallePaquete) {
-		if(detallesPaquete == null) {
-			detallesPaquete = new ArrayList<FacturaDetallePaquete>();
-		}
-		detallesPaquete.add(detallePaquete);
-	}
 
 }
