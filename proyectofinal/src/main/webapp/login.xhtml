@@ -11,40 +11,52 @@
     	Login
     </ui:define>
     <ui:define name="content">
+   <div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+						<div class="card col-lg-8 mx-auto">
+							<div class="card-body px-5 py-5">
 
-			<div class="card-body">
-				<h4 class="card-title">Mi Perfil</h4>
-				<h:form class="forms-sample">
-					<div class="form-group row">
-						<label for="txtCodigo" class="col-sm-3 col-form-label">Código:</label>
-						<div class="col-sm-9">
-							<h:inputText class="form-control" id="txtCodigo" value="#{loginBean.login.codigo}"/>
+								<div class="card-body">
+									<h4 class="card-title">Mi Perfil</h4>
+									<h:form class="forms-sample">
+										<div class="form-group row">
+											<label for="txtCodigo" class="col-sm-3 col-form-label">Código:</label>
+											<div class="col-sm-9">
+												<h:inputText class="form-control" id="txtCodigo" value="#{loginBean.login.codigo}"/>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="txtCorreo" class="col-sm-3 col-form-label">Correo:</label>
+											<div class="col-sm-9">
+												<h:inputText class="form-control" id="txtCorreo" value="#{loginBean.login.correo}"/>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="txtContrasena" class="col-sm-3 col-form-label">Contraseña:</label>
+											<div class="col-sm-9">
+												<h:inputText class="form-control" id="txtContrasena" value="#{loginBean.login.clave}"/>
+												
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="txtCedula" class="col-sm-3 col-form-label">Cédula Persona:</label>
+											<div class="col-sm-9">
+												<h:inputText class="form-control" id="txtCedula" value="#{loginBean.login.persona.cedula}"/>
+												
+											</div>
+										</div>
+										<h:commandButton action="#{loginBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
+										<h:commandButton action="listado-logins" value="Lista" class="btn btn-dark"/>
+									</h:form>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label for="txtCorreo" class="col-sm-3 col-form-label">Correo:</label>
-						<div class="col-sm-9">
-							<h:inputText class="form-control" id="txtCorreo" value="#{loginBean.login.correo}"/>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="txtContrasena" class="col-sm-3 col-form-label">Contraseña:</label>
-						<div class="col-sm-9">
-							<h:inputText class="form-control" id="txtContrasena" value="#{loginBean.login.clave}"/>
-							
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="txtCedula" class="col-sm-3 col-form-label">Cédula Persona:</label>
-						<div class="col-sm-9">
-							<h:inputText class="form-control" id="txtCedula" value="#{loginBean.login.persona.cedula}"/>
-							
-						</div>
-					</div>
-					<h:commandButton action="#{loginBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
-					<h:commandButton action="listado-logins" value="Lista" class="btn btn-dark"/>
-				</h:form>
+				</div>
 			</div>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>

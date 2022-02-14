@@ -9,42 +9,56 @@
     	Listado de Hoteles
     </ui:define>
 	<ui:define name="content">
-			<h:form>
-				<h:dataTable var="hotel"  class="table table-striped" value="#{hotelesBean.hoteles}">
-				
-					<h:column>
-						<f:facet name="header">Código</f:facet>
-						#{hotel.codigo}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Nombre</f:facet>
-						#{hotel.nombre}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Pais</f:facet>
-						#{hotel.pais}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Provincia</f:facet>
-						#{hotel.provincia}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Ciudad</f:facet>
-						#{hotel.ciudad}
-					</h:column>
-				
-				</h:dataTable>
-				
-				<h:commandButton action="#{hotelesBean.volverIngresar()}" value="Nueva" />
-				
-				<h:commandButton action="principal" value="Pagina principal" />
-				
-				
-			</h:form>
+	
+	<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+						<div class="card col-lg-8 mx-auto">
+							<div class="card-body px-5 py-5">
+							<h:form>
+								<h:dataTable var="hotel"  class="table table-striped" value="#{hotelesBean.hoteles}">
+								
+									<h:column>
+										<f:facet name="header">Código</f:facet>
+										#{hotel.codigo}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Nombre</f:facet>
+										#{hotel.nombre}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Pais</f:facet>
+										#{hotel.pais}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Provincia</f:facet>
+										#{hotel.provincia}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Ciudad</f:facet>
+										#{hotel.ciudad}
+									</h:column>
+								
+								</h:dataTable>
+								
+								<h:commandButton action="#{hotelesBean.volverIngresar()}" value="Nueva" />
+								
+								<h:commandButton action="principal" value="Pagina principal" />
+								
+								
+							</h:form>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</ui:define>
 </ui:composition>

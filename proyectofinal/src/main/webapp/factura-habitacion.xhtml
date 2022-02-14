@@ -5,22 +5,39 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>INGRESAR FACTURA</h:head> 
-<body>
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Factura
+    </ui:define>
+    <ui:define name="content">
 
-<h:form>
+<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+						<div class="card col-lg-8 mx-auto">
+							<div class="card-body px-5 py-5">  
 
-<h:outputLabel value="NUMERO: " />
-<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
-
-<h:outputLabel value="FECHA: " />
-<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.fecha}" />
-
-<h:outputLabel value="PERSONA: " />
-<h:inputText value="#{facturaHabitacionBean.facturaHabitacion.persona.cedula}" />
-
-<h:commandButton action="#{facturaHabitacionBean.insertarFactura()}" value="INSERTAR" />
-
-</h:form>
-
-</body> 
+									<h:form>
+									
+									<h:outputLabel value="NUMERO: " />
+									<h:inputText class="form-control" value="#{facturaHabitacionBean.facturaHabitacion.numero}" />
+									
+									<h:outputLabel value="FECHA: " />
+									<h:inputText  class="form-control" value="#{facturaHabitacionBean.facturaHabitacion.fecha}" />
+									
+									<h:outputLabel value="PERSONA: " />
+									<h:inputText  class="form-control" value="#{facturaHabitacionBean.facturaHabitacion.persona.cedula}" />
+									
+									<h:commandButton action="#{facturaHabitacionBean.insertarFactura()}" value="INSERTAR" class="btn btn-primary mr-2" />
+									
+									</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</ui:define>
+</ui:composition>
 </html>

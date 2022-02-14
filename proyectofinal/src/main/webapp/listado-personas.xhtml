@@ -10,62 +10,77 @@
     </ui:define>
 	<ui:define name="content">
 	
-			<h:form>
-				<h:dataTable var="per" class="table table-dark" value="#{personasBean.personas}">
-				
-					<h:column>
-						<f:facet name="header">Cedula</f:facet>
-						#{per.cedula}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Nombre</f:facet>
-						#{per.nombre}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Apellido</f:facet>
-						#{per.apellido}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Direccion</f:facet>
-						#{per.direccion}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Pais</f:facet>
-						#{per.pais}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Ciudad</f:facet>
-						#{per.ciudad}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Tipo</f:facet>
-						#{per.tipo}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Editar</f:facet>
-						<h:commandButton action="#{personasBean.editar(per.cedula)}" value="Editar" inmediate="true" />
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Eliminar</f:facet>
-						<h:commandButton action="#{personasBean.eliminar(per.cedula)}" value="Eliminar" inmediate="true" />
-					</h:column>
-				
-				</h:dataTable>
-				
-				<h:commandButton action="#{personasBean.volverIngresar()}" value="Nueva" />
-				
-				<h:commandButton action="principal" value="Pagina principal" />
-				
+		<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth register-half-bg ">
+						<div class="card col-lg-12 mx-auto">
+							<div class="card-body px-5 py-5">
+								
+										<h:form>
+											<h:dataTable var="per" class="table table-dark" value="#{personasBean.personas}">
+											
+												<h:column>
+													<f:facet name="header">Cedula</f:facet>
+													#{per.cedula}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Nombre</f:facet>
+													#{per.nombre}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Apellido</f:facet>
+													#{per.apellido}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Direccion</f:facet>
+													#{per.direccion}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Pais</f:facet>
+													#{per.pais}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Ciudad</f:facet>
+													#{per.ciudad}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Tipo</f:facet>
+													#{per.tipo}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Editar</f:facet>
+													<h:commandButton action="#{personasBean.editar(per.cedula)}" value="Editar" inmediate="true" />
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Eliminar</f:facet>
+													<h:commandButton action="#{personasBean.eliminar(per.cedula)}" value="Eliminar" inmediate="true" />
+												</h:column>
+											
+											</h:dataTable>
+											
+											<h:commandButton action="#{personasBean.volverIngresar()}" value="Nueva" />
+											
+											<h:commandButton action="principal" value="Pagina principal" />
+											
 			
-			</h:form>
+										</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+								
 	</ui:define>
 </ui:composition>
 </html>
