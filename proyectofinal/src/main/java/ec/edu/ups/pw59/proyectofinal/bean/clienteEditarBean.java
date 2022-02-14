@@ -72,7 +72,7 @@ public class clienteEditarBean {
 		return "cliente-editar-persona?faces-redirect=true";
 	}
 
-	public void editarPersona() {
+	public String editarPersona() {
 		
 		try {
 			personaON.update(this.persona);
@@ -87,6 +87,8 @@ public class clienteEditarBean {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return "cliente-ubicacion";
 			
 	}
 	

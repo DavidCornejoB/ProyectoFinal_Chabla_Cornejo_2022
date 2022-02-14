@@ -193,7 +193,6 @@ public class clienteFacturaHabitacionBean {
 
 		// CABECERA
 		this.facturas = facturaHabitacionON.getFacturas();
-		this.facturaHabitacion.setNumero(this.facturas.size() + 1);
 		this.facturaHabitacion.setFecha("15-02-2022");
 		this.facturaHabitacion.setPersona(this.persona);
 
@@ -208,7 +207,6 @@ public class clienteFacturaHabitacionBean {
 
 		// DETALLE
 		this.detalles = detalleHabitacionON.getFacturas();
-		this.detalleHabitacion.setCodigo(this.detalles.size() + 1);
 		this.detalleHabitacion.setDescuento(0);
 
 		this.total = this.reserva.getHabitacion().getCategoria().getPrecio();
@@ -240,17 +238,8 @@ public class clienteFacturaHabitacionBean {
 		
 		if(numero < 1) {
 			
-			this.facturasCliente.add(this.facturas.get(numero));
-			this.idFactura = this.facturas.get(numero).getNumero();
+			System.out.println("NO HAY FACTURAS QUE MOSTRAR");
 
-			for (int i = 0; i < this.detalles.size(); i++) {
-				if (this.detalles.get(i).getFacturaCabeceraHabitacion().getNumero() == this.idFactura) {
-					this.detallesCliente.add(this.detalles.get(i));
-					System.out.println(
-							"ID DETALLE ENCONTRADO " + this.detalles.get(i).getFacturaCabeceraHabitacion().getNumero());
-				}
-			}
-			
 		} else {
 			
 			this.facturasCliente.add(this.facturas.get(numero - 1));

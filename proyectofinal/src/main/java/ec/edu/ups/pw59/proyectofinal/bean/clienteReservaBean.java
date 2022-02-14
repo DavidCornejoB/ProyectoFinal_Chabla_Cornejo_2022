@@ -79,8 +79,7 @@ public class clienteReservaBean {
 	}
 
 	public String generarReserva(int numero) {//GENERAR RESERVA
-		int num = 0;
-		int num2 = 0;
+
 		try {
 			this.habitacion = habitacionON.read(numero);
 		} catch (Exception e) {
@@ -93,18 +92,6 @@ public class clienteReservaBean {
 			return "error-habitacion-ocupada";
 			
 		} else {			
-			num = reservaON.getReservas().size();
-			
-			if(num < 1) {
-				System.out.println("NUMERO *********** " + num);
-				this.reserva.setCodigo(num);
-
-				
-			} else {
-				
-				num2 = reservaON.getReservas().get(num - 1).getCodigo();
-				this.reserva.setCodigo(num2 + 1);
-			}
 			
 			this.reserva.setEntrada("7 am");
 			this.reserva.setSalida("pendiente");
