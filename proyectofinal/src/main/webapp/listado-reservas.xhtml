@@ -6,7 +6,7 @@
 
 <ui:composition template="template/plantilla.xhtml">
 	<ui:define name="title">
-    	Listado de Clientes
+    	Listado de Reservas
     </ui:define>
 	<ui:define name="content">
 		<h:form>
@@ -40,6 +40,11 @@
 				<h:column>
 					<f:facet name="header">Hotel habitación</f:facet>
 					#{res.habitacion.hotel.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<h:commandButton action="#{reservasBean.eliminar(res.codigo)}" value="Eliminar" inmediate="true" />
 				</h:column>
 			
 			</h:dataTable>

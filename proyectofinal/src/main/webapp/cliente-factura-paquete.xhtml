@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>FACTURA SERVICIO: 
+</h:head> 
+<body> 
+
+<h:form>
+	<h:dataTable var="fac" value="#{clienteFacturaPaqueteBean.facturasCliente}">
+	
+				<h:column>
+					<f:facet name="header">Número de Factura</f:facet>
+					#{fac.numero}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Fecha</f:facet>
+					#{fac.fecha}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Cedula</f:facet>
+					#{fac.persona.cedula}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					#{fac.persona.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Apellido</f:facet>
+					#{fac.persona.apellido}
+				</h:column>
+	
+	</h:dataTable>
+	
+	<h:dataTable var="det" value="#{clienteFacturaPaqueteBean.detallesCliente}">
+				
+				<h:column>
+					<f:facet name="header">Paquete</f:facet>
+					#{det.paquete.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Hotel</f:facet>
+					#{det.paquete.hotel.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Tipo</f:facet>
+					#{det.paquete.tipo}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Habitacion #</f:facet>
+					#{det.paquete.habitacion.numero}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Habitacion piso</f:facet>
+					#{det.paquete.habitacion.piso}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Servicio Incluido</f:facet>
+					#{det.paquete.servicio.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Precio</f:facet>
+					#{det.total}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Descuento</f:facet>
+					#{det.descuento}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Costo Total + IVA</f:facet>
+					#{det.iva}
+				</h:column>
+	
+	</h:dataTable>
+
+	
+	<h:commandButton action="cliente-ubicacion" value="ACEPTAR" />
+</h:form>
+
+</body> 
+</html>

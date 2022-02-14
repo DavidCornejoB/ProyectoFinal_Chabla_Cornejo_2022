@@ -35,6 +35,11 @@
 					<f:facet name="header">Precio</f:facet>
 						#{paq.precio}
 					</h:column>
+					
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandButton action="#{clienteFacturaPaqueteBean.generarFactura(paq.codigo)}" value="Comprar" />
+				</h:column>
 
 			</h:dataTable>
 </h:form> 
