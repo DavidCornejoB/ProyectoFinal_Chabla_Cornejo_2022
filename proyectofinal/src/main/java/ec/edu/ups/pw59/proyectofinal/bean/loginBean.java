@@ -71,11 +71,7 @@ public class loginBean {
 			e.printStackTrace();
 		}
 		
-		if (this.login.getPersona().getTipo().equals("Administrador")) {
-			return "principal";
-		} else {
-			return "cliente-principal";
-		}
+		return "listado-logins?faces-redirect=true";
 	}
 	
 	public void cargar() {

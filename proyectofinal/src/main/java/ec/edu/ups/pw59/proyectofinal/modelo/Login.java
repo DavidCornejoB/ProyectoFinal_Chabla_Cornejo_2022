@@ -2,7 +2,6 @@ package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -29,7 +28,6 @@ public class Login implements Serializable{ //CLASE SERIALIZABLE
 	private Persona persona;
 	
 	//MÉTODOS GET() Y SET()
-	
 	public int getCodigo() {
 		return codigo;
 	}

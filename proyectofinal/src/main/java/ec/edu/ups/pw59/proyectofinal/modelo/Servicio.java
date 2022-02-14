@@ -10,10 +10,7 @@ import javax.persistence.ManyToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Servicio implements Serializable{ //CLASE SERIALIZABLE
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id //ETIQUETA DE PERSISTENCIA PARA CLAVE PRIMARIA
