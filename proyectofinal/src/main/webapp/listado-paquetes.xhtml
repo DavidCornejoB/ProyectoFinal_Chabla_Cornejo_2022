@@ -9,59 +9,72 @@
     	Listado de Paquetes
     </ui:define>
 	<ui:define name="content"> 
+	
+	<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth register-half-bg">
+						<div class="card col-lg-12 mx-auto">
+							<div class="card-body px-5 py-5">
 
-
-		<h:form>
-
-			<h:dataTable var="paq" class="table table-dark" value="#{paquetesBean.paquetes}" >
-				
-				<h:column>
-					<f:facet name="header">Código</f:facet>
-					#{paq.codigo}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Nombre</f:facet>
-					#{paq.nombre}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Precio</f:facet>
-					#{paq.precio}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Tipo</f:facet>
-					#{paq.tipo}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Habitación</f:facet>
-					#{paq.habitacion.numero}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Habitación piso</f:facet>
-					#{paq.habitacion.piso}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Servicio</f:facet>
-					#{paq.servicio.nombre}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Hotel</f:facet>
-					#{paq.hotel.nombre}
-				</h:column>
-			
-			</h:dataTable>
-
-			<h:commandButton action="#{paquetesBean.volverIngresar()}" value="Nuevo" />
-			
-			<h:commandButton action="principal" value="Pagina principal" />
-
-		</h:form>
+							<h:form>
+					
+								<h:dataTable var="paq" class="table table-dark" value="#{paquetesBean.paquetes}" >
+									
+									<h:column>
+										<f:facet name="header">Código</f:facet>
+										#{paq.codigo}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Nombre</f:facet>
+										#{paq.nombre}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Precio</f:facet>
+										#{paq.precio}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Tipo</f:facet>
+										#{paq.tipo}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Habitación</f:facet>
+										#{paq.habitacion.numero}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Habitación piso</f:facet>
+										#{paq.habitacion.piso}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Servicio</f:facet>
+										#{paq.servicio.nombre}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Hotel</f:facet>
+										#{paq.hotel.nombre}
+									</h:column>
+								
+								</h:dataTable>
+					
+								<h:commandButton action="#{paquetesBean.volverIngresar()}" value="Nuevo" />
+								
+								<h:commandButton action="principal" value="Pagina principal" />
+					
+							</h:form>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
 	</ui:define>
 </ui:composition>
 </html>

@@ -9,38 +9,51 @@
     	Listado de Clientes
     </ui:define>
 	<ui:define name="content">
+	
+	<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth register-half-bg ">
+						<div class="card col-lg-8 mx-auto">
+							<div class="card-body px-5 py-5">
 
-			<h:form>
-			
-			<h:dataTable var="log" class="table table-striped" value="#{loginBean.logins}">
-			
-			<h:column>
-					<f:facet name="header">Código</f:facet>
-					#{log.codigo}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Correo</f:facet>
-					#{log.correo}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Contraseña</f:facet>
-					#{log.clave}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Persona</f:facet>
-					#{log.persona.nombre}
-				</h:column>
-			
-			</h:dataTable>
-			
-			<h:commandButton action="#{loginBean.volverIngresar()}" value="Nuevo" />
-			
-			<h:commandButton action="principal" value="Pagina principal" />
-			
-			</h:form>
+								<h:form>
+								
+								<h:dataTable var="log" class="table table-striped" value="#{loginBean.logins}">
+								
+								<h:column>
+										<f:facet name="header">Código</f:facet>
+										#{log.codigo}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Correo</f:facet>
+										#{log.correo}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Contraseña</f:facet>
+										#{log.clave}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Persona</f:facet>
+										#{log.persona.nombre}
+									</h:column>
+								
+								</h:dataTable>
+								
+								<h:commandButton action="#{loginBean.volverIngresar()}" value="Nuevo" />
+								
+								<h:commandButton action="principal" value="Pagina principal" />
+								
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 			
 	</ui:define>
 </ui:composition>

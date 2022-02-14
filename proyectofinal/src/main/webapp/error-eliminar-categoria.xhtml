@@ -5,17 +5,22 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>ERROR</h:head> 
-<body> 
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Categoria
+    </ui:define>
+    <ui:define name="content">
 
-<h:form>
+				<h:form>
+				
+				<h2>NO SE HA PODIDO ELIMINAR CATEGORIA</h2>
+				<h3>MOTIVO: Existen habitaciones registradas con ésta categoria</h3>
+				<h:commandButton action="listado-habitaciones" value="VER" />
+				<h:commandButton action="listado-categorias" value="CANCELAR" />
+				
+				
+				</h:form>
 
-<h2>NO SE HA PODIDO ELIMINAR CATEGORIA</h2>
-<h3>MOTIVO: Existen habitaciones registradas con ésta categoria</h3>
-<h:commandButton action="listado-habitaciones" value="VER" />
-<h:commandButton action="listado-categorias" value="CANCELAR" />
-
-
-</h:form>
-
-</body> 
+	</ui:define>
+</ui:composition> 
 </html>
