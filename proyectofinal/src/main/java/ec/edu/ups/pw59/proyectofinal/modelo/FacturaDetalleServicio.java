@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,6 +18,7 @@ public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABL
 	private static final long serialVersionUID = 1L;
 
 	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@GeneratedValue
 	@Column(name = "FacDetSer_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	

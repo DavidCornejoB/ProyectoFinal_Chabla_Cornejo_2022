@@ -85,9 +85,7 @@ public class clienteRegisterBean {
 				return "error al insertar persona";
 			}
 			this.logins = loginON.getLogins();
-			int idLogin = this.logins.size() + 1;
 			
-			this.login.setCodigo(idLogin);
 			this.login.setPersona(this.persona);
 			
 			try {

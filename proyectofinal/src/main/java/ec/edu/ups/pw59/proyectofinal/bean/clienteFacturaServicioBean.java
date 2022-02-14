@@ -191,7 +191,6 @@ public class clienteFacturaServicioBean {
 		
 		//CABECERA
 		this.facturas = facturaServicioON.getFacturas();
-		this.facturaServicio.setNumero(this.facturas.size() + 1);
 		this.facturaServicio.setFecha("15-02-2022");
 		this.facturaServicio.setPersona(this.persona);
 		
@@ -206,7 +205,6 @@ public class clienteFacturaServicioBean {
 		
 		//DETALLE
 		this.detalles = detalleServicioON.getFacturas();
-		this.detalleServicio.setCodigo(this.detalles.size() + 1);
 		this.detalleServicio.setDescuento(0);
 		
 		this.total = this.servicio.getPrecio();
@@ -237,14 +235,9 @@ public class clienteFacturaServicioBean {
 		int numero = this.facturas.size();
 		
 		if(numero < 1) {
-			this.facturasCliente.add(this.facturas.get(numero));
-			this.idFactura = this.facturas.get(numero).getNumero();
 			
-			for (int i = 0; i < this.detalles.size(); i++) {
-				if(this.detalles.get(i).getFacturaCabeceraServicio().getNumero() == this.idFactura) {
-					this.detallesCliente.add(this.detalles.get(i));
-				}
-			}
+			System.out.println("NO HAY FACTURAS QUE MOSTRAR");
+
 		} else {
 			
 			this.facturasCliente.add(this.facturas.get(numero - 1));
