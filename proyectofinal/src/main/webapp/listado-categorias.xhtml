@@ -6,7 +6,7 @@
 
 <ui:composition template="template/plantilla.xhtml">
 	<ui:define name="title">
-    	Listado de Clientes
+    	Listado de Categorías de Habitación
     </ui:define>
 	<ui:define name="content">
 
@@ -26,6 +26,11 @@
 				<h:column>
 					<f:facet name="header">Precio</f:facet>
 					#{cat.precio}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<h:commandButton action="#{categoriasBean.eliminar(cat.codigo)}" value="Eliminar" inmediate="true" />
 				</h:column>
 			
 			</h:dataTable>

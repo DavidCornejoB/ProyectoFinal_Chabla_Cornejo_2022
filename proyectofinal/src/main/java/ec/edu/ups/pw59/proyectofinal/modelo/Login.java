@@ -2,9 +2,9 @@ package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,6 +15,7 @@ public class Login implements Serializable{ //CLASE SERIALIZABLE
 	private static final long serialVersionUID = 1L;
 	
 	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@GeneratedValue
 	@Column(name = "log_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
@@ -29,7 +30,6 @@ public class Login implements Serializable{ //CLASE SERIALIZABLE
 	private Persona persona;
 	
 	//MÉTODOS GET() Y SET()
-	
 	public int getCodigo() {
 		return codigo;
 	}

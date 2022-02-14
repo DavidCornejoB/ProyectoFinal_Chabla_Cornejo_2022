@@ -15,7 +15,7 @@ public interface ServicioONLocal {
 	
 	public void update(Servicio s) throws Exception;
 	
-	public void read(int id) throws Exception;
+	public Servicio read(int id) throws Exception;
 	
 	public void delete(int id) throws Exception;
 	

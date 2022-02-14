@@ -34,9 +34,9 @@ public class ServicioON implements ServicioONRemote, ServicioONLocal{
 	}
 	
 	//METODO PARA LEER SERVICIOS
-	public void read(int id) throws Exception{
+	public Servicio read(int id) throws Exception{
 		//LLAMAMOS AL MÉTODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO SERVICIO QUE SERÁ LEIDO
-		daoServicio.read(id);
+		return daoServicio.read(id);
 	}
 	
 	//METODO PARA ELIMINAR SERVICIOS

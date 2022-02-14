@@ -30,9 +30,15 @@
 				</div>
 				
 				<div>
-		    		<h:commandButton class="btn btn-inverse-success btn-fw"
+		    		<h:commandButton 
 						action="#{clienteEditarBean.editar()}"
 						value="EDITAR DATOS DE USUARIO" update="usuario"></h:commandButton>				
+				</div>
+				
+				<div>
+		    		<h:commandButton 
+						action="cliente-loguearse"
+						value="LOG OUT" update="usuario"></h:commandButton>				
 				</div>
 
     </h:form>

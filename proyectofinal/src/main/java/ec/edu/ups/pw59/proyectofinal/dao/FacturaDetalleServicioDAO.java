@@ -41,9 +41,7 @@ public class FacturaDetalleServicioDAO {
 		
 		String jpql2="SELECT p FROM FacturaDetalleServicio p";
 		
-		//nombre= nombre+"%";
 		Query query= em.createQuery(jpql2, FacturaDetalleServicio.class);
-		//query.setParameter(1, nombre);
 		
 		List<FacturaDetalleServicio> detalles=query.getResultList();
 		return detalles;

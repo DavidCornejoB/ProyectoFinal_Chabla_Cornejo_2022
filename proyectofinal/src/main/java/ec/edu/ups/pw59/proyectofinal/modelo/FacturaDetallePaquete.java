@@ -4,19 +4,18 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@GeneratedValue
 	@Column(name = "FacDetPaq_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
@@ -28,6 +27,10 @@ public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
 	
 	@Column(name = "FacDetPaq_total") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double total;
+	
+	@ManyToOne
+	@JoinColumn(name = "FacCabPaq_numero")
+	private FacturaCabeceraPaquete facturaCabeceraPaquete;
 	
 	//RELACIÓN "MANY TO ONE" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "PAQUETE"
 	@ManyToOne //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
@@ -68,18 +71,20 @@ public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
 		this.total = total;
 	}
 
-	/**
-	 * @return the paquete
-	 */
 	public Paquete getPaquete() {
 		return paquete;
 	}
 
-	/**
-	 * @param paquete the paquete to set
-	 */
 	public void setPaquete(Paquete paquete) {
 		this.paquete = paquete;
+	}
+
+	public FacturaCabeceraPaquete getFacturaCabeceraPaquete() {
+		return facturaCabeceraPaquete;
+	}
+
+	public void setFacturaCabeceraPaquete(FacturaCabeceraPaquete facturaCabeceraPaquete) {
+		this.facturaCabeceraPaquete = facturaCabeceraPaquete;
 	}
 
 }

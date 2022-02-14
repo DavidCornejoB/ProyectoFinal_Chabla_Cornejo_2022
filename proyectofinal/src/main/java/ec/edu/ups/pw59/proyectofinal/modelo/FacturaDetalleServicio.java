@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,6 +18,7 @@ public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABL
 	private static final long serialVersionUID = 1L;
 
 	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@GeneratedValue
 	@Column(name = "FacDetSer_codigo") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int codigo;
 	
@@ -28,6 +30,10 @@ public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABL
 	
 	@Column(name = "FacDetSer_total") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private double total;
+	
+	@ManyToOne
+	@JoinColumn(name = "FacCabSer_numero")
+	private FacturaCabeceraServicio facturaCabeceraServicio;
 	
 	//RELACIÓN "ONE TO ONE" ENTRE ESTA ENTIDAD Y LA ENTIDAD "SERVICIO"
 	@ManyToOne //ETIQUETA DE RELACION ENTRE ENTIDADES
@@ -68,18 +74,20 @@ public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABL
 		this.total = total;
 	}
 
-	/**
-	 * @return the servicio
-	 */
 	public Servicio getServicio() {
 		return servicio;
 	}
 
-	/**
-	 * @param servicio the servicio to set
-	 */
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
+	}
+
+	public FacturaCabeceraServicio getFacturaCabeceraServicio() {
+		return facturaCabeceraServicio;
+	}
+
+	public void setFacturaCabeceraServicio(FacturaCabeceraServicio facturaCabeceraServicio) {
+		this.facturaCabeceraServicio = facturaCabeceraServicio;
 	}
 
 }

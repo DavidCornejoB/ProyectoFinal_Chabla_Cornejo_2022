@@ -1,15 +1,12 @@
 package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
@@ -18,6 +15,7 @@ public class FacturaCabeceraServicio implements Serializable{ //CLASE SERIALIZAB
 	private static final long serialVersionUID = 1L;
 	
 	@Id //ETIQUETA DE CLAVE PRIMARIA
+	@GeneratedValue
 	@Column(name = "FacCabSer_numero") //ETIQUETA COLUMN PARA NOMBRE Y TAMAÑO DEL PARÁMETRO EN LA BASE DE DATOS
 	private int numero;
 	
@@ -28,11 +26,6 @@ public class FacturaCabeceraServicio implements Serializable{ //CLASE SERIALIZAB
 	@OneToOne
 	@JoinColumn(name ="per_cedula")
 	private Persona persona; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
-	
-	//RELACION "ONE TO MANY" ENTRE ÉSTA ENTIDAD Y LA ENTIDAD "FACTURA DETALLESERVICIO"
-	@OneToMany //ETIQUETA DE RELACIÓN ENTRE ENTIDADES
-	@JoinColumn(name = "FacCabSer_numero") //ESPECIFICAMOS LA ID CON LA QUE SE CONECTARÁ A LA OTRA TABLA
-	private List<FacturaDetalleServicio> detallesServicio; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//MÉTODOS GET() Y SET()
 
@@ -59,21 +52,4 @@ public class FacturaCabeceraServicio implements Serializable{ //CLASE SERIALIZAB
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
-
-	public List<FacturaDetalleServicio> getDetallesServicio() {
-		return detallesServicio;
-	}
-
-	public void setDetallesServicio(List<FacturaDetalleServicio> detallesServicio) {
-		this.detallesServicio = detallesServicio;
-	}
-	
-	//METODO PARA INSERTAR UN NUEVO DETALLE SERVICIO EN LA FACTURA
-	public void addDetalleServicio(FacturaDetalleServicio detalleServicio) {
-		if(detallesServicio == null) {
-			detallesServicio = new ArrayList<FacturaDetalleServicio>();
-		}
-		detallesServicio.add(detalleServicio);
-	}
-
 }

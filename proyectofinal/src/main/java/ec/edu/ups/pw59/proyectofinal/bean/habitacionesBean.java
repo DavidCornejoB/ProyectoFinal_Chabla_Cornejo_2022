@@ -9,9 +9,11 @@ import javax.inject.Named;
 
 import ec.edu.ups.pw59.proyectofinal.business.CategoriaON;
 import ec.edu.ups.pw59.proyectofinal.business.HabitacionONLocal;
+import ec.edu.ups.pw59.proyectofinal.business.PaqueteONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Categoria;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
+import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 
 @Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
@@ -21,11 +23,16 @@ public class habitacionesBean {
 	@Inject
 	private HabitacionONLocal habitacionON;
 	
+	@Inject
+	private PaqueteONLocal paqueteON;
+	
 	//CREAMOS EL OBJETO HABITACION. SE INICIALIZA CON VALORES VACIOS
 	private Habitacion habitacion = new Habitacion();
 	
 	//VARIABLE LISTA QUE CONTIENE TODAS LAS HABITACIONES INGRESADAS
 	private List<Habitacion> habitaciones;
+	
+	private List<Paquete> paquetes;
 	
 	//CONSTRUCTOR
 	public habitacionesBean() {
@@ -72,6 +79,39 @@ public class habitacionesBean {
 		
 		//UNA VEZ SE HA INGRESADO UNA HABITACION, SE REDIRIGIRÁ AL FORMULARIO DE LISTAR HABITACIONES
 		return "listado-habitaciones?faces-redirect=true";
+	}
+	
+	public String eliminar(int numero) {
+		
+		Habitacion habitacion = new Habitacion();
+		try {
+			habitacion = habitacionON.read(numero);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(habitacion.getEstado().equals("Ocupada")) {
+			return "error-eliminar-habitacion";
+		} else {
+			
+			this.paquetes = paqueteON.getPaquetes();
+			
+			for(int i = 0; i < this.paquetes.size(); i++) {
+				if(this.paquetes.get(i).getHabitacion().getNumero() == numero) {
+					return "error-eliminar-habitacion";
+				}
+			}
+			
+			try {
+				habitacionON.delete(numero);
+				return "eliminar-habitacion";
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+		}
 	}
 	
 	//METODO PARA LISTAR HABITACIONES
