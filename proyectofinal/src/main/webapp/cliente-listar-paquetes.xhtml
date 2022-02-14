@@ -4,45 +4,65 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
-<body>
+<ui:composition template="template/plantilla.xhtml">
+	<ui:define name="title">
+    	Listado de Paquetes
+    </ui:define>
+    	<ui:define name="content">
+		<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div
+						class="content-wrapper full-page-wrapper d-flex align-items-center auth lock-full-bg ">
+						<div class="card col-lg-8 mx-auto">
+							<div class="card-body px-5 py-5">
+							
+						<h:form>
+						<h:dataTable var="paq" value="#{clienteHotelBean.paquetes}">
+						
+										<h:column>
+											<f:facet name="header">Nombre</f:facet>
+												#{paq.nombre}
+											</h:column>
+						
+										<h:column>
+											<f:facet name="header">Tipo</f:facet>
+												#{paq.tipo}
+											</h:column>
+						
+										<h:column>
+											<f:facet name="header">Habitacion Incluida</f:facet>
+												#{paq.habitacion.numero}
+											</h:column>
+						
+										<h:column>
+											<f:facet name="header">Servicio Incluido</f:facet>
+												#{paq.servicio.nombre}
+											</h:column>
+						
+										<h:column>
+											<f:facet name="header">Precio</f:facet>
+												#{paq.precio}
+											</h:column>
+											
+										<h:column>
+											<f:facet name="header"></f:facet>
+											<h:commandButton action="#{clienteFacturaPaqueteBean.generarFactura(paq.codigo)}" value="Comprar" />
+										</h:column>
+						
+							</h:dataTable>
+							</h:form> 
+							
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+    
+    
+</ui:composition>
 
-<h:form>
-
-<h:dataTable var="paq" value="#{clienteHotelBean.paquetes}">
-
-				<h:column>
-					<f:facet name="header">Nombre</f:facet>
-						#{paq.nombre}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Tipo</f:facet>
-						#{paq.tipo}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Habitacion Incluida</f:facet>
-						#{paq.habitacion.numero}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Servicio Incluido</f:facet>
-						#{paq.servicio.nombre}
-					</h:column>
-
-				<h:column>
-					<f:facet name="header">Precio</f:facet>
-						#{paq.precio}
-					</h:column>
-					
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<h:commandButton action="#{clienteFacturaPaqueteBean.generarFactura(paq.codigo)}" value="Comprar" />
-				</h:column>
-
-			</h:dataTable>
-</h:form> 
-
-</body> 
 </html>
