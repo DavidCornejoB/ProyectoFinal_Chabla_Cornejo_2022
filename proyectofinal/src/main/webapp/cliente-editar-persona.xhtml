@@ -4,43 +4,66 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>
- 	<f:metadata>
- 		<f:viewAction action="#{clienteEditarBean.loadData()}"/>
- 	</f:metadata>
-</h:head> 
-<body>
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Login
+    </ui:define>
+    <ui:define name="content">
 
-<h:form>
-<h:outputLabel value="CEDULA: " />
-<h:inputText value="#{clienteEditarBean.persona.cedula}" />
 
-<h:outputLabel value="NOMBRE: " />
-<h:inputText value="#{clienteEditarBean.persona.nombre}" />
+	<h:head>
+	 	<f:metadata>
+	 		<f:viewAction action="#{clienteEditarBean.loadData()}"/>
+	 	</f:metadata>
+	</h:head> 
 
-<h:outputLabel value="APELLIDO: " />
-<h:inputText value="#{clienteEditarBean.persona.apellido}" />
 
-<h:outputLabel value="DIRECCION: " />
-<h:inputText value="#{clienteEditarBean.persona.direccion}" />
+		<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+						<div class="card col-lg-6 mx-auto">
+							<div class="card-body px-5 py-5">
+								<h3 class="card-title text-left mb-3">Iniciar sesión</h3>
+												<h:form>
+												<h:outputLabel value="CEDULA: " />
+												<h:inputText class="form-control" value="#{clienteEditarBean.persona.cedula}" />
+												
+												<h:outputLabel value="NOMBRE: " />
+												<h:inputText  class="form-control" value="#{clienteEditarBean.persona.nombre}" />
+												
+												<h:outputLabel value="APELLIDO: " />
+												<h:inputText class="form-control" value="#{clienteEditarBean.persona.apellido}" />
+												
+												<h:outputLabel value="DIRECCION: " />
+												<h:inputText class="form-control" value="#{clienteEditarBean.persona.direccion}" />
+												
+												<h:outputLabel value="PAIS: " />
+												<h:inputText class="form-control" value="#{clienteEditarBean.persona.pais}" />
+												
+												<h:outputLabel value="CIUDAD: " />
+												<h:inputText class="form-control" value="#{clienteEditarBean.persona.ciudad}" />
+												
+												<h:outputLabel value="CORREO: " />
+												<h:inputText class="form-control" value="#{clienteEditarBean.login.correo}" />
+												
+												<h:outputLabel value="CONTRASEÑA: " />
+												<h:inputText class="form-control" value="#{clienteEditarBean.login.clave}" />
+												
+												<h:commandButton action="#{clienteEditarBean.editarPersona()}" value="EDITAR" class="btn btn-primary mr-2" />
+												
+												<h:commandButton action="cliente-ubicacion" value="ATRÁS" class="btn btn-dark" />
+												
+												</h:form> 
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+	</ui:define>
+</ui:composition>	
 
-<h:outputLabel value="PAIS: " />
-<h:inputText value="#{clienteEditarBean.persona.pais}" />
 
-<h:outputLabel value="CIUDAD: " />
-<h:inputText value="#{clienteEditarBean.persona.ciudad}" />
-
-<h:outputLabel value="CORREO: " />
-<h:inputText value="#{clienteEditarBean.login.correo}" />
-
-<h:outputLabel value="CONTRASEÑA: " />
-<h:inputText value="#{clienteEditarBean.login.clave}" />
-
-<h:commandButton action="#{clienteEditarBean.editarPersona()}" value="EDITAR" />
-
-<h:commandButton action="cliente-ubicacion" value="ATRÁS" />
-
-</h:form> 
-
-</body> 
 </html>
