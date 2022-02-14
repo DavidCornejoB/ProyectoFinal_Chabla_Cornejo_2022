@@ -3,93 +3,123 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
+      
+<ui:composition template="template/plantilla.xhtml">
+    <ui:define name="title">
+    	Factura
+    </ui:define>
+    <ui:define name="content">
 
 <h:head>FACTURA SERVICIO: 
 </h:head> 
-<body> 
+<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+						<div class="card col-lg-12 mx-auto">
+							<div class="card-body px-5 py-5">
 
-<h:form>
-	<h:dataTable var="fac" value="#{clienteFacturaPaqueteBean.facturasCliente}">
-	
-				<h:column>
-					<f:facet name="header">Número de Factura</f:facet>
-					#{fac.numero}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Fecha</f:facet>
-					#{fac.fecha}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Cedula</f:facet>
-					#{fac.persona.cedula}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Nombre</f:facet>
-					#{fac.persona.nombre}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Apellido</f:facet>
-					#{fac.persona.apellido}
-				</h:column>
-	
-	</h:dataTable>
-	
-	<h:dataTable var="det" value="#{clienteFacturaPaqueteBean.detallesCliente}">
-				
-				<h:column>
-					<f:facet name="header">Paquete</f:facet>
-					#{det.paquete.nombre}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Hotel</f:facet>
-					#{det.paquete.hotel.nombre}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Tipo</f:facet>
-					#{det.paquete.tipo}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Habitacion #</f:facet>
-					#{det.paquete.habitacion.numero}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Habitacion piso</f:facet>
-					#{det.paquete.habitacion.piso}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Servicio Incluido</f:facet>
-					#{det.paquete.servicio.nombre}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Precio</f:facet>
-					#{det.total}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Descuento</f:facet>
-					#{det.descuento}
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">Costo Total + IVA</f:facet>
-					#{det.iva}
-				</h:column>
-	
-	</h:dataTable>
-
-	
-	<h:commandButton action="cliente-ubicacion" value="ACEPTAR" />
-</h:form>
-
-</body> 
+								<h:form>
+									<h:dataTable var="fac" class="table table-striped" value="#{clienteFacturaPaqueteBean.facturasCliente}">
+									
+												<h:column>
+													<f:facet name="header">Número de Factura</f:facet>
+													#{fac.numero}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Fecha</f:facet>
+													#{fac.fecha}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Cedula</f:facet>
+													#{fac.persona.cedula}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Nombre</f:facet>
+													#{fac.persona.nombre}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Apellido</f:facet>
+													#{fac.persona.apellido}
+												</h:column>
+									
+									</h:dataTable>
+									</h:form>
+								</div>
+							</div>
+						</div>
+									
+					<div class="row w-100 m-0">
+					 <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg ">
+						
+						<div class="card col-lg-12 mx-auto">
+							<div class="card-body px-5 py-5">
+							
+									
+								<h:form>
+									<h:dataTable var="det" class="table table-striped" value="#{clienteFacturaPaqueteBean.detallesCliente}">
+												
+												<h:column>
+													<f:facet name="header">Paquete</f:facet>
+													#{det.paquete.nombre}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Hotel</f:facet>
+													#{det.paquete.hotel.nombre}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Tipo</f:facet>
+													#{det.paquete.tipo}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Habitacion #</f:facet>
+													#{det.paquete.habitacion.numero}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Habitacion piso</f:facet>
+													#{det.paquete.habitacion.piso}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Servicio Incluido</f:facet>
+													#{det.paquete.servicio.nombre}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Precio</f:facet>
+													#{det.total}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Descuento</f:facet>
+													#{det.descuento}
+												</h:column>
+												
+												<h:column>
+													<f:facet name="header">Costo Total + IVA</f:facet>
+													#{det.iva}
+												</h:column>
+									
+									</h:dataTable>
+								
+									
+									<h:commandButton action="cliente-ubicacion" value="ACEPTAR" />
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	</ui:define>
+</ui:composition>
 </html>

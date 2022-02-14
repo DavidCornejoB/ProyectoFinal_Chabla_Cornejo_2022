@@ -9,39 +9,53 @@
     	Listado de Clientes
     </ui:define>
 	<ui:define name="content">
+	
+	
+	<div class="container-scroller">
+			<div class="container-fluid page-body-wrapper full-page-wrapper">
+				<div class="row w-100 m-0">
+					<div class="content-wrapper full-page-wrapper d-flex align-items-center auth register-half-bg ">
+						<div class="card col-lg-12 mx-auto">
+							<div class="card-body px-5 py-5">
 
-		<h:form>
-		
-		<h:dataTable var="ser" class="table table-striped" value="#{serviciosBean.servicios}">
-		
-			<h:column>
-				<f:facet name="header">Código</f:facet>
-				#{ser.codigo}
-			</h:column>
-			
-				<h:column>
-				<f:facet name="header">Nombre</f:facet>
-				#{ser.nombre}
-			</h:column>
-			
-				<h:column>
-				<f:facet name="header">Precio</f:facet>
-				#{ser.precio}
-			</h:column>
-			
-				<h:column>
-				<f:facet name="header">Hotel</f:facet>
-				#{ser.hotel.nombre}
-			</h:column>
-		
-		</h:dataTable> 
-		
-		<h:commandButton action="#{serviciosBean.volverIngresar()}" value="Nuevo" />
-		
-		<h:commandButton action="principal" value="Pagina principal" />
-		
-		
-		</h:form>
+							<h:form>
+							
+							<h:dataTable var="ser" class="table table-striped" value="#{serviciosBean.servicios}">
+							
+								<h:column>
+									<f:facet name="header">Código</f:facet>
+									#{ser.codigo}
+								</h:column>
+								
+									<h:column>
+									<f:facet name="header">Nombre</f:facet>
+									#{ser.nombre}
+								</h:column>
+								
+									<h:column>
+									<f:facet name="header">Precio</f:facet>
+									#{ser.precio}
+								</h:column>
+								
+									<h:column>
+									<f:facet name="header">Hotel</f:facet>
+									#{ser.hotel.nombre}
+								</h:column>
+							
+							</h:dataTable> 
+							
+							<h:commandButton action="#{serviciosBean.volverIngresar()}" value="Nuevo" />
+							
+							<h:commandButton action="principal" value="Pagina principal" />
+							
+							
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	</ui:define>
 </ui:composition>
