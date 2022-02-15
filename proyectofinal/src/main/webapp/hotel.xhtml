@@ -30,8 +30,12 @@
 									</div>
 									<div class="form-group">
 										<label for="txtPais">País</label>
-										<h:inputText class="form-control" id="txtPais"
-											value="#{hotelesBean.hotel.pais}" />
+										<h:selectOneMenu value="#{hotelesBean.hotel.pais}">
+											<f:selectItem itemValue="Colombia" itemLabel="Colombia" />
+											<f:selectItem itemValue="Ecuador" itemLabel="Ecuador" />
+											<f:selectItem itemValue="Peru" itemLabel="Peru" />
+										</h:selectOneMenu>	
+
 									</div>
 									<div class="form-group">
 										<label for="txtProvincia">Provincia</label>

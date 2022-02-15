@@ -73,10 +73,10 @@
 											
 											<div class="form-group">
 												<label for="txttipo">Tipo</label>
-												<h:inputText class="form-control" id="txtTipo"
-															value = "#{personasBean.persona.tipo}">
-												</h:inputText>
-												
+												<h:selectOneMenu value="#{personasBean.persona.tipo}">
+													<f:selectItem itemValue="Administrador" itemLabel="Administrador" />
+													<f:selectItem itemValue="Cliente" itemLabel="Cliente" />
+												</h:selectOneMenu>										
 											</div>
 											
 												<h:commandButton action="#{personasBean.guardar()}" value="Guardar" class="btn btn-primary mr-2" />

@@ -38,8 +38,9 @@
 											<div class="form-group row">
 												<label for="txtHotel" class="col-sm-3 col-form-label">Hotel:</label>
 												<div class="col-sm-9">
-													<h:inputText class="form-control" id="txtHotel" value="#{serviciosBean.servicio.hotel.codigo}"/>
-													
+													<h:selectOneMenu value="#{serviciosBean.servicio.hotel.codigo}">
+									   					<f:selectItems value="#{serviciosBean.listaHoteles}" />
+													</h:selectOneMenu>													
 												</div>
 											</div>
 											<h:commandButton action="#{serviciosBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
