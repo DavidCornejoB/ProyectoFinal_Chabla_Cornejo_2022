@@ -1,14 +1,18 @@
 package ec.edu.ups.pw59.proyectofinal.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import ec.edu.ups.pw59.proyectofinal.business.CategoriaON;
+import ec.edu.ups.pw59.proyectofinal.business.CategoriaONLocal;
 import ec.edu.ups.pw59.proyectofinal.business.HabitacionONLocal;
+import ec.edu.ups.pw59.proyectofinal.business.HotelONLocal;
 import ec.edu.ups.pw59.proyectofinal.business.PaqueteONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Categoria;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
@@ -26,6 +30,15 @@ public class habitacionesBean {
 	@Inject
 	private PaqueteONLocal paqueteON;
 	
+	@Inject
+	private HotelONLocal hotelON;
+	
+	@Inject
+	private CategoriaONLocal categoriaON;
+	
+	private List<SelectItem> listaHoteles;
+	private List<SelectItem> listaCategorias;
+	
 	//CREAMOS EL OBJETO HABITACION. SE INICIALIZA CON VALORES VACIOS
 	private Habitacion habitacion = new Habitacion();
 	
@@ -42,9 +55,17 @@ public class habitacionesBean {
 	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
 	@PostConstruct
 	public void init() {
+		
+		//COMBOBOX DE HOTELES
+		this.cargarComboboxHoteles();
+		
+		//COMBOBOX DE CATEGORIAS
+		this.cargarComboboxCategorias();
+		
 		this.habitacion.setCategoria(new Categoria());
 		this.habitacion.setHotel(new Hotel());
 		this.cargar();
+
 	}
 	
 	//METODOS GET() Y SET()
@@ -64,6 +85,22 @@ public class habitacionesBean {
 		this.habitaciones = habitaciones;
 	}
 	
+	public List<SelectItem> getListaHoteles() {
+		return listaHoteles;
+	}
+
+	public void setListaHoteles(List<SelectItem> listaHoteles) {
+		this.listaHoteles = listaHoteles;
+	}
+	
+	public List<SelectItem> getListaCategorias() {
+		return listaCategorias;
+	}
+
+	public void setListaCategorias(List<SelectItem> listaCategorias) {
+		this.listaCategorias = listaCategorias;
+	}
+
 	//METODO PARA GUARDAR HABITACIONES
 	public String guardar() {
 		
@@ -81,7 +118,7 @@ public class habitacionesBean {
 		return "listado-habitaciones?faces-redirect=true";
 	}
 	
-	public String eliminar(int numero) {
+	public String eliminar(int numero) {//ELIMINAR HABITACIONES
 		
 		Habitacion habitacion = new Habitacion();
 		try {
@@ -112,13 +149,37 @@ public class habitacionesBean {
 				return null;
 			}
 		}
-	}
+	}//ELIMINAR HABITACIONES
 	
 	//METODO PARA LISTAR HABITACIONES
-	public void cargar() {
+	public void cargar() {//CARGAR HABITACIONES
 		//LLAMAMOS AL MÉTODO GETHABITACIONES() DEL OBJETO DE NEGOCIO
 		this.habitaciones = habitacionON.getHabitaciones();
-	}
+	}//CARGAR HABITACIONES
+	
+	public void cargarComboboxHoteles() {//COMBOBOX HOTELES
+		
+		listaHoteles = new ArrayList<SelectItem>();
+		List<Hotel> hoteles = new ArrayList<>();
+		hoteles = hotelON.getHoteles();
+		
+		for(int i = 0; i < hoteles.size(); i++) {
+			listaHoteles.add(new SelectItem(hoteles.get(i).getCodigo(), hoteles.get(i).getNombre()));
+		}
+		
+	}//COMBOBOX HOTELES
+	
+	public void cargarComboboxCategorias() {//COMBOBOX CATEGORIAS
+		
+		listaCategorias = new ArrayList<SelectItem>();
+		List<Categoria> categorias = new ArrayList<>();
+		categorias = categoriaON.getCategorias();
+		
+		for(int i = 0; i < categorias.size(); i++) {
+			listaCategorias.add(new SelectItem(categorias.get(i).getCodigo(), categorias.get(i).getNombre()));
+		}
+		
+	}//COMBOBOX CATEGORIAS
 	
 	public String cargarCategoria() {
 		

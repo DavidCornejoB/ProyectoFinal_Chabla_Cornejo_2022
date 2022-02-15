@@ -1,13 +1,18 @@
 package ec.edu.ups.pw59.proyectofinal.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ec.edu.ups.pw59.proyectofinal.business.HabitacionONLocal;
+import ec.edu.ups.pw59.proyectofinal.business.HotelONLocal;
 import ec.edu.ups.pw59.proyectofinal.business.PaqueteONLocal;
+import ec.edu.ups.pw59.proyectofinal.business.ServicioONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
@@ -20,6 +25,19 @@ public class paquetesBean {
 	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
 	@Inject
 	private PaqueteONLocal paqueteON;
+	
+	@Inject
+	private HabitacionONLocal habitacionON;
+	
+	@Inject
+	private ServicioONLocal servicioON;
+	
+	@Inject
+	private HotelONLocal hotelON;
+	
+	private List<SelectItem> listaHabitaciones;
+	private List<SelectItem> listaServicios;
+	private List<SelectItem> listaHoteles;
 	
 	//CREAMOS EL OBJETO PAQUETE. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
 	private Paquete paquete = new Paquete();
@@ -35,6 +53,16 @@ public class paquetesBean {
 	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
 	@PostConstruct
 	public void init() {
+		
+		//COMBOBOX SERVICIOS
+		this.cargarComboboxServicios();
+		
+		//COMBOBOX HABITACIONES
+		this.cargarComboboxHabitaciones();
+		
+		//COMBOBOX HOTELES
+		this.cargarComboboxHoteles();
+		
 		this.paquete.setHabitacion(new Habitacion());
 		this.paquete.setHotel(new Hotel());
 		this.paquete.setServicio(new Servicio());
@@ -66,6 +94,30 @@ public class paquetesBean {
 		this.paquetes = paquetes;
 	}
 	
+	public List<SelectItem> getListaHabitaciones() {
+		return listaHabitaciones;
+	}
+
+	public void setListaHabitaciones(List<SelectItem> listaHabitaciones) {
+		this.listaHabitaciones = listaHabitaciones;
+	}
+
+	public List<SelectItem> getListaServicios() {
+		return listaServicios;
+	}
+
+	public void setListaServicios(List<SelectItem> listaServicios) {
+		this.listaServicios = listaServicios;
+	}
+
+	public List<SelectItem> getListaHoteles() {
+		return listaHoteles;
+	}
+
+	public void setListaHoteles(List<SelectItem> listaHoteles) {
+		this.listaHoteles = listaHoteles;
+	}
+
 	//MÉTODO PARA GUARDAR PAQUETES
 	public String guardar() {
 		
@@ -87,6 +139,42 @@ public class paquetesBean {
 		//LLAMAMOS AL MÉTODO GETPAQUETES() DEL OBJETO DE NEGOCIO
 		this.paquetes = paqueteON.getPaquetes();
 	}
+	
+	public void cargarComboboxHabitaciones() {//COMBOBOX HABITACIONES
+		
+		listaHabitaciones = new ArrayList<SelectItem>();
+		List<Habitacion> habitaciones = new ArrayList<>();
+		habitaciones = habitacionON.getHabitaciones();
+		
+		for(int i = 0; i < habitaciones.size(); i++) {
+			listaHabitaciones.add(new SelectItem(habitaciones.get(i).getNumero(), "Numero: " + habitaciones.get(i).getNumero()
+					+ "Hotel: " + habitaciones.get(i).getHotel().getNombre()));
+		}
+		
+	}//COMBOBOX HABITACIONES
+	
+	public void cargarComboboxServicios() {//COMBOBOX SERVICIOS
+		listaServicios = new ArrayList<>();
+		List<Servicio> servicios = new ArrayList<>();
+		servicios = servicioON.getServicios();
+		
+		for(int i = 0; i < servicios.size(); i++) {
+			listaServicios.add(new SelectItem(servicios.get(i).getCodigo(), servicios.get(i).getNombre() + 
+					", Hotel: " + servicios.get(i).getHotel().getNombre()));
+		}
+		
+	}//COMBOBOX SERVICIOS
+	
+	public void cargarComboboxHoteles() {//COMBOBOX HOTELES
+		listaHoteles = new ArrayList<>();
+		List<Hotel> hoteles = new ArrayList<>();
+		hoteles = hotelON.getHoteles();
+		
+		for(int i = 0; i < hoteles.size(); i++) {
+			listaHoteles.add(new SelectItem(hoteles.get(i).getCodigo(), hoteles.get(i).getNombre()));
+		}
+		
+	}//COMBOBOX HOTELES
 	
 	public String cargarHabitacion() {
 		

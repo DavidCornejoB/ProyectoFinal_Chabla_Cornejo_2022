@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -32,6 +33,8 @@ public class reservasBean {
 	
 	@Inject
 	private FacturaCabeceraHabitacionONLocal facturaHabitacionON;
+	
+	private List<SelectItem> listaHabitaciones;
 		
 	//CREAMOS EL OBJETO RESERVA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
 	private Reserva reserva = new Reserva();
@@ -47,6 +50,9 @@ public class reservasBean {
 	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
 	@PostConstruct
 	public void init() {
+		//COMBOBOX HABITACIONES
+		this.cargarComboboxHabitaciones();
+		
 		this.reserva.setHabitacion(new Habitacion());
 		this.cargar();
 	}
@@ -82,6 +88,14 @@ public class reservasBean {
 
 	public void setHabitacionON(HabitacionONLocal habitacionON) {
 		this.habitacionON = habitacionON;
+	}
+
+	public List<SelectItem> getListaHabitaciones() {
+		return listaHabitaciones;
+	}
+
+	public void setListaHabitaciones(List<SelectItem> listaHabitaciones) {
+		this.listaHabitaciones = listaHabitaciones;
 	}
 
 	//MÉTODO PARA GUARDAR RESERVAS
@@ -196,6 +210,19 @@ public class reservasBean {
 		//LLAMAMOS AL MÉTODO GETRESERVAS() DEL OBJETO DE NEGOCIO
 		this.reservas = reservaON.getReservas();
 	}
+	
+	public void cargarComboboxHabitaciones() {//COMBOBOX HABITACIONES
+			
+			listaHabitaciones = new ArrayList<SelectItem>();
+			List<Habitacion> habitaciones = new ArrayList<>();
+			habitaciones = habitacionON.getHabitaciones();
+			
+			for(int i = 0; i < habitaciones.size(); i++) {
+				listaHabitaciones.add(new SelectItem(habitaciones.get(i).getNumero(), "Numero: " + habitaciones.get(i).getNumero()
+						+ ", Hotel: " + habitaciones.get(i).getHotel().getNombre() + ", Estado: " + habitaciones.get(i).getEstado()));
+			}
+			
+		}//COMBOBOX HABITACIONES
 	
 	//MÉTODO PARA CARGAR LA HABITACION RESERVADA
 	public String cargarHabitacion() {
