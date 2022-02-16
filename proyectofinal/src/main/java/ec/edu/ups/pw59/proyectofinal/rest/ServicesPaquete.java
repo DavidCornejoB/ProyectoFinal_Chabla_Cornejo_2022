@@ -43,31 +43,49 @@ public class ServicesPaquete {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String ingresarPaquete(Paquete paquete) {//INGRESAR PAQUETE
 		
+		boolean servicios = false;
 		this.servicios = servicioON.getServicios();
 		for(int i = 0; i < this.servicios.size(); i++) {
 			if(paquete.getServicio().getCodigo() == this.servicios.get(i).getCodigo()) {
 				System.out.println("SE ENCONTRÓ SERVICIO");
+				servicios = true;
 			} else {
-				return "NO EXISTE UN SERVICIO CON ÉSA ID (" + paquete.getServicio().getCodigo() + ")";
+				servicios = false;
 			}
 		}
 		
+		if(servicios == false) {
+			return "NO EXISTE UN SERVICIO CON ÉSA ID (" + paquete.getServicio().getCodigo() + ")";
+		}
+		
+		boolean habitaciones = false;
 		this.habitaciones = habitacionON.getHabitaciones();
 		for(int i = 0; i < this.habitaciones.size(); i++) {
 			if(paquete.getHabitacion().getNumero() == this.habitaciones.get(i).getNumero()) {
 				System.out.println("SE ENCONTRÓ HABITACION");
+				habitaciones = true;
 			} else {
-				return "NO EXISTE UNA HABITACION CON ÉSA ID (" + paquete.getHabitacion().getNumero() + ")";
+				habitaciones = false;
 			}
 		}
 		
+		if(habitaciones == false) {
+			return "NO EXISTE UNA HABITACION CON ÉSA ID (" + paquete.getHabitacion().getNumero() + ")";
+		}
+		
+		boolean hoteles = false;
 		this.hoteles = hotelON.getHoteles();
 		for(int i = 0; i < this.hoteles.size(); i++) {
 			if(paquete.getHotel().getCodigo() == this.hoteles.get(i).getCodigo()) {
 				System.out.println("SE ENCONTRÓ HOTEL");
+				hoteles = true;
 			} else {
-				return "NO EXISTE UN HOTEL CON ÉSA ID (" + paquete.getHabitacion().getNumero() + ")";
+				hoteles = false;
 			}
+		}
+		
+		if(hoteles == false) {
+			return "NO EXISTE UN HOTEL CON ÉSA ID (" + paquete.getHabitacion().getNumero() + ")";
 		}
 		
 		try {
