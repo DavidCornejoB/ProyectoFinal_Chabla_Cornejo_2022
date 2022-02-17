@@ -8,35 +8,55 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraPaquete;
-
+/**
+ * 
+ * @author WilliamChabla
+ *
+ */
 
 @Stateless
 public class FacturaCabeceraPaqueteDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
-	
+	/**
+	 * 
+	 * @param facturaPaquete
+	 */
 	public void insert(FacturaCabeceraPaquete facturaPaquete) {
 		
 		em.persist(facturaPaquete);
 		
 	}
-	
+	/**
+	 * 
+	 * @param facturaPaquete
+	 */
 	public void update(FacturaCabeceraPaquete facturaPaquete) {
 		em.merge(facturaPaquete);
 		
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return p
+	 */
 	public FacturaCabeceraPaquete read(int id) {
 		FacturaCabeceraPaquete p = em.find(FacturaCabeceraPaquete.class, id);
 		return p;
 	}
-	
+	/**
+	 * 
+	 * @param id
+	 */
 	public void delete(int id) {
 		FacturaCabeceraPaquete p = em.find(FacturaCabeceraPaquete.class, id);
 		em.remove(p);		
 	}
-	
+	/**
+	 * 
+	 * @return facturas facturacabecerapaquete
+	 */
 	
   public List<FacturaCabeceraPaquete> getList(){
 		

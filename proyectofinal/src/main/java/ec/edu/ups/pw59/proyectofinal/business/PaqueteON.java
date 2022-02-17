@@ -14,6 +14,11 @@ import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
+/**
+ * 
+ * @author WilliamChabla
+ *
+ */
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
 @Stateless
 public class PaqueteON implements PaqueteONRemote, PaqueteONLocal{
@@ -31,36 +36,49 @@ public class PaqueteON implements PaqueteONRemote, PaqueteONLocal{
 	@Inject
 	private ServicioDAO daoServicio;
 	
-	//METODO PARA INSERTAR PAQUETES
+	/**
+	 * 	//METODO PARA INSERTAR PAQUETES
+	 */
 	public void insert(Paquete p) throws Exception{
 		//LLAMAMOS AL METODO INSERT DEL DAO, LE ENVIAMOS EL OBJETO PAQUETE QUE SERÁ INGRESADO
 		daoPaquete.insert(p);
 	}
 	
-	//METODO PARA ACTUALIZAR PAQUETES
+	/**
+	 * 	//METODO PARA ACTUALIZAR PAQUETES
+	 */
 	public void update(Paquete p) throws Exception{
 		//LLAMAMOS AL METODO UPDATE DEL DAO, EL ENVIAMOS EL OBJETO PAQUETE QUE SERÁ ACTUALIZADO
 		daoPaquete.update(p);
 	}
 	
-	//METODO PARA LEER PAQUETES
+	/**
+	 * 	//METODO PARA LEER PAQUETES
+	 */
 	public Paquete read(int id) throws Exception{
 		//LLAMAMOS AL METODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO PAQUETE QUE QUEREMOS LEER
 		return daoPaquete.read(id);
 	}
 	
-	//METODO PARA ELIMINAR PAQUETES
+	/**
+	 * 	//METODO PARA ELIMINAR PAQUETES
+	 */
 	public void delete(int id) throws Exception{
 		//LLAMAMOS AL METODO DELETE DEL DAO, LE ENVIAMOS LA ID DEL OBJETO PAQUETE QUE QUEREMOS ELIMINAR
 		daoPaquete.delete(id);
 	}
 	
-	//METODO PARA LISTAR PAQUETES
+	/**
+	 * 	//METODO PARA LISTAR PAQUETES
+	 */
 	public List<Paquete> getPaquetes(){
 		//RETORNAMOS EL METODO GETLIST() DEL DAO
 		return daoPaquete.getList();
 	}
 	
+	/**
+	 *  Metodo recuperar habitaciones
+	 */
 	public Habitacion getHabitacion(int id) {
 		Habitacion hab = daoHabitacion.read(id);
 		return hab;

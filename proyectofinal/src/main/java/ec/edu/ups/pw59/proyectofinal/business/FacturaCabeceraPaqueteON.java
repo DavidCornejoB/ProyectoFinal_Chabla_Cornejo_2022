@@ -10,6 +10,11 @@ import ec.edu.ups.pw59.proyectofinal.dao.PersonaDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraPaquete;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+/**
+ * 
+ * @author WilliamChabla
+ *
+ */
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
 @Stateless
 public class FacturaCabeceraPaqueteON implements FacturaCabeceraPaqueteONRemote, FacturaCabeceraPaqueteONLocal{
@@ -22,7 +27,9 @@ public class FacturaCabeceraPaqueteON implements FacturaCabeceraPaqueteONRemote,
 	@Inject
 	private PersonaDAO daoPersona;
 	
-	//MÉTODO PARA INSERTAR FACTURAS
+	/**
+	 * //MÉTODO PARA INSERTAR FACTURAS
+	 */
 	public void insert(FacturaCabeceraPaquete f) throws Exception{
 		
 		//BUSCAMOS SI ESTÁ INGRESADA LA PERSONA DE LA FACTURA
@@ -40,31 +47,41 @@ public class FacturaCabeceraPaqueteON implements FacturaCabeceraPaqueteONRemote,
 		daoFacturaCabeceraPaquete.insert(f);
 	}
 	
-	//MÉTODO PARA ACTUALIZAR FACTURAS
+	/**
+	 * 	//MÉTODO PARA ACTUALIZAR FACTURAS
+	 */
 	public void update(FacturaCabeceraPaquete f) throws Exception{
 		//LLAMAMOS AL MÉTODO UPDATE DEL DAO, LE ENVIAMOS EL OBJETO FACTURA QUE SERÁ ACTUALIZADO
 		daoFacturaCabeceraPaquete.update(f);
 	}
 	
-	//MÉTODO PARA LEER FACTURAS
+	/**
+	 * 	//MÉTODO PARA LEER FACTURAS
+	 */
 	public void read(int id) throws Exception{
 		//LLAMAMOS AL MÉTODO READ DEL DAO, LE ENVIAMOS LA ID DE LA FACTURA QUE QUEREMOS LEER
 		daoFacturaCabeceraPaquete.read(id);
 	}
 	
-	//MÉTODO PARA ELIMINAR FACTURAS
+	/**
+	 * 	//MÉTODO PARA ELIMINAR FACTURAS
+	 */
 	public void delete(int id) throws Exception{
 		//LLAMAMOS AL METODO DELETE DEL DAO, LE ENVIAMOS LA ID DE LA FACTURA QUE QUEREMOS ELIMINAR
 		daoFacturaCabeceraPaquete.delete(id);
 	}
 	
-	//MÉTODO DE LISTAR FACTURAS. SE HACE USO DE UNA LISTA QUE ALMACENE TODAS LAS FACTURAS INGRESADAS
+	/**
+	 * 	//MÉTODO DE LISTAR FACTURAS. SE HACE USO DE UNA LISTA QUE ALMACENE TODAS LAS FACTURAS INGRESADAS
+	 */
 	public List<FacturaCabeceraPaquete> getFacturas(){
 		//RETORNAMOS EL MÉTODO GETLIST() DEL DAO
 		return daoFacturaCabeceraPaquete.getList();
 	}
 	
-	//MÉTODO PARA BUSCAR PERSONAS
+	/**
+	 * 	//MÉTODO DE LISTAR FACTURAS. SE HACE USO DE UNA LISTA QUE ALMACENE TODAS LAS FACTURAS INGRESADAS
+	 */
 	public Persona getPersona(String cedula) {
 		Persona p = daoPersona.read(cedula);
 		return p;

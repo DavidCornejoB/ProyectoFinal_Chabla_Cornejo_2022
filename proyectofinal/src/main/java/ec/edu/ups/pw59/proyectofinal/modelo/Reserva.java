@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+/**
+ * 
+ * @author WilliamChabla
+ * Clase Reserva
+ */
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Reserva implements Serializable { //CLASE SERIALIZABLE

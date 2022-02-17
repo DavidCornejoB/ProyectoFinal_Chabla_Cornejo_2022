@@ -8,7 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+/**
+ * 
+ * @author WilliamChabla
+ * Factura Detalle de los paquetes turisticos
+ *
+ */
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
 
@@ -38,14 +43,25 @@ public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
 	private Paquete paquete; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//MÉTODOS GET() Y SET()
-
+	/**
+	 * 
+	 * @return codigo
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
+	/**
+	 * 
+	 * @param codigo
+	 */
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	/**
+	 * 
+	 * @return descuento
+	 */
 
 	public double getDescuento() {
 		return descuento;
@@ -54,34 +70,66 @@ public class FacturaDetallePaquete implements Serializable{ //CLASE SERIALIZABLE
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
 	}
+	/**
+	 * 
+	 * @return Iva
+	 */
 
 	public double getIva() {
 		return iva;
 	}
+	/**
+	 * 
+	 * @param iva
+	 */
 
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
+	/**
+	 * 
+	 * @return total
+	 */
 
 	public double getTotal() {
 		return total;
 	}
+	/**
+	 * 
+	 * @param total
+	 */
 
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	/**
+	 * 
+	 * @return paquete
+	 */
 
 	public Paquete getPaquete() {
 		return paquete;
 	}
+	/**
+	 * 
+	 * @param paquete
+	 */
 
 	public void setPaquete(Paquete paquete) {
 		this.paquete = paquete;
 	}
+	/**
+	 * 
+	 * @return FacturaCabeceraPaquete
+	 */
 
 	public FacturaCabeceraPaquete getFacturaCabeceraPaquete() {
 		return facturaCabeceraPaquete;
 	}
+	/**
+	 * 
+	 * @param facturaCabeceraPaquete
+	 */
 
 	public void setFacturaCabeceraPaquete(FacturaCabeceraPaquete facturaCabeceraPaquete) {
 		this.facturaCabeceraPaquete = facturaCabeceraPaquete;

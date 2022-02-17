@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+/**
+ * 
+ * @author WilliamChabla
+ * Factura detalle de los servicios solicitados
+ */
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABLE
 	
@@ -41,50 +45,98 @@ public class FacturaDetalleServicio implements Serializable{ //CLASE SERIALIZABL
 	private Servicio servicio; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE HACE LA RELACION
 	
 	//MÉTODOS GET() Y SET()
+	/**
+	 * 
+	 * @return codigo
+	 */
 
 	public int getCodigo() {
 		return codigo;
 	}
+	/**
+	 * 
+	 * @param codigo
+	 */
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	/**
+	 * 
+	 * @return descuento
+	 */
 
 	public double getDescuento() {
 		return descuento;
 	}
+	/**
+	 * 
+	 * @param descuento
+	 */
 
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
 	}
+	/**
+	 * 
+	 * @return iva
+	 */
 
 	public double getIva() {
 		return iva;
 	}
+	/**
+	 * 
+	 * @param iva
+	 */
 
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
+	/**
+	 * 
+	 * @return total
+	 */
 
 	public double getTotal() {
 		return total;
 	}
+	/**
+	 * 
+	 * @param total
+	 */
 
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	/**
+	 * 
+	 * @return servicio
+	 */
 
 	public Servicio getServicio() {
 		return servicio;
 	}
+	/**
+	 * 
+	 * @param servicio
+	 */
 
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
+	/**
+	 * 
+	 * @return FacturaCabeceraServicio
+	 */
 
 	public FacturaCabeceraServicio getFacturaCabeceraServicio() {
 		return facturaCabeceraServicio;
 	}
+	/**
+	 * 
+	 * @param facturaCabeceraServicio
+	 */
 
 	public void setFacturaCabeceraServicio(FacturaCabeceraServicio facturaCabeceraServicio) {
 		this.facturaCabeceraServicio = facturaCabeceraServicio;
