@@ -12,11 +12,18 @@ import ec.edu.ups.pw59.proyectofinal.business.PersonaONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+/**
+ * 
+ * @author luisd
+ *
+ */
 @Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
 public class PersonasBean {
 	
-	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
+	/**
+	 * LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
+	 */
 	@Inject
 	private PersonaONLocal personaON;
 	
@@ -26,50 +33,88 @@ public class PersonasBean {
 	//Llamamos a la cedula para los ajax (editar)
 	private String cedula;
 	
-	//CREAMOS EL OBJETO PERSONA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	/**
+	 * CREAMOS EL OBJETO PERSONA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	 */
 	private Persona persona = new Persona();
 	
-	//LISTA DE PERSONAS
+	/**
+	 * LISTA DE PERSONAS
+	 */
 	private List<Persona> personas;
 	
 	private List<Login> logins;
 	
-	//CONSTRUCTOR
+	/**
+	 * CONSTRUCTOR
+	 */
 	public PersonasBean() {
 	}
 	
-	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	/**
+	 * UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	 */
 	@PostConstruct
 	public void init() {
 		this.cargar();
 	}
 
-	//METODOS GET() Y SET()
+	/*
+	 * METODOS GET() Y SET()
+	 */
+	
+	/**
+	 * 
+	 * @return persona
+	 */
 	public Persona getPersona() {
 		return persona;
 	}
 
+	/**
+	 * 
+	 * @param persona
+	 */
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
+	/**
+	 * 
+	 * @return personas
+	 */
 	public List<Persona> getPersonas() {
 		return personas;
 	}
 
+	/**
+	 * 
+	 * @param personas
+	 */
 	public void setPersonas(List<Persona> personas) {
 		this.personas = personas;
 	}
 
+	/**
+	 * 
+	 * @return cedula
+	 */
 	public String getCedula() {
 		return cedula;
 	}
-
+	
+	/**
+	 * 
+	 * @param cedula
+	 */
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
 
-	//MÉTODO PARA GUARDAR PERSONAS
+	/**
+	 * MÉTODO PARA GUARDAR PERSONAS
+	 * @return formulario listado-personas
+	 */
 	public String guardar() {
 		
 		System.out.println("GUARDANDO PERSONA: " + this.persona.getNombre() + " " + this.persona.getApellido());
@@ -85,12 +130,21 @@ public class PersonasBean {
 		return "listado-personas?faces-redirect=true";
 	}
 	
-	//MÉTODO PARA EDITAR PERSONAS
+	/**
+	 * MÉTODO PARA EDITAR PERSONAS
+	 * @param cedula
+	 * @return formulario persona
+	 */
 	public String editar(String cedula) {
 		System.out.println("EDITANDO " + cedula);
 		return "persona?faces-redirect=true&id="+cedula;
 	}
 	
+	/**
+	 * METODO PARA ELIMINAR PERSONAS
+	 * @param cedula
+	 * @return null
+	 */
 	public String eliminar(String cedula) {
 		
 		this.logins = loginON.getLogins();
@@ -117,18 +171,26 @@ public class PersonasBean {
 		}
 	}
 	
-	//MÉTODO PARA LISTAR PERSONAS
+	/**
+	 * MÉTODO PARA LISTAR PERSONAS
+	 */
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETPERSONAS() DEL OBJETO DE NEGOCIO
 		this.personas = personaON.getPersonas();
 	}
 	
+	/**
+	 * METODO PARA REDIRECCIONAR
+	 * @return formulario persona
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESAR...");
 		return "persona";
 	}
 	
-	//Metodo para cargar los datos y por medio de la cedula y lograr editar
+	/**
+	 * Metodo para cargar los datos y por medio de la cedula y lograr editar
+	 */
 	public void loadData() {
 		if(cedula==null)
 			return;
@@ -136,7 +198,4 @@ public class PersonasBean {
 		Persona p = personaON.getPersona(cedula);
 		persona = p;
 	}
-	
-
-
 }

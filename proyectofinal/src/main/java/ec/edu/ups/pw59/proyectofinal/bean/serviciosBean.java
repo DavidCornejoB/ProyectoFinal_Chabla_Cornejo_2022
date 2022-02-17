@@ -14,11 +14,18 @@ import ec.edu.ups.pw59.proyectofinal.business.ServicioONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
+/**
+ * 
+ * @author luisd
+ *
+ */
 @Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
 public class serviciosBean {
 	
-	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
+	/*
+	 * LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
+	 */
 	@Inject
 	private ServicioONLocal servicioON;
 	
@@ -27,18 +34,26 @@ public class serviciosBean {
 	
 	private List<SelectItem> listaHoteles;
 	
-	//CREAMOS EL OBJETO SERVICIO. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	/*
+	 * CREAMOS EL OBJETO SERVICIO. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	 */
 	private Servicio servicio = new Servicio();
 	
-	//LISTA DE SERVICIOS
+	/*
+	 * LISTA DE SERVICIOS
+	 */
 	private List<Servicio> servicios;
 	
-	//CONSTRUCTOR
+	/*
+	 * CONSTRUCTOR
+	 */
 	public serviciosBean() {
 		
 	}
 	
-	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	/*
+	 * UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	 */
 	@PostConstruct
 	public void init() {
 		//COMBOBOX DE HOTELES
@@ -48,40 +63,78 @@ public class serviciosBean {
 		this.cargar();
 	}
 	
-	//METODOS GET() Y SET()
+	/*
+	 * METODOS GET() Y SET()
+	 */
+	
+	/**
+	 * 
+	 * @return servicioON
+	 */
 	public ServicioONLocal getServicioON() {
 		return servicioON;
 	}
 
+	/**
+	 * 
+	 * @param servicioON
+	 */
 	public void setServicioON(ServicioONLocal servicioON) {
 		this.servicioON = servicioON;
 	}
 
+	/**
+	 * 
+	 * @return servicio
+	 */
 	public Servicio getServicio() {
 		return servicio;
 	}
 
+	/**
+	 * 
+	 * @param servicio
+	 */
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
 
+	/**
+	 * 
+	 * @return servicios
+	 */
 	public List<Servicio> getServicios() {
 		return servicios;
 	}
 
+	/**
+	 * 
+	 * @param servicios
+	 */
 	public void setServicios(List<Servicio> servicios) {
 		this.servicios = servicios;
 	}
 	
+	/**
+	 * 
+	 * @return listaHoteles
+	 */
 	public List<SelectItem> getListaHoteles() {
 		return listaHoteles;
 	}
 
+	/**
+	 * 
+	 * @param listaHoteles
+	 */
 	public void setListaHoteles(List<SelectItem> listaHoteles) {
 		this.listaHoteles = listaHoteles;
 	}
 
-	//MÉTODO PARA GUARDAR SERVICIOS
+	/**
+	 * MÉTODO PARA GUARDAR SERVICIOS
+	 * @return formulario listado-servicios
+	 */
 	public String guardar() {
 		
 		System.out.println("GUARDANDO SERVICIO: " + this.servicio.getNombre());
@@ -97,12 +150,17 @@ public class serviciosBean {
 		return "listado-servicios?faces-redirect=true";
 	}
 	
-	//MÉTODO PARA LISTAR SERVICIOS
+	/**
+	 * MÉTODO PARA LISTAR SERVICIOS
+	 */
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETSERVICIOS() DEL OBJETO DE NEGOCIO
 		this.servicios = servicioON.getServicios();
 	}
 	
+	/**
+	 * combobox hoteles
+	 */
 	public void cargarComboboxHoteles() {//COMBOBOX HOTELES
 		
 		listaHoteles = new ArrayList<SelectItem>();
@@ -115,6 +173,10 @@ public class serviciosBean {
 		
 	}//COMBOBOX HOTELES
 	
+	/**
+	 * CARGAR HOTELES
+	 * @return null
+	 */
 	public String cargarHotel() {
 		int id = this.servicio.getHotel().getCodigo();
 		
@@ -124,6 +186,10 @@ public class serviciosBean {
 		return null;
 	}
 	
+	/**
+	 * REDIRECCIONAR
+	 * @return formulario servicio;
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESO SERVICIOS...");
 		return "servicio";

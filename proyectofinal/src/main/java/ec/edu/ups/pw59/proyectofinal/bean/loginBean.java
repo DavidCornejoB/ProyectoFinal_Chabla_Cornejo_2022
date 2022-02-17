@@ -11,6 +11,11 @@ import ec.edu.ups.pw59.proyectofinal.business.LoginONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+/**
+ * BEAN PARA CRUD DE LOGINS
+ * @author luisd
+ *
+ */
 @Named
 @RequestScoped
 public class loginBean {
@@ -26,6 +31,9 @@ public class loginBean {
 		
 	}
 	
+	/**
+	 * PostConstruct
+	 */
 	@PostConstruct
 	public void init() {
 		this.login.setPersona(new Persona());
@@ -34,35 +42,61 @@ public class loginBean {
 
 	//METODOS GET() Y SET()
 	
+	/**
+	 * 
+	 * @return loginON
+	 */
 	public LoginONLocal getLoginON() {
 		return loginON;
 	}
 
+	/**
+	 * 
+	 * @param loginON
+	 */
 	public void setLoginON(LoginONLocal loginON) {
 		this.loginON = loginON;
 	}
 
+	/**
+	 * 
+	 * @return login
+	 */
 	public Login getLogin() {
 		return login;
 	}
 
+	/**
+	 * 
+	 * @param login
+	 */
 	public void setLogin(Login login) {
 		this.login = login;
 	}
 
+	/**
+	 * 
+	 * @return login
+	 */
 	public List<Login> getLogins() {
 		return logins;
 	}
 
+	/**
+	 * 
+	 * @param logins
+	 */
 	public void setLogins(List<Login> logins) {
 		this.logins = logins;
 	}
 	
+	/**
+	 * METODO DE GUARDAR LOGINS
+	 * @return formulario listado-logins
+	 */
 	public String guardar() {
 		
 		System.out.println("GUARDANDO LOGIN: " + this.login.getClave());
-		
-		
 		
 		try {
 			loginON.insert(this.login);
@@ -74,11 +108,18 @@ public class loginBean {
 		return "listado-logins?faces-redirect=true";
 	}
 	
+	/**
+	 * METODO PARA CARGAR LOGINS
+	 */
 	public void cargar() {
 		
 		this.logins = loginON.getLogins();
 	}
 	
+	/**
+	 * METODO PARA CARGAR PERSONA
+	 * @return null
+	 */
 	public String cargarPersona() {
 		
 		String id = this.login.getPersona().getCedula();
@@ -89,6 +130,10 @@ public class loginBean {
 		return null;
 	}
 	
+	/**
+	 * METODO PARA REDIRECCIONAR
+	 * @return formulario login
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESO LOGIN...");
 		return "login";

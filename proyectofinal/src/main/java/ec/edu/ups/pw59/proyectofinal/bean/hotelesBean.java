@@ -10,6 +10,11 @@ import javax.inject.Named;
 import ec.edu.ups.pw59.proyectofinal.business.HotelONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 
+/**
+ * BEAN PARA CRUD DE HOTELES
+ * @author luisd
+ *
+ */
 @Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
 public class hotelesBean {
@@ -28,7 +33,9 @@ public class hotelesBean {
 		
 	}
 	
-	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	/**
+	 * UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	 */
 	@PostConstruct
 	public void init() {
 		this.cargar();
@@ -36,23 +43,42 @@ public class hotelesBean {
 	
 	//METODOS GET() Y SET()
 
+	/**
+	 * 
+	 * @return hotel
+	 */
 	public Hotel getHotel() {
 		return hotel;
 	}
 
+	/**
+	 * 
+	 * @param hotel
+	 */
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
 
+	/**
+	 * 
+	 * @return hoteles
+	 */
 	public List<Hotel> getHoteles() {
 		return hoteles;
 	}
 
+	/**
+	 * 
+	 * @param hoteles
+	 */
 	public void setHoteles(List<Hotel> hoteles) {
 		this.hoteles = hoteles;
 	}
 	
-	//METODO PARA GUARDAR HOTELES
+	/**
+	 * METODO PARA GUARDAR HOTELES
+	 * @return formulario listado-hoteles
+	 */
 	public String guardar() {
 		System.out.println("GUARDANDO HOTEL: " + this.hotel.getNombre());
 		
@@ -68,12 +94,18 @@ public class hotelesBean {
 		return "listado-hoteles?faces-redirect=true";
 	}
 	
-	//METODO PARA LISTAR HOTELES
+	/**
+	 * METODO PARA LISTAR HOTELES
+	 */
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETHOTELES() DEL OBJETO DE NEGOCIO
 		this.hoteles = hotelON.getHoteles();
 	}
 	
+	/**
+	 * 
+	 * @return formulario hotel
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESAR HOTEL...");
 		return "hotel";
