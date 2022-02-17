@@ -13,6 +13,11 @@ import ec.edu.ups.pw59.proyectofinal.business.LoginONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+/**
+ * BEAN PARA VALIDAR LOGIN DE CLIENTE Y ADMINISTRADOR
+ * @author luisd
+ *
+ */
 @Named
 @RequestScoped
 public class clienteLoginBean {
@@ -30,44 +35,83 @@ public class clienteLoginBean {
 
 	}
 
+	/**
+	 * PostConstruct
+	 */
 	@PostConstruct
 	public void init() {
 	}
 
 	// METODOS GET() Y SET()
 
+	/**
+	 * 
+	 * @return loginON
+	 */
 	public LoginONLocal getLoginON() {
 		return loginON;
 	}
 
+	/**
+	 * 
+	 * @param loginON
+	 */
 	public void setLoginON(LoginONLocal loginON) {
 		this.loginON = loginON;
 	}
 
+	/**
+	 * 
+	 * @return login
+	 */
 	public Login getLogin() {
 		return login;
 	}
 
+	/**
+	 * 
+	 * @param login
+	 */
 	public void setLogin(Login login) {
 		this.login = login;
 	}
 
+	/**
+	 * 
+	 * @return logins
+	 */
 	public List<Login> getLogins() {
 		return logins;
 	}
 
+	/**
+	 * 
+	 * @param logins
+	 */
 	public void setLogins(List<Login> logins) {
 		this.logins = logins;
 	}
 
+	/**
+	 * 
+	 * @return logueo
+	 */
 	public static Login getLogueo() {
 		return logueo;
 	}
 
+	/**
+	 * 
+	 * @param logueo
+	 */
 	public static void setLogueo(Login logueo) {
 		clienteLoginBean.logueo = logueo;
 	}
 
+	/**
+	 * METODO PARA GUARDAR LOGIN
+	 * @return cliente-ubicacion
+	 */
 	public String guardar() {// GUARDAR LOGIN
 
 		Persona p = new Persona();
@@ -100,7 +144,10 @@ public class clienteLoginBean {
 	//********************************************************************
 	//********************************************************************
 
-	// BUSCAR LA PERSONA POR CORREO
+	/**
+	 * BUSCAR LA PERSONA POR CORREO
+	 * @return null
+	 */
 	public Persona cargarPersona() {
 
 		String correo = this.login.getCorreo();
@@ -131,6 +178,10 @@ public class clienteLoginBean {
 		return null;
 	}
 
+	/**
+	 * METODO PARA VOLVER AL FORMULARIO ANTERIOR
+	 * @return formulario login
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESO LOGIN...");
 		return "login";

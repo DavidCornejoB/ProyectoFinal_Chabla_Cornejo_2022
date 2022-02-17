@@ -12,6 +12,11 @@ import ec.edu.ups.pw59.proyectofinal.business.PersonaONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Login;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+/**
+ * BEAN PARA REGISTRAR CLIENTES
+ * @author luisd
+ *
+ */
 @Named
 @RequestScoped
 public class clienteRegisterBean {
@@ -32,44 +37,83 @@ public class clienteRegisterBean {
 		
 	}
 	
+	/**
+	 * PostConstruct
+	 */
 	@PostConstruct
 	public void init() {
 	}
 
 	//METODOS GET() Y SET()
 	
+	/**
+	 * 
+	 * @return loginON
+	 */
 	public LoginONLocal getLoginON() {
 		return loginON;
 	}
 
+	/**
+	 * 
+	 * @param loginON
+	 */
 	public void setLoginON(LoginONLocal loginON) {
 		this.loginON = loginON;
 	}
 
+	/**
+	 * 
+	 * @return login
+	 */
 	public Login getLogin() {
 		return login;
 	}
 
+	/**
+	 * 
+	 * @param login
+	 */
 	public void setLogin(Login login) {
 		this.login = login;
 	}
 
+	/**
+	 * 
+	 * @return logins
+	 */
 	public List<Login> getLogins() {
 		return logins;
 	}
 
+	/**
+	 * 
+	 * @param logins
+	 */
 	public void setLogins(List<Login> logins) {
 		this.logins = logins;
 	}
 	
+	/**
+	 * 
+	 * @return persona
+	 */
 	public Persona getPersona() {
 		return persona;
 	}
-
+	
+	/**
+	 * 
+	 * @param persona
+	 */
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
+	/**
+	 * METODO PARA GUARDAR REGISTRO
+	 * @return error-register
+	 */
 	public String guardar() {
 		
 		boolean existePersona = leerPersona();
@@ -103,16 +147,20 @@ public class clienteRegisterBean {
 			return "error-register";
 			
 		}
-		
-		
-
 	}
 	
+	/**
+	 * METODO PARA CARGAR LOGINS
+	 */
 	public void cargar() {
 		
 		this.logins = loginON.getLogins();
 	}
 	
+	/**
+	 * METODO PARA LEER PERSONA
+	 * @return formulario login
+	 */
 	public boolean leerPersona() {
 		
 		Persona p = new Persona();
@@ -130,6 +178,10 @@ public class clienteRegisterBean {
 		}
 	}
 	
+	/**
+	 * METODO PARA REDIRECCIONAR
+	 * @return formulario login
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESO LOGIN...");
 		return "login";

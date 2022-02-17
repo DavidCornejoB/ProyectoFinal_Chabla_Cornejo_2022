@@ -20,6 +20,11 @@ import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
+/**
+ * BEAN QUE GENERA FACTURAS PAQUETE
+ * @author luisd
+ *
+ */
 @Named
 @RequestScoped
 public class clienteFacturaPaqueteBean {
@@ -69,155 +74,307 @@ public class clienteFacturaPaqueteBean {
 		
 	}
 	
+	/**
+	 * METODO POST CONSTRUCT
+	 */
 	@PostConstruct
 	public void init() {
 		this.cargar();
 	}
 
+	/**
+	 * 
+	 * @return objeto de negocio facturaPaqueteON
+	 */
 	public FacturaCabeceraPaqueteONLocal getFacturaPaqueteON() {
 		return facturaPaqueteON;
 	}
 
+	/**
+	 * 
+	 * @param objeto de negocio facturaPaqueteON
+	 */
 	public void setFacturaPaqueteON(FacturaCabeceraPaqueteONLocal facturaPaqueteON) {
 		this.facturaPaqueteON = facturaPaqueteON;
 	}
 
+	/**
+	 * 
+	 * @return objeto de negocio detallePaqueteON
+	 */
 	public FacturaDetallePaqueteONLocal getDetallePaqueteON() {
 		return detallePaqueteON;
 	}
 
+	/**
+	 * 
+	 * @param objeto de negocio detallePaqueteON
+	 */
 	public void setDetallePaqueteON(FacturaDetallePaqueteONLocal detallePaqueteON) {
 		this.detallePaqueteON = detallePaqueteON;
 	}
 
+	/**
+	 * 
+	 * @return objeto de negocio habitacionON
+	 */
 	public HabitacionONLocal getHabitacionON() {
 		return habitacionON;
 	}
 
+	/**
+	 * 
+	 * @param objeto de negocio habitacionON
+	 */
 	public void setHabitacionON(HabitacionONLocal habitacionON) {
 		this.habitacionON = habitacionON;
 	}
 
+	/**
+	 * 
+	 * @return ovjeto de negocio servicioON
+	 */
 	public ServicioONLocal getServicioON() {
 		return servicioON;
 	}
 
+	/**
+	 * 
+	 * @param objeto de negocio servicioON
+	 */
 	public void setServicioON(ServicioONLocal servicioON) {
 		this.servicioON = servicioON;
 	}
 
+	/**
+	 * 
+	 * @return entidad facturaPaquete
+	 */
 	public FacturaCabeceraPaquete getFacturaPaquete() {
 		return facturaPaquete;
 	}
 
+	/**
+	 * 
+	 * @param entidad facturaPaquete
+	 */
 	public void setFacturaPaquete(FacturaCabeceraPaquete facturaPaquete) {
 		this.facturaPaquete = facturaPaquete;
 	}
 
+	/**
+	 * 
+	 * @return entidad detallePaquete
+	 */
 	public FacturaDetallePaquete getDetallePaquete() {
 		return detallePaquete;
 	}
 
+	/**
+	 * 
+	 * @param entidad detallePaquete
+	 */
 	public void setDetallePaquete(FacturaDetallePaquete detallePaquete) {
 		this.detallePaquete = detallePaquete;
 	}
 
+	/**
+	 * 
+	 * @return lista de facturas
+	 */
 	public List<FacturaCabeceraPaquete> getFacturas() {
 		return facturas;
 	}
 
+	/**
+	 * 
+	 * @param lista de facturas
+	 */
 	public void setFacturas(List<FacturaCabeceraPaquete> facturas) {
 		this.facturas = facturas;
 	}
 
+	/**
+	 * 
+	 * @return lista de clientes
+	 */
 	public List<FacturaCabeceraPaquete> getFacturasCliente() {
 		return facturasCliente;
 	}
 
+	/**
+	 * 
+	 * @param lista de facturasCliente
+	 */
 	public void setFacturasCliente(List<FacturaCabeceraPaquete> facturasCliente) {
 		this.facturasCliente = facturasCliente;
 	}
 
+	/**
+	 * 
+	 * @return lista de detalles
+	 */
 	public List<FacturaDetallePaquete> getDetalles() {
 		return detalles;
 	}
 
+	/**
+	 * 
+	 * @param lista detalles
+	 */
 	public void setDetalles(List<FacturaDetallePaquete> detalles) {
 		this.detalles = detalles;
 	}
 
+	/**
+	 * 
+	 * @return lista de detallesCliente
+	 */
 	public List<FacturaDetallePaquete> getDetallesCliente() {
 		return detallesCliente;
 	}
 
+	/**
+	 * 
+	 * @param lista detallesCliente
+	 */
 	public void setDetallesCliente(List<FacturaDetallePaquete> detallesCliente) {
 		this.detallesCliente = detallesCliente;
 	}
 
+	/**
+	 * 
+	 * @return entidad servicio
+	 */
 	public Servicio getServicio() {
 		return servicio;
 	}
 
+	/**
+	 * 
+	 * @param entidad servicio
+	 */
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
 
+	/**
+	 * 
+	 * @return entidad habitacion
+	 */
 	public Habitacion getHabitacion() {
 		return habitacion;
 	}
 
+	/**
+	 * 
+	 * @param entidad habitacion
+	 */
 	public void setHabitacion(Habitacion habitacion) {
 		this.habitacion = habitacion;
 	}
 
+	/**
+	 * 
+	 * @return entidad persona
+	 */
 	public Persona getPersona() {
 		return persona;
 	}
 
+	/**
+	 * 
+	 * @param entidad persona
+	 */
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
+	/**
+	 * 
+	 * @return atributo total
+	 */
 	public double getTotal() {
 		return total;
 	}
 
+	/**
+	 * 
+	 * @param atributo total
+	 */
 	public void setTotal(double total) {
 		this.total = total;
 	}
 
+	/**
+	 * 
+	 * @return atributo idFactura
+	 */
 	public int getIdFactura() {
 		return idFactura;
 	}
 
+	/**
+	 * 
+	 * @param atributo idFactura
+	 */
 	public void setIdFactura(int idFactura) {
 		this.idFactura = idFactura;
 	}
 
+	/**
+	 * 
+	 * @return objeto de negocio paqueteON
+	 */
 	public PaqueteONLocal getPaqueteON() {
 		return paqueteON;
 	}
 
+	/**
+	 * 
+	 * @param objeto de negocio paqueteON
+	 */
 	public void setPaqueteON(PaqueteONLocal paqueteON) {
 		this.paqueteON = paqueteON;
 	}
 
+	/**
+	 * 
+	 * @return entidad paquete
+	 */
 	public Paquete getPaquete() {
 		return paquete;
 	}
 
+	/**
+	 * 
+	 * @param entidad paquete
+	 */
 	public void setPaquete(Paquete paquete) {
 		this.paquete = paquete;
 	}
 
+	/**
+	 * 
+	 * @return entidad codigo
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
+	/**
+	 * 
+	 * @param entidad codigo
+	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
+	/**
+	 * METODO QUE GENERA FACTURA DE PAQUETES
+	 * @param codigo de la factura
+	 * @return formulario cliente-factura-paquete
+	 */
 	public String generarFactura(int codigo) {//GENERAR FACTURA
 		
 		this.persona = clienteLoginBean.logueo.getPersona();
@@ -269,6 +426,9 @@ public class clienteFacturaPaqueteBean {
 		
 	}//GENERAR FACTURA
 	
+	/**
+	 * METODO PARA CARGAR LISTA DE FACTURAS
+	 */
 	public void cargar() {//CARGAR FACTURA
 		this.facturas = facturaPaqueteON.getFacturas();
 		this.detalles = detallePaqueteON.getFacturas();

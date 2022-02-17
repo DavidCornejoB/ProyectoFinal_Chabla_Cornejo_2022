@@ -17,6 +17,11 @@ import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
+/**
+ * BEAN PARA LISTAR HABITACIONES, SERVICIOS Y PAQUETES POR HOTEL SELECCIONADO
+ * @author luisd
+ *
+ */
 @Named
 @RequestScoped
 public class clienteHotelBean {
@@ -55,6 +60,9 @@ public class clienteHotelBean {
 		
 	}
 	
+	/**
+	 * METODO POST CONSTRUCT
+	 */
 	@PostConstruct
 	public void init() {
 		listarHabitaciones();
@@ -62,102 +70,202 @@ public class clienteHotelBean {
 		listarPaquetes();
 	}
 
+	/**
+	 * 
+	 * @return habitacionON
+	 */
 	public HabitacionONLocal getHabitacionON() {
 		return habitacionON;
 	}
 
+	/**
+	 * 
+	 * @param habitacionON
+	 */
 	public void setHabitacionON(HabitacionONLocal habitacionON) {
 		this.habitacionON = habitacionON;
 	}
 
+	/**
+	 * 
+	 * @return servicioON
+	 */
 	public ServicioONLocal getServicioON() {
 		return servicioON;
 	}
 
+	/**
+	 * 
+	 * @param servicioON
+	 */
 	public void setServicioON(ServicioONLocal servicioON) {
 		this.servicioON = servicioON;
 	}
 
+	/**
+	 * 
+	 * @return paqueteON
+	 */
 	public PaqueteONLocal getPaqueteON() {
 		return paqueteON;
 	}
 
+	/**
+	 * 
+	 * @param paqueteON
+	 */
 	public void setPaqueteON(PaqueteONLocal paqueteON) {
 		this.paqueteON = paqueteON;
 	}
 
+	/**
+	 * 
+	 * @return habitacion
+	 */
 	public Habitacion getHabitacion() {
 		return habitacion;
 	}
 
+	/**
+	 * 
+	 * @param habitacion
+	 */
 	public void setHabitacion(Habitacion habitacion) {
 		this.habitacion = habitacion;
 	}
 
+	/**
+	 * 
+	 * @return servicio
+	 */
 	public Servicio getServicio() {
 		return servicio;
 	}
 
+	/**
+	 * 
+	 * @param servicio
+	 */
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
 
+	/**
+	 * 
+	 * @return paquete
+	 */
 	public Paquete getPaquete() {
 		return paquete;
 	}
 
+	/**
+	 * 
+	 * @param paquete
+	 */
 	public void setPaquete(Paquete paquete) {
 		this.paquete = paquete;
 	}
 
+	/**
+	 * 
+	 * @return habitaciones
+	 */
 	public List<Habitacion> getHabitaciones() {
 		return habitaciones;
 	}
 
+	/**
+	 * 
+	 * @param habitaciones
+	 */
 	public void setHabitaciones(List<Habitacion> habitaciones) {
 		this.habitaciones = habitaciones;
 	}
 
+	/**
+	 * 
+	 * @return servicios
+	 */
 	public List<Servicio> getServicios() {
 		return servicios;
 	}
-
+	
+	/**
+	 * 
+	 * @param servicios
+	 */
 	public void setServicios(List<Servicio> servicios) {
 		this.servicios = servicios;
 	}
 
+	/**
+	 * 
+	 * @return paquetes
+	 */
 	public List<Paquete> getPaquetes() {
 		return paquetes;
 	}
 
+	/**
+	 * 
+	 * @param paquetes
+	 */
 	public void setPaquetes(List<Paquete> paquetes) {
 		this.paquetes = paquetes;
 	}
 	
+	/**
+	 * 
+	 * @return idHotel
+	 */
 	public static int getIdHotel() {
 		return idHotel;
 	}
 
+	/**
+	 * 
+	 * @param idHotel
+	 */
 	public static void setIdHotel(int idHotel) {
 		clienteHotelBean.idHotel = idHotel;
 	}
 
+	/**
+	 * 
+	 * @return hotelON
+	 */
 	public HotelONLocal getHotelON() {
 		return hotelON;
 	}
 
+	/**
+	 * 
+	 * @param hotelON
+	 */
 	public void setHotelON(HotelONLocal hotelON) {
 		this.hotelON = hotelON;
 	}
 
+	/**
+	 * 
+	 * @return hotel
+	 */
 	public Hotel getHotel() {
 		return hotel;
 	}
 
+	/**
+	 * 
+	 * @param hotel
+	 */
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
 
+	/**
+	 * METODO LISTAR HABITACIONES
+	 * @return formulario cliente-listar-habitaciones
+	 */
 	public String listarHabitaciones() {
 		
 		System.out.println("HOTEL: " + idHotel);
@@ -177,6 +285,10 @@ public class clienteHotelBean {
 		
 	}
 	
+	/**
+	 * METODO LISTAR SERVICIOS
+	 * @return formulario cliente-listar-servicios
+	 */
 	public String listarServicios() {
 		
 		System.out.println("HOTEL: " + idHotel);
@@ -196,6 +308,10 @@ public class clienteHotelBean {
 
 	}
 	
+	/**
+	 * METODO LISTAR PAQUETES
+	 * @return formulario cliente-listar-paquetes
+	 */
 	public String listarPaquetes() {
 		
 		System.out.println("HOTEL: " + idHotel);
