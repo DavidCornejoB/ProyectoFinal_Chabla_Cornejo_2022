@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+/**
+ * 
+ * @author WilliamChabla
+ *
+ */
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class FacturaDetalleHabitacion implements Serializable{ //CLASE SERIALIZABLE
 	
@@ -38,52 +42,99 @@ public class FacturaDetalleHabitacion implements Serializable{ //CLASE SERIALIZA
 	private Reserva reserva; //CLASE PERTENECIENTE A LA ENTIDAD CON LA QUE SE RELACIONA
 	
 	//MÉTODOS GET() Y SET()
-
+	/**
+	 * 
+	 * @return codigo
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
+	/**
+	 * 
+	 * @param codigo
+	 */
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	/**
+	 * 
+	 * @return descuento
+	 */
 
 	public double getDescuento() {
 		return descuento;
 	}
+	/**
+	 * 
+	 * @param descuento
+	 */
 
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
 	}
+	/**
+	 * 
+	 * @return iva
+	 */
 
 	public double getIva() {
 		return iva;
 	}
+	/**
+	 * 
+	 * @param iva
+	 */
 
 	public void setIva(double iva) {
 		this.iva = iva;
 	}
+	/**
+	 * 
+	 * @return total
+	 */
 
 	public double getTotal() {
 		return total;
 	}
+	/**
+	 * 
+	 * @param total
+	 */
 
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	/**
+	 * 
+	 * @return reserva
+	 */
 
 
 	public Reserva getReserva() {
 		return reserva;
 	}
+	/**
+	 * 
+	 * @param reserva
+	 */
 
 
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
+	/**
+	 * 
+	 * @return FacturaCabeceraHabitacion
+	 */
 
 	public FacturaCabeceraHabitacion getFacturaCabeceraHabitacion() {
 		return facturaCabeceraHabitacion;
 	}
+	/**
+	 * 
+	 * @param facturaCabeceraHabitacion
+	 */
 
 	public void setFacturaCabeceraHabitacion(FacturaCabeceraHabitacion facturaCabeceraHabitacion) {
 		this.facturaCabeceraHabitacion = facturaCabeceraHabitacion;

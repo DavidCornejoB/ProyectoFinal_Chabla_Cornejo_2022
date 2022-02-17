@@ -9,6 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * 
+ * @author WilliamChabla
+ * Servicio adicionales del hotel
+ *
+ */
+
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Servicio implements Serializable{ //CLASE SERIALIZABLE
 
@@ -30,26 +37,49 @@ public class Servicio implements Serializable{ //CLASE SERIALIZABLE
 	private Hotel hotel; //CLASE PERTENECIENTE A LA ENTIDA CON LA QUE SE HACE RELACION
 	
 	//mETODOS GET() Y SET()
-	
+	/**
+	 * 
+	 * @return codigo
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
+	/**
+	 * 
+	 * @param codigo
+	 */
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	/**
+	 * 
+	 * @return nombre
+	 */
 
 	public String getNombre() {
 		return nombre;
 	}
+	/**
+	 * 
+	 * @param nombre
+	 */
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	/**
+	 * 
+	 * @return precio
+	 */
 
 	public double getPrecio() {
 		return precio;
 	}
+	/**
+	 * 
+	 * @param precio
+	 */
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
@@ -68,8 +98,5 @@ public class Servicio implements Serializable{ //CLASE SERIALIZABLE
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	
-	
-	
 
 }

@@ -9,22 +9,38 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
-
+/**
+ * 
+ * @author WilliamChabla
+ *
+ */
 @Stateless
 public class HabitacionDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
 	
+	/**
+	 * 
+	 * @param op
+	 */
 	public void insert(Habitacion op) {
 		em.persist(op);
 		
 	}
+	/**
+	 * 
+	 * @param op
+	 */
 	
 	public void update(Habitacion op) {
 			em.merge(op);
 		}
-	
+	/**
+	 * 
+	 * @param id
+	 * @return op
+	 */
 	public Habitacion read(int id) {
 		Habitacion op = em.find(Habitacion.class, id);
 		return op;
@@ -35,6 +51,10 @@ public class HabitacionDAO {
 		em.remove(op);
 	}
 	
+	/**
+	 * 
+	 * @return listado habitacio
+	 */
 	public List<Habitacion> getList(){
 		List<Habitacion> listado = new ArrayList<Habitacion>();
 		
