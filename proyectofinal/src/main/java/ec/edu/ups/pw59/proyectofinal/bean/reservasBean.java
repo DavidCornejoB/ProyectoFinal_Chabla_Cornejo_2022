@@ -17,11 +17,18 @@ import ec.edu.ups.pw59.proyectofinal.modelo.FacturaDetalleHabitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Reserva;
 
+/**
+ * 
+ * @author luisd
+ *
+ */
 @Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
 public class reservasBean {
 	
-	//LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
+	/*
+	 * LLAMAMOS AL OBJETO DE NEGOCIO LOCAL QUE CONTIENE LOS MÉTODOS INSERT, UPDATE, READ Y DELETE
+	 */
 	@Inject
 	private ReservaONLocal reservaON;
 	
@@ -36,18 +43,26 @@ public class reservasBean {
 	
 	private List<SelectItem> listaHabitaciones;
 		
-	//CREAMOS EL OBJETO RESERVA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	/*
+	 * CREAMOS EL OBJETO RESERVA. COMO ESTÁ INSTANCIADO, ESTARÁN SUS VALORES VACÍOS, Y PODREMOS MODIFICARLOS DESDE EL FORMULARIO
+	 */
 	private Reserva reserva = new Reserva();
 	
-	//LISTA DE RESERVAS
+	/*
+	 * LISTA DE RESERVAS
+	 */
 	private List<Reserva> reservas;
 	
-	//CONSTRUCTOR
+	/**
+	 * CONSTRUCTOR
+	 */
 	public reservasBean() {
 		
 	}
 	
-	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	/**
+	 * UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	 */
 	@PostConstruct
 	public void init() {
 		//COMBOBOX HABITACIONES
@@ -57,48 +72,94 @@ public class reservasBean {
 		this.cargar();
 	}
 	
-	//METODOS GET() Y SET()
+	/*
+	 * METODOS GET() Y SET()
+	 */
+	
+	/**
+	 * 
+	 * @return reservaON
+	 */
 	public ReservaONLocal getReservaON() {
 		return reservaON;
 	}
-
+	
+	/**
+	 * 
+	 * @param reservaON
+	 */
 	public void setReservaON(ReservaONLocal reservaON) {
 		this.reservaON = reservaON;
 	}
 
+	/**
+	 * 
+	 * @return RESERVA
+	 */
 	public Reserva getReserva() {
 		return reserva;
 	}
 
+	/**
+	 * 
+	 * @param reserva
+	 */
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
 
+	/**
+	 * 
+	 * @return reservas
+	 */
 	public List<Reserva> getReservas() {
 		return reservas;
 	}
 
+	/**
+	 * 
+	 * @param reservas
+	 */
 	public void setReservas(List<Reserva> reservas) {
 		this.reservas = reservas;
 	}
 	
+	/**
+	 * 
+	 * @return habitacionON
+	 */
 	public HabitacionONLocal getHabitacionON() {
 		return habitacionON;
 	}
 
+	/**
+	 * 
+	 * @param habitacionON
+	 */
 	public void setHabitacionON(HabitacionONLocal habitacionON) {
 		this.habitacionON = habitacionON;
 	}
 
+	/**
+	 * 
+	 * @return listadoHabitaciones
+	 */
 	public List<SelectItem> getListaHabitaciones() {
 		return listaHabitaciones;
 	}
 
+	/**
+	 * 
+	 * @param listaHabitaciones
+	 */
 	public void setListaHabitaciones(List<SelectItem> listaHabitaciones) {
 		this.listaHabitaciones = listaHabitaciones;
 	}
 
-	//MÉTODO PARA GUARDAR RESERVAS
+	/**
+	 * MÉTODO PARA GUARDAR RESERVAS
+	 * @return formulario listado-reservas
+	 */
 	public String guardar() {
 		
 		System.out.println("GUARDANDO RESERVAS: " + this.reserva.getCodigo());
@@ -138,6 +199,11 @@ public class reservasBean {
 		return "listado-reservas?faces-redirect=true";
 	}
 	
+	/**
+	 * METODO PARA ELIMINAR RESERVA
+	 * @param codigo
+	 * @return formulario eliminar-reserva
+	 */
 	public String eliminar(int codigo) {//ELIMINAR RESERVAS
 		
 		Reserva reserva = new Reserva();
@@ -166,7 +232,9 @@ public class reservasBean {
 			e.printStackTrace();
 		}
 		
-		//ELIMINAR FACTURA
+		/*
+		 * ELIMINAR FACTURA
+		 */
 		
 		List<FacturaDetalleHabitacion> detalles = new ArrayList<>();
 		
@@ -192,7 +260,10 @@ public class reservasBean {
 				}
 			}
 		}
-		//ELIMINAR RESERVA
+		
+		/*
+		 * ELIMINAR RESERVA
+		 */
 		try {
 			reservaON.delete(codigo);
 		} catch (Exception e) {
@@ -205,12 +276,17 @@ public class reservasBean {
 	}//ELIMINAR RESERVAS
 	
 	
-	//MÉTODO PARA LISTAR RESERVAS
+	/**
+	 * MÉTODO PARA LISTAR RESERVAS
+	 */
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETRESERVAS() DEL OBJETO DE NEGOCIO
 		this.reservas = reservaON.getReservas();
 	}
 	
+	/**
+	 * combobox habitacion
+	 */
 	public void cargarComboboxHabitaciones() {//COMBOBOX HABITACIONES
 			
 			listaHabitaciones = new ArrayList<SelectItem>();
@@ -224,7 +300,10 @@ public class reservasBean {
 			
 		}//COMBOBOX HABITACIONES
 	
-	//MÉTODO PARA CARGAR LA HABITACION RESERVADA
+	/**
+	 * MÉTODO PARA CARGAR LA HABITACION RESERVADA
+	 * @return null
+	 */
 	public String cargarHabitacion() {
 		
 		int id = this.reserva.getHabitacion().getNumero();
@@ -235,11 +314,20 @@ public class reservasBean {
 		return null;
 	}
 	
+	/**
+	 * REDIRECCIONAR
+	 * @return formulario reserva
+	 */
 	public String vovlerIngresar() {
 		System.out.println("VOLVIENDO A INGRESO RESERVAS...");
 		return "reserva";
 	}
 	
+	/**
+	 * REDIRECCIONAR EN BASE A LA RESERVA DEL CLIENTE
+	 * @param numero
+	 * @return cliente-reserva
+	 */
 	public String generarReserva(int numero) {
 		return "cliente-reserva";
 	}

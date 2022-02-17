@@ -19,6 +19,11 @@ import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Hotel;
 import ec.edu.ups.pw59.proyectofinal.modelo.Paquete;
 
+/**
+ * BEAN PARA CRUD HABITACIONES
+ * @author luisd
+ *
+ */
 @Named //ETIQUETA DE MANAGED BEANS
 @RequestScoped
 public class habitacionesBean {
@@ -47,12 +52,16 @@ public class habitacionesBean {
 	
 	private List<Paquete> paquetes;
 	
-	//CONSTRUCTOR
+	/**
+	 * CONSTRUCTOR
+	 */
 	public habitacionesBean() {
 		
 	}
 	
-	//UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	/**
+	 * UTILIZAMOS LA ETIQUETA POSTCONSTRUCT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA.
+	 */
 	@PostConstruct
 	public void init() {
 		
@@ -68,40 +77,78 @@ public class habitacionesBean {
 
 	}
 	
-	//METODOS GET() Y SET()
+	/**
+	 * METODOS GET() Y SET()
+	 */
+	
+	/**
+	 * 
+	 * @return habitacion
+	 */
 	public Habitacion getHabitacion() {
 		return habitacion;
 	}
 
+	/**
+	 * 
+	 * @param habitacion
+	 */
 	public void setHabitacion(Habitacion habitacion) {
 		this.habitacion = habitacion;
 	}
 
+	/**
+	 * 
+	 * @return habitaciones
+	 */
 	public List<Habitacion> getHabitaciones() {
 		return habitaciones;
 	}
 
+	/**
+	 * 
+	 * @param habitaciones
+	 */
 	public void setHabitaciones(List<Habitacion> habitaciones) {
 		this.habitaciones = habitaciones;
 	}
 	
+	/**
+	 * 
+	 * @return listaHoteles
+	 */
 	public List<SelectItem> getListaHoteles() {
 		return listaHoteles;
 	}
 
+	/**
+	 * 
+	 * @param listaHoteles
+	 */
 	public void setListaHoteles(List<SelectItem> listaHoteles) {
 		this.listaHoteles = listaHoteles;
 	}
 	
+	/**
+	 * 
+	 * @return listaCategorias
+	 */
 	public List<SelectItem> getListaCategorias() {
 		return listaCategorias;
 	}
 
+	/**
+	 * 
+	 * @param listaCategorias
+	 */
 	public void setListaCategorias(List<SelectItem> listaCategorias) {
 		this.listaCategorias = listaCategorias;
 	}
 
-	//METODO PARA GUARDAR HABITACIONES
+	/**
+	 * METODO PARA GUARDAR HABITACIONES
+	 * @return formulario listado-habitaciones
+	 */
 	public String guardar() {
 		
 		System.out.println("GUARDANDO HABITACION: " + this.habitacion.getNumero());
@@ -118,6 +165,11 @@ public class habitacionesBean {
 		return "listado-habitaciones?faces-redirect=true";
 	}
 	
+	/**
+	 * 
+	 * @param numero
+	 * @return formulario eliminar-habitacion
+	 */
 	public String eliminar(int numero) {//ELIMINAR HABITACIONES
 		
 		Habitacion habitacion = new Habitacion();
@@ -151,12 +203,17 @@ public class habitacionesBean {
 		}
 	}//ELIMINAR HABITACIONES
 	
-	//METODO PARA LISTAR HABITACIONES
+	/**
+	 * METODO PARA LISTAR HABITACIONES
+	 */
 	public void cargar() {//CARGAR HABITACIONES
 		//LLAMAMOS AL MÉTODO GETHABITACIONES() DEL OBJETO DE NEGOCIO
 		this.habitaciones = habitacionON.getHabitaciones();
 	}//CARGAR HABITACIONES
 	
+	/**
+	 * CARGAR COMBOBOX HOTELES
+	 */
 	public void cargarComboboxHoteles() {//COMBOBOX HOTELES
 		
 		listaHoteles = new ArrayList<SelectItem>();
@@ -169,6 +226,9 @@ public class habitacionesBean {
 		
 	}//COMBOBOX HOTELES
 	
+	/**
+	 * CARGAR COMBOBOX CATEGORIAS
+	 */
 	public void cargarComboboxCategorias() {//COMBOBOX CATEGORIAS
 		
 		listaCategorias = new ArrayList<SelectItem>();
@@ -181,6 +241,10 @@ public class habitacionesBean {
 		
 	}//COMBOBOX CATEGORIAS
 	
+	/**
+	 * METODO PARA CARGAR CATEGORIAS
+	 * @return formulario habitacion
+	 */
 	public String cargarCategoria() {
 		
 		int id = this.habitacion.getCategoria().getCodigo();
@@ -191,6 +255,10 @@ public class habitacionesBean {
 		return null;
 	}
 	
+	/**
+	 * METODO PARA CARGAR HOTEL
+	 * @return null
+	 */
 	public String cargarHotel() {
 		int id = this.habitacion.getHotel().getCodigo();
 		
@@ -200,6 +268,10 @@ public class habitacionesBean {
 		return null;
 	}
 	
+	/**
+	 * METODO PARA REDIRECCIONAR
+	 * @return formulario habitacion
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESO HABITACIONES... ");
 		return "habitacion";
