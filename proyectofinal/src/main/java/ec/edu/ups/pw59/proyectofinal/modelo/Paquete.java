@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+/**
+ * 
+ * @author WilliamChabla
+ * Paquete turisticos (promociones)
+ */
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Paquete implements Serializable{ //CLASE SERIALIZABLE

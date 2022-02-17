@@ -2,10 +2,17 @@ package ec.edu.ups.pw59.proyectofinal.modelo;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+/**
+ * 
+ * @author WilliamChabla
+ * Clase Persona
+ */
 
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Persona implements Serializable{ //CLASE SERIALIZABLE
@@ -35,46 +42,101 @@ public class Persona implements Serializable{ //CLASE SERIALIZABLE
 	private String tipo;
 	
 	//MÉTODOS GET() Y SET()
+	/**
+	 * @return the codigo
+	 */
 	
 	public String getCedula() {
 		return cedula;
 	}
+	/**
+	 * 
+	 * @param cedula
+	 */
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+	/**
+	 * 
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	/**
+	 * 
+	 * @return apellido
+	 */
 	public String getApellido() {
 		return apellido;
 	}
+	/**
+	 * 
+	 * @param apellido
+	 */
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	/**
+	 * 
+	 * @return direccion
+	 */
 	public String getDireccion() {
 		return direccion;
 	}
+	/**
+	 * 
+	 * @param direccion
+	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	/**
+	 * 
+	 * @return pais
+	 */
 	public String getPais() {
 		return pais;
 	}
+	/**
+	 * 
+	 * @param pais
+	 */
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
+	/**
+	 * 
+	 * @return ciudad
+	 */
 	public String getCiudad() {
 		return ciudad;
 	}
+	/**
+	 * 
+	 * @param ciudad
+	 */
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
+	/**
+	 * 
+	 * @return tipo
+	 */
 	public String getTipo() {
 		return tipo;
 	}
+	/**
+	 * 
+	 * @param tipo
+	 */
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}

@@ -9,7 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
+/**
+ * 
+ * @author WilliamChabla
+ * Habitaciones disponible u ocupadas
+ *
+ */
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class Habitacion implements Serializable{ //CLASE SERIALIZABLE
 

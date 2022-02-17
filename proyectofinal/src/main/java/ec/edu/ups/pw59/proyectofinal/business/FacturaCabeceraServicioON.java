@@ -10,6 +10,11 @@ import ec.edu.ups.pw59.proyectofinal.dao.PersonaDAO;
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraServicio;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+/**
+ * 
+ * @author WilliamChabla
+ *
+ */
 //OBJETO DE NEGOCIO PRINCIPAL. SE IMPLEMENTAN LOS OBJETOS DE NEGOCIO LOCALES Y REMOTOS
 @Stateless
 public class FacturaCabeceraServicioON implements FacturaCabeceraServicioONRemote, FacturaCabeceraServicioONLocal{
@@ -22,7 +27,9 @@ public class FacturaCabeceraServicioON implements FacturaCabeceraServicioONRemot
 	@Inject
 	private PersonaDAO daoPersona;
 	
-	//MÉTODO PARA INSERTAR FACTURAS
+	/**
+	 * 	//MÉTODO PARA INSERTAR FACTURAS
+	 */
 	public void insert(FacturaCabeceraServicio f) throws Exception{
 		
 		//BUSCAMOS SI ESTÁ INGRESADA LA PERSONA DE LA FACTURA
@@ -40,31 +47,41 @@ public class FacturaCabeceraServicioON implements FacturaCabeceraServicioONRemot
 		daoFacturaCabeceraServicio.insert(f);
 	}
 	
-	//MÉTODO PARA ACTUALIZAR FACTURAS
+	/**
+	 * 	//MÉTODO PARA ACTUALIZAR FACTURAS
+	 */
 	public void update(FacturaCabeceraServicio f) throws Exception{
 		//LLAMAMOS AL MÉTODO UPDATE DEL DAO, LE ENVIAMOS EL OBJETO FACTURA QUE SERÁ ACTUALIZADO
 		daoFacturaCabeceraServicio.update(f);
 	}
 	
-	//MÉTODO PARA LEER FACTURAS
+	/**
+	 * 	//MÉTODO PARA LEER FACTURAS
+	 */
 	public void read(int id) throws Exception{
 		//LLAMAMOS AL MÉTODO READ DEL DAO, LE ENVIAMOS LA ID DEL OBJETO FACTURA QUE SERÁ LEIDO
 		daoFacturaCabeceraServicio.read(id);
 	}
 	
-	//MÉTODO PARA ELIMINAR FACTURAS
+	/**
+	 * 	//MÉTODO PARA ELIMINAR FACTURAS
+	 */
 	public void delete(int id) throws Exception{
 		//LLAMAMOS AL MÉTODO DELETE DEL DAO, LE ENVIAMOS LA ID DE LA FACTURA QUE SERÁ ELIMINADA
 		daoFacturaCabeceraServicio.delete(id);
 	}
 	
-	//MÉTODO PARA LISTAR FACTURAS
+	/**
+	 * 	//MÉTODO PARA LISTAR FACTURAS
+	 */
 	public List<FacturaCabeceraServicio> getFacturas(){
 		//RETORNAMOS EL METODO GETLIST DEL DAO
 		return daoFacturaCabeceraServicio.getList();
 	}
 	
-	//MÉTODO PARA BUSCAR PERSONAS
+	/**
+	 * 	//MÉTODO PARA BUSCAR PERSONAS
+	 */
 	public Persona getPersona(String cedula) {
 		Persona p = daoPersona.read(cedula);
 		return p;
