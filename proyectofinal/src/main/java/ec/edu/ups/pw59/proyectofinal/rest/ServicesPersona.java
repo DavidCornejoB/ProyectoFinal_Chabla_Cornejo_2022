@@ -28,6 +28,7 @@ public class ServicesPersona {
 	private List<Login> logins;
 	
 	@PUT
+	@Path("/registrar")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String ingresarPersona(Persona persona) {//INSERTAR PERSONA
 		
@@ -43,6 +44,7 @@ public class ServicesPersona {
 	}//INSERTAR PERSONA
 	
 	@DELETE
+	@Path("/eliminar")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String eliminarPersona(String cedula) {//ELIMINAR PERSONA
 		this.logins = loginON.getLogins();
@@ -71,6 +73,7 @@ public class ServicesPersona {
 	}//ELIMINAR PERSONA
 	
 	@GET
+	@Path("personas")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Persona> getPersonas(){
 		List<Persona> personas = new ArrayList<Persona>();
