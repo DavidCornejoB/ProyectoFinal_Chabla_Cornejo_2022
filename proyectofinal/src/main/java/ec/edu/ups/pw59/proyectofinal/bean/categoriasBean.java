@@ -12,6 +12,11 @@ import ec.edu.ups.pw59.proyectofinal.business.HabitacionONLocal;
 import ec.edu.ups.pw59.proyectofinal.modelo.Categoria;
 import ec.edu.ups.pw59.proyectofinal.modelo.Habitacion;
 
+/**
+ * 
+ * @author luisd
+ *
+ */
 @Named //EIQUETA DE MANAGED BEANS
 @RequestScoped
 public class categoriasBean {
@@ -36,54 +41,99 @@ public class categoriasBean {
 		
 	}
 	
-	//UTILIZAMOS LA ETIQUETA POSTCOSTRCUT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA
+	/**
+	 * UTILIZAMOS LA ETIQUETA POSTCOSTRCUT POR SI QUEREMOS LISTAR ANTES DE TENER ELEMENTOS EN LA LISTA
+	 */
 	@PostConstruct
 	public void init() {
 		this.cargar();
 	}
 
 	//METODOS GET() Y SET()
+	
+	/**
+	 * 
+	 * @return categoria
+	 */
 	public Categoria getCategoria() {
 		return categoria;
 	}
 
+	/**
+	 * 
+	 * @param categoria
+	 */
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
+	/**
+	 * 
+	 * @return lista de categorias
+	 */
 	public List<Categoria> getCategorias() {
 		return categorias;
 	}
 
+	/**
+	 * 
+	 * @param categorias
+	 */
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 	
+	/**
+	 * 
+	 * @return objeto de negocio categoria
+	 */
 	public CategoriaONLocal getCategoriaON() {
 		return categoriaON;
 	}
 
+	/**
+	 * 
+	 * @param categoriaON
+	 */
 	public void setCategoriaON(CategoriaONLocal categoriaON) {
 		this.categoriaON = categoriaON;
 	}
 
+	/**
+	 * 
+	 * @return objeto de negocio habitacion
+	 */
 	public HabitacionONLocal getHabitacionON() {
 		return habitacionON;
 	}
 
+	/**
+	 * 
+	 * @param habitacionON
+	 */
 	public void setHabitacionON(HabitacionONLocal habitacionON) {
 		this.habitacionON = habitacionON;
 	}
 
+	/**
+	 * 
+	 * @return lista de habitaciones
+	 */
 	public List<Habitacion> getHabitaciones() {
 		return habitaciones;
 	}
 
+	/**
+	 * 
+	 * @param habitaciones
+	 */
 	public void setHabitaciones(List<Habitacion> habitaciones) {
 		this.habitaciones = habitaciones;
 	}
 
-	//METODO PARA GUARDAR CATEGORIAS
+	/*
+	 * METODO PARA GUARDAR CATEGORIAS
+	 */
 	public String guardar() {//GUARDAR CATEGORIAS
 		
 		System.out.println("GUARDANDO CATEGORIA: " + this.categoria.getNombre());
@@ -99,6 +149,11 @@ public class categoriasBean {
 		return "listado-categorias?faces-redirect=true";
 	}//GUARDAR CATEGORIAS
 	
+	/**
+	 * METODO PARA ELIMINAR CATEGORIAS
+	 * @param codigo
+	 * @return formulario eliminar-categoria
+	 */
 	public String eliminar(int codigo) {
 		
 		this.habitaciones = habitacionON.getHabitaciones();
@@ -120,12 +175,18 @@ public class categoriasBean {
 		
 	}
 	
-	//METODO PARA LISTAR CATEGORIAS
+	/**
+	 * METODO PARA LISTAR CATEGORIAS
+	 */
 	public void cargar() {
 		//LLAMAMOS AL MÉTODO GETCATEGORIAS() DEL OBJETO DE NEGOCIO
 		this.categorias = categoriaON.getCategorias();
 	}
 	
+	/**
+	 * METODO PARA VOLVER A INGRESAR AL FORMULARIO
+	 * @return formulario categorias
+	 */
 	public String volverIngresar() {
 		System.out.println("VOLVIENDO A INGRESO CATEGORIAS...");
 		return "categoria";

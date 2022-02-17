@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+/**
+ * 
+ * @author luisd
+ *
+ */
 @Entity //ETIQUETA DE PERSISTENCIA PARA INGRESAR ÉSTA CLASE COMO ENTIDAD DE LA BASE DE DATOS
 public class FacturaCabeceraHabitacion implements Serializable{ //CLASE SERIALIZABLE
 
@@ -28,22 +33,50 @@ public class FacturaCabeceraHabitacion implements Serializable{ //CLASE SERIALIZ
 	private Persona persona; //CLASE PERTENECIENTE A LA ENTIDAD RELACIONADA
 	
 	//MÉTODOS GET() Y SET()
-	
+	/**
+	 * 
+	 * @return numero factura
+	 */
 	public int getNumero() {
 		return numero;
 	}
+	
+	/**
+	 * 
+	 * @param numero factura
+	 */
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	
+	/**
+	 * 
+	 * @return fecha factura
+	 */
 	public String getFecha() {
 		return fecha;
 	}
+	
+	/**
+	 * 
+	 * @param fecha factura
+	 */
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
+	
+	/**
+	 * 
+	 * @return persona factura
+	 */
 	public Persona getPersona() {
 		return persona;
 	}
+	
+	/**
+	 * 
+	 * @param persona factura
+	 */
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
