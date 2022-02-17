@@ -16,6 +16,11 @@ import ec.edu.ups.pw59.proyectofinal.modelo.FacturaDetalleServicio;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 import ec.edu.ups.pw59.proyectofinal.modelo.Servicio;
 
+/**
+ * BEAN PARA GENERAR FACTURAS DE SERVICIOS
+ * @author luisd
+ *
+ */
 @Named
 @RequestScoped
 public class clienteFacturaServicioBean {
@@ -55,123 +60,243 @@ public class clienteFacturaServicioBean {
 		
 	}
 	
+	/**
+	 * METODO POST CONSTRUCT
+	 */
 	@PostConstruct
 	public void init() {
 		this.cargar();
 	}
 
+	/**
+	 * 
+	 * @return entidad de negocio facturaServicioON
+	 */
 	public FacturaCabeceraServicioONLocal getFacturaServicioON() {
 		return facturaServicioON;
 	}
 
+	/**
+	 * 
+	 * @param entidad de negocio facturaServicioON
+	 */
 	public void setFacturaServicioON(FacturaCabeceraServicioONLocal facturaServicioON) {
 		this.facturaServicioON = facturaServicioON;
 	}
 
+	/**
+	 * 
+	 * @return entidad de negocio detalleServicioON
+	 */
 	public FacturaDetalleServicioONLocal getDetalleServicioON() {
 		return detalleServicioON;
 	}
 
+	/**
+	 * 
+	 * @param entidad de negocio detalleServicioON
+	 */
 	public void setDetalleServicioON(FacturaDetalleServicioONLocal detalleServicioON) {
 		this.detalleServicioON = detalleServicioON;
 	}
 
+	/**
+	 * 
+	 * @return entidad de negocio servicioON
+	 */
 	public ServicioONLocal getServicioON() {
 		return servicioON;
 	}
 
+	/**
+	 * 
+	 * @param entidad de negocio servicioON
+	 */
 	public void setServicioON(ServicioONLocal servicioON) {
 		this.servicioON = servicioON;
 	}
 
+	/**
+	 * 
+	 * @return entidad factura servicio
+	 */
 	public FacturaCabeceraServicio getFacturaServicio() {
 		return facturaServicio;
 	}
 
+	/**
+	 * 
+	 * @param entidad facturaServicio
+	 */
 	public void setFacturaServicio(FacturaCabeceraServicio facturaServicio) {
 		this.facturaServicio = facturaServicio;
 	}
 
+	/**
+	 * 
+	 * @return entidad detalleServicio
+	 */
 	public FacturaDetalleServicio getDetalleServicio() {
 		return detalleServicio;
 	}
 
+	/**
+	 * 
+	 * @param entidad detalleServicio
+	 */
 	public void setDetalleServicio(FacturaDetalleServicio detalleServicio) {
 		this.detalleServicio = detalleServicio;
 	}
 
+	/**
+	 * 
+	 * @return lista de facturas
+	 */
 	public List<FacturaCabeceraServicio> getFacturas() {
 		return facturas;
 	}
 
+	/**
+	 * 
+	 * @param lista de facturas
+	 */
 	public void setFacturas(List<FacturaCabeceraServicio> facturas) {
 		this.facturas = facturas;
 	}
 
+	/**
+	 * 
+	 * @return lista de facturasCliente
+	 */
 	public List<FacturaCabeceraServicio> getFacturasCliente() {
 		return facturasCliente;
 	}
 
+	/**
+	 * 
+	 * @param lista de facturasCliente
+	 */
 	public void setFacturasCliente(List<FacturaCabeceraServicio> facturasCliente) {
 		this.facturasCliente = facturasCliente;
 	}
 
+	/**
+	 * 
+	 * @return lista de detalles
+	 */
 	public List<FacturaDetalleServicio> getDetalles() {
 		return detalles;
 	}
 
+	/**
+	 * 
+	 * @param lista de detalles
+	 */
 	public void setDetalles(List<FacturaDetalleServicio> detalles) {
 		this.detalles = detalles;
 	}
 
+	/**
+	 * 
+	 * @return lista de detallesCliente
+	 */
 	public List<FacturaDetalleServicio> getDetallesCliente() {
 		return detallesCliente;
 	}
 
+	/**
+	 * 
+	 * @param lista de detallesCliente
+	 */
 	public void setDetallesCliente(List<FacturaDetalleServicio> detallesCliente) {
 		this.detallesCliente = detallesCliente;
 	}
 
+	/**
+	 * 
+	 * @return entidad servicio
+	 */
 	public Servicio getServicio() {
 		return servicio;
 	}
 
+	/**
+	 * 
+	 * @param entidad servicio
+	 */
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
 	
+	/**
+	 * 
+	 * @return entidad persona
+	 */
 	public Persona getPersona() {
 		return persona;
 	}
 
+	/**
+	 * 
+	 * @param entidad persona
+	 */
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
+	/**
+	 * 
+	 * @return atributo total
+	 */
 	public double getTotal() {
 		return total;
 	}
 
+	/**
+	 * 
+	 * @param atributo total
+	 */
 	public void setTotal(double total) {
 		this.total = total;
 	}
 
+	/**
+	 * 
+	 * @return atributo idFactura
+	 */
 	public int getIdFactura() {
 		return idFactura;
 	}
 
+	/**
+	 * 
+	 * @param atributo idFactura
+	 */
 	public void setIdFactura(int idFactura) {
 		this.idFactura = idFactura;
 	}
 
+	/**
+	 * 
+	 * @return atributo codigo
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
+	/**
+	 * 
+	 * @param atributo codigo
+	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
+	/**
+	 * METODO PARA GENERAR FACTURAS DE SERVICIOS
+	 * @param codigo de factura
+	 * @return formulario cliente-factura-servicio
+	 */
 	public String generarFactura(int codigo) {//GENERAR FACTURA
 		
 		System.out.println("GENERAR FACTURA");
@@ -227,6 +352,9 @@ public class clienteFacturaServicioBean {
 		
 	}//GENERAR FACTURA
 	
+	/**
+	 * METODO PARA CARGAR LISTAS DE FACTURAS
+	 */
 	public void cargar() {//CARGAR FACTURA
 		
 		this.facturas = facturaServicioON.getFacturas();
@@ -249,11 +377,5 @@ public class clienteFacturaServicioBean {
 				}
 			}
 		}
-		
-
-		
 	}//CARGAR FACTURA
-
-	
-
 }

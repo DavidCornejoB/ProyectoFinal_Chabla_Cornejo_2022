@@ -14,6 +14,11 @@ import ec.edu.ups.pw59.proyectofinal.modelo.FacturaCabeceraHabitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.FacturaDetalleHabitacion;
 import ec.edu.ups.pw59.proyectofinal.modelo.Persona;
 
+/**
+ * 
+ * @author luisd
+ *
+ */
 @Named
 @RequestScoped
 public class facturaHabitacionBean {
@@ -36,60 +41,115 @@ public class facturaHabitacionBean {
 		
 	}
 	
+	/**
+	 * PostConstruct
+	 */
 	@PostConstruct
 	public void init() {
 		this.facturaHabitacion.setPersona(new Persona());
 		
 	}
 
+	/**
+	 * 
+	 * @return facturaHabitacionON
+	 */
 	public FacturaCabeceraHabitacionONLocal getFacturaHabitacionON() {
 		return facturaHabitacionON;
 	}
 
+	/**
+	 * 
+	 * @param facturaHabitacionON
+	 */
 	public void setFacturaHabitacionON(FacturaCabeceraHabitacionONLocal facturaHabitacionON) {
 		this.facturaHabitacionON = facturaHabitacionON;
 	}
 
+	/**
+	 * 
+	 * @return facturaHabitacion
+	 */
 	public FacturaCabeceraHabitacion getFacturaHabitacion() {
 		return facturaHabitacion;
 	}
 
+	/**
+	 * 
+	 * @param facturaHabitacion
+	 */
 	public void setFacturaHabitacion(FacturaCabeceraHabitacion facturaHabitacion) {
 		this.facturaHabitacion = facturaHabitacion;
 	}
 
+	/**
+	 * 
+	 * @return facturasHabitaciones
+	 */
 	public List<FacturaCabeceraHabitacion> getFacturasHabitaciones() {
 		return facturasHabitaciones;
 	}
 
+	/**
+	 * 
+	 * @param facturasHabitaciones
+	 */
 	public void setFacturasHabitaciones(List<FacturaCabeceraHabitacion> facturasHabitaciones) {
 		this.facturasHabitaciones = facturasHabitaciones;
 	}
 	
+	/**
+	 * 
+	 * @return detalleHabitacionON
+	 */
 	public FacturaDetalleHabitacionONLocal getDetalleHabitacionON() {
 		return detalleHabitacionON;
 	}
 
+	/**
+	 * 
+	 * @param detalleHabitacionON
+	 */
 	public void setDetalleHabitacionON(FacturaDetalleHabitacionONLocal detalleHabitacionON) {
 		this.detalleHabitacionON = detalleHabitacionON;
 	}
 
+	/**
+	 * 
+	 * @return detalleHabitacion
+	 */
 	public FacturaDetalleHabitacion getDetalleHabitacion() {
 		return detalleHabitacion;
 	}
 
+	/**
+	 * 
+	 * @param detalleHabitacion
+	 */
 	public void setDetalleHabitacion(FacturaDetalleHabitacion detalleHabitacion) {
 		this.detalleHabitacion = detalleHabitacion;
 	}
 
+	/**
+	 * 
+	 * @return detallesHabitaciones
+	 */
 	public List<FacturaDetalleHabitacion> getDetallesHabitaciones() {
 		return detallesHabitaciones;
 	}
 
+	/**
+	 * 
+	 * @param detallesHabitaciones
+	 */
 	public void setDetallesHabitaciones(List<FacturaDetalleHabitacion> detallesHabitaciones) {
 		this.detallesHabitaciones = detallesHabitaciones;
 	}
 	
+	/**
+	 * METODO PARA VALIDAR FACTURA
+	 * @return boolean
+	 */
 	public boolean validarFactura() {
 		
 		List<FacturaCabeceraHabitacion> facturasHabitaciones = new ArrayList<FacturaCabeceraHabitacion>();
@@ -106,6 +166,9 @@ public class facturaHabitacionBean {
 		return true;
 	}
 
+	/**
+	 * METODO PARA INSERTAR FACTURA
+	 */
 	public void insertarFactura() {
 		
 		boolean validator = validarFactura();
@@ -118,9 +181,7 @@ public class facturaHabitacionBean {
 				e.printStackTrace();
 			}
 		} 
-
-
-				
+		
 	}
 
 }
