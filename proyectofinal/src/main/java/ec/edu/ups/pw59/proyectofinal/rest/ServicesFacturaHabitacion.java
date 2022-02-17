@@ -37,13 +37,52 @@ public class ServicesFacturaHabitacion {
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	public String insertarFacturaHabitacion(FacturaCabeceraHabitacion facturaHabitacion) {//INSERTAR FACTURA
-		return "";
+		Persona p = new Persona();
+		try {
+			p = personaON.read(facturaHabitacion.getPersona().getCedula());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(p == null) {
+			return "PERSONA NO ENCONTRADA. NO SE PUEDE INSERTAR CABECERA";
+		} else {
+			try {
+				facturaHabitacionON.insert(facturaHabitacion);
+				return "CABECERA INSERTADA";
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "ERROR AL INSERTAR CABECERA";
+			}
+		}
 	}//INSERTAR FACTURA
 
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	public String eliminarFacturaHabitacion(int id) {//ELIMINAR FACTURA
-		return "";
+		this.detallesHabitacion = detalleHabitacionON.getFacturas();
+		for(int i = 0; i < this.detallesHabitacion.size(); i++) {
+			if(this.detallesHabitacion.get(i).getFacturaCabeceraHabitacion().getNumero() == id) {
+				try {
+					detalleHabitacionON.delete(this.detallesHabitacion.get(i).getCodigo());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return "NO SE PUDO ELIMINAR EL DETALLE ASOCIADO A ÉSTA CABECERA";
+				}
+			}
+		}
+		
+		try {
+			facturaHabitacionON.delete(id);
+			return "CABECERA ELIMINADA";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "ERROR AL ELIMINAR CABECRA";
+		}
 	}//ELIMINAR FACTURA
 
 	@GET
