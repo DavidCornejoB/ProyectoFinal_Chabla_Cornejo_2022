@@ -30,15 +30,20 @@ public class ServicesPersona {
 	@PUT
 	@Path("/registrar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String ingresarPersona(Persona persona) {//INSERTAR PERSONA
+	public Mensaje ingresarPersona(Persona persona) {//INSERTAR PERSONA
 		
+		Mensaje msj = new Mensaje();
 		try {
 			personaON.guardar(persona);
-			return "PERSONA INSERTADA";
+			msj.setCodigo("01");
+			msj.setMensaje("OK");
+			return msj;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "ERROR AL INSERTAR PERSONA";
+			msj.setCodigo("99");
+			msj.setMensaje("ERROR");
+			return msj;
 		}
 		
 	}//INSERTAR PERSONA
@@ -73,7 +78,7 @@ public class ServicesPersona {
 	}//ELIMINAR PERSONA
 	
 	@GET
-	@Path("personas")
+	@Path("/personas")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Persona> getPersonas(){
 		List<Persona> personas = new ArrayList<Persona>();
